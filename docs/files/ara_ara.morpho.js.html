@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ara/ara.morpho.js - JsLingua API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.7.0/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="../assets/css/marviq.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-skin-sam">
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+    	<div class="nav">
+            <!-- <h1 class="brand" style="padding: 10px 16px 10px; height: 20px; line-height: 20px; margin-left: 0;">
+
+        JsLingua API
+        </h1 -->
+            <li>
+                <img alt="JsLingua API" src="../assets/img/logo.png" style="margin-top: 7px; margin-left: 25px; max-height: 30px" title="JsLingua API" />
+            </li>
+            <li class="divider-vertical"></li>
+            <li>
+                <h1 class="projectName">JsLingua API</h1>
+            </li>
+            <li class="divider-vertical"></li>
+            <li>
+                <p class="navbar-text">
+                    API Docs for Version: <b>0.4.4</b>
+                </p>
+            </li>
+        </div>
+        <form class="navbar-form pull-right" style="line-height: 40px; height: 40px;">
+            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules..." data-obj='["classes/AraInfo", "classes/AraLang", "classes/AraTrans", "classes/EngInfo", "classes/EngLang", "classes/EngTrans", "classes/Info", "classes/JpnInfo", "classes/JpnLang", "classes/JpnTrans", "classes/JsLingua", "classes/Lang", "classes/Morpho", "classes/Tools", "classes/Trans", "modules/JsLingua", "modules/Tools"]'>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+	    <div>
+	        <h3>APIs</h3>
+	        <div id="sidebar">
+	            <ul id="main-nav" class="nav nav-tabs" style="margin-bottom:0;">
+	                <li class="active"><a href="#classes" data-toggle="tab">Classes</a></li>
+	                <li><a href="#collections" data-toggle="tab">Collections</a></li>
+	                <li><a href="#models" data-toggle="tab">Models</a></li>
+	                <li><a href="#views" data-toggle="tab">Views</a></li>
+	                <li><a href="#services" data-toggle="tab">Services</a></li>
+	            </ul>
+	    
+	            <div id="api-tabview-filter">
+	                <input type="search" placeholder="Type to filter APIs">
+	            </div>
+	    
+	            <div class="tab-content" style="border: 1px solid #DDD; border-top:0;">
+	                <div class="tab-pane active" id="classes">
+	                    <ul id="api-classes" class="nav nav-list">
+	                            <li><a href="../classes/AraInfo.html">AraInfo</a></li>
+	                            <li><a href="../classes/AraLang.html">AraLang</a></li>
+	                            <li><a href="../classes/AraTrans.html">AraTrans</a></li>
+	                            <li><a href="../classes/EngInfo.html">EngInfo</a></li>
+	                            <li><a href="../classes/EngLang.html">EngLang</a></li>
+	                            <li><a href="../classes/EngTrans.html">EngTrans</a></li>
+	                            <li><a href="../classes/Info.html">Info</a></li>
+	                            <li><a href="../classes/JpnInfo.html">JpnInfo</a></li>
+	                            <li><a href="../classes/JpnLang.html">JpnLang</a></li>
+	                            <li><a href="../classes/JpnTrans.html">JpnTrans</a></li>
+	                            <li><a href="../classes/JsLingua.html">JsLingua</a></li>
+	                            <li><a href="../classes/Lang.html">Lang</a></li>
+	                            <li><a href="../classes/Morpho.html">Morpho</a></li>
+	                            <li><a href="../classes/Tools.html">Tools</a></li>
+	                            <li><a href="../classes/Trans.html">Trans</a></li>
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane active" id="collections">
+	                    <ul id="api-classes" class="nav nav-list">
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane active" id="models">
+	                    <ul id="api-classes" class="nav nav-list">
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane active" id="views">
+	                    <ul id="api-classes" class="nav nav-list">
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane active" id="services">
+	                    <ul id="api-classes" class="nav nav-list">
+	                    </ul>
+	                </div>
+	    
+	            </div>
+	        </div>
+	    </div>
+        </div>
+        <div class="span9">
+                <form id="options-form" class="form-inline pull-right">
+                    Show:
+                    <label for="api-show-inherited" class="checkbox">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected" class="checkbox">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private" class="checkbox">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated" class="checkbox">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </form>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <div class="page-header">
+                            <h1>ara/ara.morpho.js <small>File</small></h1>
+                        </div>
+                        
+                        <div class="file">
+                            <pre class="prettyprint linenums">
+                        (function () {
+                        
+                          var Morpho = {};
+                          if ( typeof module === &quot;object&quot; &amp;&amp; module &amp;&amp; typeof module.exports === &quot;object&quot; ) {
+                            Morpho = require(&quot;../morpho.js&quot;);
+                            module.exports = AraMorpho;
+                          } else {
+                            Morpho = window.JsLingua.Cls.Morpho;
+                            window.JsLingua.addService(&quot;Morpho&quot;, &quot;ara&quot;, AraMorpho);
+                          }
+                        
+                          //Different global features
+                          var F = Morpho.Feature;
+                          var Tense = F.Tense;
+                          var Mood = F.Mood;
+                          var Voice = F.Voice;
+                          var GNumber = F.Number;
+                          var Aspect = F.Aspect;
+                          var Gender = F.Gender;
+                          var Person = F.Person;
+                        
+                          var g;
+                          function AraMorpho() {
+                            Morpho.call(this, &quot;ara&quot;);
+                            Morpho.newStemmer.call(this, &quot;jslinguaAraStemmer&quot;, &quot;JsLingua Arabic stemmer&quot;, jslinguaAraStemmer);
+                            g = this.g;
+                          }
+                        
+                          AraMorpho.prototype = Object.create(Morpho.prototype);
+                          var Me = AraMorpho.prototype;
+                        
+                          Me.constructor = AraMorpho;
+                        
+                          Me.getTenseName = function(tense){
+                            switch (tense) {
+                              case Tense.Pa:
+                                return &quot;الماضي&quot;;
+                              case Tense.Pr:
+                                return &quot;المضارع&quot;;
+                              case Tense.Fu:
+                                return &quot;المستقبل&quot;;
+                            }
+                        
+                            return &quot;&quot;;
+                          }
+                        
+                          Me.getPronounOpts = function(){
+                            return [
+                                {person:Person.F, number: GNumber.S},
+                                {person:Person.F, number: GNumber.P},
+                        
+                                {person:Person.S, number: GNumber.S, gender: Gender.M},
+                                {person:Person.S, number: GNumber.S, gender: Gender.F},
+                                {person:Person.S, number: GNumber.D, gender: Gender.M},
+                                {person:Person.S, number: GNumber.D, gender: Gender.F},
+                                {person:Person.S, number: GNumber.P, gender: Gender.M},
+                                {person:Person.S, number: GNumber.P, gender: Gender.F},
+                        
+                                {person:Person.T, number: GNumber.S, gender: Gender.M},
+                                {person:Person.T, number: GNumber.S, gender: Gender.F},
+                                {person:Person.T, number: GNumber.D, gender: Gender.M},
+                                {person:Person.T, number: GNumber.D, gender: Gender.F},
+                                {person:Person.T, number: GNumber.P, gender: Gender.M},
+                                {person:Person.T, number: GNumber.P, gender: Gender.F}
+                            ];
+                          }
+                        
+                          //var C = Object.freeze;
+                        
+                          //=================
+                          //Conjugation zone
+                          //=================
+                        
+                        
+                          //Override conjugate function
+                          Me.conjugate = function(verb, opts){
+                            //delete diacretics
+                            verb = verb.trim();
+                            var noDiac = verb.replace(/\u064E\u064F\u0650\u0651\u0652/gi, &quot;&quot;);//fat,dam,kas,shad,sukun
+                        
+                            var len = noDiac.length;
+                        
+                            //detect if the verb with weak begining
+                            var weekBegin = /^[اأو]/.test(noDiac);
+                        
+                            //detect if the verb has a week ending
+                            var weekEnd = /[يى]$/.test(noDiac);
+                        
+                            //detect if the verb has a week middle
+                            var weekMiddle = false;
+                        
+                            var begin = &quot;&quot;;
+                            var end = &quot;&quot;;
+                            var endDiac = &quot;ُ&quot;;//Dhamma for present
+                            var notAllowed = false;
+                        
+                            //Future is prefix + present
+                            var future = 0;
+                            if (opts.tense === Tense.Fu){
+                              future = 1;
+                              opts.tense = Tense.Pr;
+                            }
+                        
+                            var befLast = &quot;ِ&quot;;//kasra for the char before last
+                        
+                        
+                            if (len === 3){
+                              befLast = &quot;X&quot;; //delete the vocal due to dictionary dependency
+                              if (! /[^أعحه][^أعحه]$/g.test(noDiac))
+                              if(/.ُ.[َُِ]?$/g.test(verb)) befLast = &quot;&quot;; //no change
+                              //explanation: verbs with three letters and have a dhamma
+                              //don&#x27;t change the dhamma in present
+                            } else if(len &gt; 3 &amp;&amp; noDiac.startsWith(&quot;ت&quot;)) befLast = &quot;&quot;; //no change
+                        
+                            switch (opts.tense) {
+                        
+                              case Tense.Pr:
+                        
+                              if(/^[ا]/g.test(verb)) verb = verb.slice(1);
+                        
+                              switch (opts.person) {
+                        
+                                case Person.F:
+                                if (opts.number === GNumber.S) begin = &quot;أ&quot;;
+                                else begin = &quot;ن&quot;;
+                                break;
+                        
+                        
+                                case Person.S:
+                                begin = &quot;ت&quot;;
+                                switch (opts.number) {
+                                  case GNumber.S:
+                                  if (opts.gender === Gender.F){
+                                    end = &quot;ينَ&quot;;
+                                    var endDiac = &quot;ِ&quot;;//Kasra
+                                  }
+                                  break;
+                        
+                        
+                                  case GNumber.D:
+                                  end = &quot;انِ&quot;;
+                                  endDiac = &quot;َ&quot;;//Fatha
+                                  break;
+                        
+                        
+                                  case GNumber.P:
+                                  if (opts.gender === Gender.F){
+                                    end = &quot;نَ&quot;;
+                                    var endDiac = &quot;ْ&quot;;//Sukuun
+                                  }
+                                  else end = &quot;ونَ&quot;;
+                                  break;
+                        
+                        
+                                }//Number
+                                break;
+                        
+                        
+                                case Person.T:
+                                begin = &quot;ي&quot;;
+                                if (opts.gender === Gender.F) begin = &quot;ت&quot;;
+                        
+                                switch (opts.number) {
+                                  //No ending for singular
+                                  case GNumber.D:
+                                  end = &quot;انِ&quot;;
+                                  endDiac = &quot;َ&quot;;//Fatha
+                                  break;
+                        
+                        
+                                  case GNumber.P:
+                                  if (opts.gender === Gender.F){
+                                    end = &quot;نَ&quot;;
+                                    begin = &quot;ي&quot;;
+                                    endDiac = &quot;ْ&quot;;//Sukuun
+                                  }
+                                  else end = &quot;ونَ&quot;;
+                        
+                                }//Number
+                        
+                              }//person
+                        
+                              begin += &quot;َ&quot;;//Add fatha
+                              if(len &lt; 4 || ! noDiac.startsWith(&quot;ت&quot;)){
+                                verb = verb.replace(/^(.)[َُِْ]?/, &quot;$1ْ&quot;);
+                              }
+                        
+                              if(len === 4) {
+                                //verb = verb.replace(/^(.)[َُِْ]?/, &quot;$1ْ&quot;);
+                                begin += &quot;ُ&quot;;//Add dhamma
+                              }
+                        
+                              break;
+                        
+                        
+                              case Tense.Pa:
+                              endDiac = &quot;ْ&quot;;//Sukuun for past
+                              switch (opts.person) {
+                                case Person.F:
+                                if (opts.number == GNumber.S) end = &quot;تُ&quot;;
+                                else end = &quot;نَا&quot;;
+                                break;
+                        
+                                case Person.S:
+                                switch (opts.number) {
+                                  case GNumber.S:
+                                  if (opts.gender === Gender.F) end = &quot;تِ&quot;;
+                                  else end = &quot;تَ&quot;;
+                                  break;
+                        
+                                  case GNumber.D:
+                                  end = &quot;تُمَا&quot;;
+                                  break;
+                        
+                                  case GNumber.P:
+                                  if (opts.gender === Gender.F) end = &quot;تُنَّ&quot;;
+                                  else end = &quot;تُمْ&quot;;
+                        
+                                }//Number
+                                break;
+                        
+                        
+                                case Person.T:
+                                endDiac = &quot;َ&quot;;//Fatha for past third
+                                switch (opts.number) {
+                                  case GNumber.S:
+                                  if (opts.gender === Gender.F) end = &quot;تْ&quot;;
+                                  break;
+                        
+                                  case GNumber.D:
+                                  if (opts.gender === Gender.F) end = &quot;تَا&quot;;
+                                  else end = &quot;ا&quot;;
+                                  break;
+                        
+                        
+                                  case GNumber.P:
+                                  if (opts.gender === Gender.F){
+                                    end = &quot;نَ&quot;;
+                                    endDiac = &quot;ْ&quot;;//Sukuun for past third plural feminine
+                                  }else{
+                                    end = &quot;وا&quot;;
+                                    endDiac = &quot;ُ&quot;;//Sukuun for past third plural feminine
+                                  }
+                        
+                        
+                                }//Number
+                        
+                              }//person
+                        
+                        
+                            }//swich(tense)
+                        
+                            var result = verb;
+                        
+                            if(befLast){
+                              if(befLast === &quot;X&quot;) befLast = &quot;&quot;;
+                              result = result.replace(/(.)[َُِْ]?(.)[َُِْ]?$/, &quot;$1&quot; + befLast + &quot;$2&quot;);
+                            }
+                        
+                            result = result.replace(/[َ]?$/, endDiac);
+                        
+                            result = begin + result + end;
+                        
+                            //Normalization of alif
+                            //order is important, don&#x27;t change
+                            result = result.replace(/أَأْ/, &quot;آ&quot;);
+                            result = result.replace(/أَا/, &quot;آ&quot;);
+                            result = result.replace(/ِأِي/, &quot;ئِي&quot;);
+                            result = result.replace(/ِأ(.?)/, &quot;ئ$1&quot;);
+                            result = result.replace(/أُو/, &quot;ؤُو&quot;);
+                        
+                            if (future) result = &quot;سَوْفَ &quot; + result;
+                        
+                        
+                            return result;
+                        
+                          }
+                        
+                          Me.getPronounName = function(opts){
+                        
+                            switch (opts.person) {
+                              case Person.F:
+                              if (opts.number === GNumber.S) return &quot;أَنَا&quot;;
+                              else return &quot;نَحْنُ&quot;;
+                        
+                              case Person.S:
+                              switch (opts.number) {
+                                case GNumber.S:
+                                if (opts.gender === Gender.F) return &quot;أَنْتِ&quot;;
+                                else return &quot;أَنْتَ&quot;;
+                        
+                                case GNumber.D:
+                                return &quot;أَنْتُمَا&quot;;
+                        
+                                case GNumber.P:
+                                if (opts.gender === Gender.F) return &quot;أَنْتُنَّ&quot;;
+                                else return &quot;أَنْتُمْ&quot;;
+                        
+                              }
+                        
+                              case Person.T:
+                              switch (opts.number) {
+                                case GNumber.S:
+                                if (opts.gender === Gender.F) return &quot;هِيَ&quot;;
+                                else return &quot;هُوَ&quot;;
+                        
+                                case GNumber.D:
+                                return &quot;هُمَا&quot;;
+                        
+                                case GNumber.P:
+                                if (opts.gender === Gender.F) return &quot;هُنَّ&quot;;
+                                else return &quot;هُمْ&quot;;
+                        
+                              }
+                        
+                            }
+                            return &quot;&quot;;
+                          }
+                        
+                          /**
+                           * Normalization method for Arabic: it helps delete vocalization
+                           * * voc: delete vocalization
+                           * * alef: Replace all alef variants with the simple alef
+                           * * yeh: Relace the alif maqsorah with yeh
+                           * * teh: Replace teh marbuta with heh
+                           * * _: Delete tatweel
+                           * @method normalize
+                           * @param  {string} word the word to be normalized
+                           * @param  {string} opts some options (optional) where each language defines its own
+                           * normalization options
+                           * @return {string}      normalized word
+                           **/
+                          Me.normalize = function(word, opts){
+                            var norm = word.trim();
+                        
+                            //If no options are afforded, do all
+                            if (! opts || opts.length &lt; 1){
+                              var opts = &quot;voc,alef,yeh,teh,_&quot;;
+                            }
+                        
+                            //Delete vocals: fathah, kasrah, etc.
+                            if(opts.includes(&quot;voc&quot;)){
+                              norm = norm.replace(/[َ ً ُ ٍ ْ ِ ٌ]/g, &quot;&quot;);
+                            }
+                        
+                            //Replace all alef variants with the simple alef
+                            if(opts.includes(&quot;alef&quot;)){
+                              norm = norm.replace(/[أإآ]/g, &quot;ا&quot;);
+                            }
+                        
+                            //Relace the alif maqsorah with yeh
+                            if(opts.includes(&quot;yeh&quot;)){
+                              norm = norm.replace(/[ى]/g, &quot;ي&quot;);
+                            }
+                        
+                            //Replace teh marbuta with heh
+                            if(opts.includes(&quot;teh&quot;)){
+                              norm = norm.replace(/[ة]/g, &quot;ه&quot;);
+                            }
+                        
+                            //Delete tatweel
+                            if(opts.includes(&quot;_&quot;)){
+                              norm = norm.replace(/[ـ]+/g, &quot;&quot;);
+                            }
+                        
+                            return norm;
+                        
+                          }
+                        
+                          //=========================================================
+                          //                 STEMMERS
+                          //=========================================================
+                        
+                          /**
+                           * A method for Arabic stemming which aims to use regex as much as possible
+                           * @private
+                           * @static
+                           * @method jslinguaAraStemmer
+                           * @param  {[type]}          word [description]
+                           * @return {[type]}               [description]
+                           */
+                          function jslinguaAraStemmer(word){
+                            var stem = word;
+                        
+                        
+                            return stem;
+                          }
+                        
+                        
+                        }());
+                        
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script src="../assets/js/yuidoc-bootstrap.js"></script>
+<script>prettyPrint();</script>
+</body>
+</html>

@@ -144,12 +144,12 @@
                           }
                         
                           /**
-                           * Morphology of a specific language
-                           *
-                           * @class Morpho
-                           * @constructor
-                           * @param {string} langCode Language ISO693-2 code: ara, jpn, eng, etc.
-                           */
+                          * Morphology of a specific language
+                          *
+                          * @class Morpho
+                          * @constructor
+                          * @param {string} langCode Language ISO693-2 code: ara, jpn, eng, etc.
+                          */
                           function Morpho(langCode) {
                         
                             this.code = langCode;
@@ -162,17 +162,17 @@
                           }
                         
                           /**
-                           * A debugging function which do nothing
-                           * @method dummyDebug
-                           * @private
-                           */
+                          * A debugging function which do nothing
+                          * @method dummyDebug
+                          * @private
+                          */
                           function dummyDebug() {}
                         
                           /**
-                           * A debugging function which pushes the arguments to the cosoles log
-                           * @method realDebug
-                           * @private
-                           */
+                          * A debugging function which pushes the arguments to the cosoles log
+                          * @method realDebug
+                          * @private
+                          */
                           function realDebug(){
                             console.log(Array.prototype.slice.call(arguments).join(&#x27; &#x27;));
                           }
@@ -180,207 +180,273 @@
                           var C = Object.freeze;
                         
                           /**
-                           * The part of speech: Noun, Verb, Adjective,
-                           * Adverb, Preposition, Pronoun
-                           * @access Morpho.Feature.POS
-                           * @attribute PoS
-                           * @readOnly
-                           * @static
-                           * @type {object}
-                           */
+                          * The part of speech: Noun, Verb, Adjective,
+                          * Adverb, Preposition, Pronoun
+                          * @access Morpho.Feature.POS
+                          * @attribute PoS
+                          * @readOnly
+                          * @static
+                          * @type {object}
+                          */
                           var PoS = C({
-                            Noun: 0,
-                            Verb: 1,
-                            Adjective: 2,
-                            Adverb: 3,
-                            Preposition: 4,
-                            Pronoun: 5
+                            N: &quot;noun&quot;,
+                            V: &quot;verb&quot;,
+                            Adj: &quot;adjective&quot;,
+                            Adv: &quot;adverb&quot;,
+                            Prep: &quot;preposition&quot;,
+                            Pron: &quot;pronoun&quot;
                           });
                         
                           /**
-                           * The tense: Past, Present, Future
-                           * @access Morpho.Feature.Tense
-                           * @attribute Tense
-                           * @readOnly
-                           * @static
-                           * @type {object}
-                           */
+                          * The tense: Past, Present, Future
+                          * @access Morpho.Feature.Tense
+                          * @attribute Tense
+                          * @readOnly
+                          * @static
+                          * @type {object}
+                          */
                           var Tense = C({
-                            Past: 0,
-                            Present: 1,
-                            Future: 2
+                            Pa: &quot;past&quot;,
+                            Pr: &quot;present&quot;,
+                            Fu: &quot;future&quot;
                           });
                         
                           /**
-                           * The aspect: Simple, Continuous, Perfect, PerfectContinuous
-                           * @access Morpho.Feature.Aspect
-                           * @attribute Aspect
-                           * @readOnly
-                           * @static
-                           * @type {object}
-                           */
+                          * The aspect: Simple, Continuous, Perfect, PerfectContinuous
+                          * @access Morpho.Feature.Aspect
+                          * @attribute Aspect
+                          * @readOnly
+                          * @static
+                          * @type {object}
+                          */
                           var Aspect = C({
-                            Simple: 0,
-                            Continuous: 1,
-                            Perfect: 2,
-                            PerfectContinuous: 3
+                            S: &quot;simple&quot;,
+                            C: &quot;continuous&quot;,
+                            P: &quot;perfect&quot;,
+                            PC: &quot;perfect-continuous&quot;
                           });
                         
                           /**
-                           * The mood: Indicative, Subjunctive, Conditional,
-                           * Optative, Imperative, Jussive, Potential,
-                           * Hypothetical, Inferential
-                           * @access Morpho.Feature.Mood
-                           * @attribute Mood
-                           * @readOnly
-                           * @static
-                           * @type {object}
-                           */
+                          * The mood: indicative, subjunctive, conditional,
+                          * optative, imperative, jussive, potential,
+                          * hypothetical, inferential
+                          *
+                          * @see http://universaldependencies.org/u/feat/Mood.html
+                          * @access Morpho.Feature.Mood
+                          * @attribute Mood
+                          * @readOnly
+                          * @static
+                          * @type {object}
+                          */
                           var Mood = C({
-                            Indicative: 0,
-                            Subjunctive: 1,
-                            Conditional: 2,
-                            Optative: 3,
-                            Imperative: 4,
-                            Jussive: 5,
-                            Potential: 6,
-                            Hypothetical: 7,
-                            Inferential: 8
+                            /**
+                             * The indicative can be considered the default mood.
+                             * A verb in indicative merely states that something happens,
+                             * has happened or will happen, without adding any attitude of the speaker.
+                             * @example You study at the university
+                             * @type {String}
+                             */
+                            Ind: &quot;indicative&quot;,
+                        
+                            /**
+                             * The speaker uses imperative to order or ask the addressee to do the action of the verb.
+                             * @example Study at the university
+                             * @type {String}
+                             */
+                            Imp: &quot;imperative&quot;,
+                        
+                            /**
+                             * The conditional mood is used to express actions that would have taken
+                             * place under some circumstances but they actually did not / do not happen.
+                             * Grammars of some languages may classify conditional as tense (rather than mood)
+                             * but e.g. in Czech it combines with two different tenses (past and present).
+                             * @example if she went home
+                             * @type {String}
+                             */
+                            Cnd: &quot;conditional&quot;,
+                        
+                            /**
+                             * The action of the verb is possible but not certain.
+                             * This mood corresponds to the modal verbs can, might, be able to. Used e.g. in Finnish.
+                             * @example she can go home
+                             * @type {String}
+                             */
+                            Pot: &quot;potential&quot;,
+                        
+                            /**
+                             * The subjunctive mood is used under certain circumstances in subordinate clauses,
+                             * typically for actions that are subjective or otherwise uncertain.
+                             * In German, it may be also used to convey the conditional meaning.
+                             * @example &quot;Je veux que tu le fasses&quot;: I want that you to do it
+                             * @type {String}
+                             */
+                            Sub: &quot;subjunctive&quot;,
+                        
+                            /**
+                             * The jussive mood expresses the desire that the action happens;
+                             * it is thus close to both imperative and optative.
+                             * Unlike in desiderative, it is the speaker, not the subject who wishes that it happens.
+                             * Used e.g. in Arabic.
+                             * @example فليكن let it be
+                             * @type {String}
+                             */
+                            Jus: &quot;jussive&quot;,
+                        
+                            /**
+                             * Means “in order to”, occurs in Amazonian languages.
+                             * @type {String}
+                             */
+                            Prp: &quot;purposive&quot;,
+                        
+                            /**
+                             * The quotative mood is used e.g. in Estonian to denote direct speech.
+                             * @type {String}
+                             */
+                            Qot: &quot;quotative&quot;,
+                        
+                            /**
+                             * Expresses exclamations like “May you have a long life!” or
+                             * “If only I were rich!” In Turkish it also expresses suggestions.
+                             * @example let’s go home
+                             * @type {String}
+                             */
+                            Opt: &quot;optative&quot;,
+                        
+                            /**
+                             * The desiderative mood corresponds to the modal verb “want to”:
+                             * “He wants to come.” Used e.g. in Turkish.
+                             * @type {String}
+                             */
+                            Des: &quot;desiderative&quot;,
+                        
+                            /**
+                             * The necessitative mood expresses necessity and corresponds to the modal
+                             * verbs “must, should, have to”: “He must come.”
+                             * @type {String}
+                             */
+                            Nec: &quot;necessitative&quot;,
+                        
+                            /**
+                             * Expresses surprise, irony or doubt. Occurs in Albanian,
+                             * other Balkan languages, and in Caddo (Native American from Oklahoma).
+                             * @type {String}
+                             */
+                            Adm: &quot;admirative&quot;
+                        
                           });
                         
                           /**
-                           * The voice: Active,Passive, Middle
-                           * @access Morpho.Feature.Voice
-                           * @attribute Voice
-                           * @readOnly
-                           * @static
-                           * @type {object}
-                           */
+                          * The voice: Active,Passive, Middle
+                          * @access Morpho.Feature.Voice
+                          * @attribute Voice
+                          * @readOnly
+                          * @static
+                          * @type {object}
+                          */
                           var Voice = C({
-                            Active: 0,
-                            Passive: 1,
-                            Middle: 2
+                            A: &quot;active&quot;,
+                            P: &quot;passive&quot;,
+                            M: &quot;middle&quot;
                           });
                         
                           /**
-                           * The number: Singular, Dual, Plural
-                           * @access Morpho.Feature.Number
-                           * @attribute Num
-                           * @readOnly
-                           * @static
-                           * @type {object}
-                           */
-                          var Num = C({
-                            Singular: 0,
-                            Dual: 1,
-                            Plural: 2
+                          * The grammatical number: Singular, Dual, Plural
+                          * @access Morpho.Feature.Number
+                          * @attribute GNumber
+                          * @readOnly
+                          * @static
+                          * @type {object}
+                          */
+                          var GNumber = C({
+                            S: &quot;singular&quot;,
+                            D: &quot;dual&quot;,
+                            P: &quot;plural&quot;
                           });
                         
                           /**
-                           * The case: Nominative, Accusative, Genitive, Dative,
-                           * Prepositional, Ablative, Instrumental, Vocative
-                           * @access Morpho.Feature.Case
-                           * @attribute Case
-                           * @readOnly
-                           * @static
-                           * @type {object}
-                           */
-                          var Case = C({
-                            Nominative: 0,
-                            Accusative: 1,
-                            Genitive: 2,
-                            Dative: 3,
-                            Prepositional: 4,
-                            Ablative: 5,
-                            Instrumental: 6,
-                            Vocative: 7
-                          });
-                        
-                          /**
-                           * The person: First, Second, Third.
-                           * @access Morpho.Feature.Person
-                           * @attribute Person
-                           * @readOnly
-                           * @static
-                           * @type {object}
-                           */
+                          * The person: First, Second, Third.
+                          * @access Morpho.Feature.Person
+                          * @attribute Person
+                          * @readOnly
+                          * @static
+                          * @type {object}
+                          */
                           var Person = C({
-                            First: 0,
-                            Second: 1,
-                            Third: 2
+                            F: &quot;first&quot;,
+                            S: &quot;second&quot;,
+                            T: &quot;third&quot;
                           });
                         
                           /**
-                           * The gender: Masculine, Feminine, Neuter.
-                           * @access Morpho.Feature.Gender
-                           * @attribute Gender
-                           * @readOnly
-                           * @static
-                           * @type {object}
-                           */
+                          * The gender: Masculine, Feminine, Neuter.
+                          * @access Morpho.Feature.Gender
+                          * @attribute Gender
+                          * @readOnly
+                          * @static
+                          * @type {object}
+                          */
                           var Gender = C({
-                            Masculine: 0,
-                            Feminine: 1,
-                            Neuter: 2
+                            M: &quot;masculine&quot;,
+                            F: &quot;feminine&quot;,
+                            N: &quot;neuter&quot;
                           });
                         
                           /**
-                           * This is a map to different morphology features:
-                           * &lt;ul&gt;
-                           * &lt;li&gt;POS&lt;/li&gt;
-                           * &lt;li&gt;Tense&lt;/li&gt;
-                           * &lt;li&gt;Aspect&lt;/li&gt;
-                           * &lt;li&gt;Mood&lt;/li&gt;
-                           * &lt;li&gt;Voice&lt;/li&gt;
-                           * &lt;li&gt;Number: It returns &lt;a href=&quot;#attr_Num&quot;&gt;Num&lt;/a&gt;&lt;/li&gt;
-                           * &lt;li&gt;Case: It returns &lt;a href=&quot;#attr_Case&quot;&gt;Case&lt;/a&gt;&lt;/li&gt;
-                           * &lt;li&gt;Person: It returns &lt;a href=&quot;#attr_Person&quot;&gt;Person&lt;/a&gt;&lt;/li&gt;
-                           * &lt;li&gt;Gender: It returns &lt;a href=&quot;#attr_Gender&quot;&gt;Gender&lt;/a&gt;&lt;/li&gt;
-                           * &lt;/ul&gt;
-                           * We can access these features either by:&lt;br&gt;
-                           * Morpho.Feature.feature_name &lt;br&gt;
-                           * Or: &lt;br&gt;
-                           * Morpho.Feature[&quot;feature_name&quot;]
-                           *
-                           * @attribute Feature
-                           * @access Morpho.Feature
-                           * @readOnly
-                           * @static
-                           * @type {object}
-                           */
+                          * This is a map to different morphology features:
+                          * &lt;ul&gt;
+                          * &lt;li&gt;POS&lt;/li&gt;
+                          * &lt;li&gt;Tense&lt;/li&gt;
+                          * &lt;li&gt;Aspect&lt;/li&gt;
+                          * &lt;li&gt;Mood&lt;/li&gt;
+                          * &lt;li&gt;Voice&lt;/li&gt;
+                          * &lt;li&gt;Number: It returns &lt;a href=&quot;#attr_Num&quot;&gt;Num&lt;/a&gt;&lt;/li&gt;
+                          * &lt;li&gt;Case: It returns &lt;a href=&quot;#attr_Case&quot;&gt;Case&lt;/a&gt;&lt;/li&gt;
+                          * &lt;li&gt;Person: It returns &lt;a href=&quot;#attr_Person&quot;&gt;Person&lt;/a&gt;&lt;/li&gt;
+                          * &lt;li&gt;Gender: It returns &lt;a href=&quot;#attr_Gender&quot;&gt;Gender&lt;/a&gt;&lt;/li&gt;
+                          * &lt;/ul&gt;
+                          * We can access these features either by:&lt;br&gt;
+                          * Morpho.Feature.feature_name &lt;br&gt;
+                          * Or: &lt;br&gt;
+                          * Morpho.Feature[&quot;feature_name&quot;]
+                          *
+                          * @attribute Feature
+                          * @access Morpho.Feature
+                          * @readOnly
+                          * @static
+                          * @type {object}
+                          */
                           Morpho.Feature = C({
-                            &quot;POS&quot;: PoS,
-                            &quot;Tense&quot;: Tense,
-                            &quot;Aspect&quot;: Aspect,
-                            &quot;Mood&quot;: Mood,
-                            &quot;Voice&quot;: Voice,
-                            &quot;Number&quot;: Num,
-                            &quot;Case&quot;: Case,
-                            &quot;Person&quot;: Person,
-                            &quot;Gender&quot;: Gender
+                            POS: PoS,
+                            Tense: Tense,
+                            Aspect: Aspect,
+                            Mood: Mood,
+                            Voice: Voice,
+                            Number: GNumber,
+                            Person: Person,
+                            Gender: Gender
                           });
                         
                         
                           //=========================================
-                        	// Protected Static methods
-                        	// ========================================
+                          // Protected Static methods
+                          // ========================================
                         
-                        	/**
-                        	* Add new stemmer method
-                        	* @method newStemmer
-                        	* @protected
-                        	* @static
-                        	* @param  {string} stemmerName the name of the stemmer
-                        	* @param  {string} stemmerDesc   the description of the stemmer
-                        	* @param  {function} stemmerFct   the function stem(word)
-                        	*/
-                        	Morpho.newStemmer = function (stemmerName, stemmerDesc, stemmerFct) {
-                        		if (typeof stemmerName === &quot;string&quot; &amp;&amp; stemmerName.length &gt; 0){
-                        			this.stemmers[stemmerName] = {};
-                        			this.stemmers[stemmerName].desc = stemmerDesc;
+                          /**
+                          * Add new stemmer method
+                          * @method newStemmer
+                          * @protected
+                          * @static
+                          * @param  {string} stemmerName the name of the stemmer
+                          * @param  {string} stemmerDesc   the description of the stemmer
+                          * @param  {function} stemmerFct   the function stem(word)
+                          */
+                          Morpho.newStemmer = function (stemmerName, stemmerDesc, stemmerFct) {
+                            if (typeof stemmerName === &quot;string&quot; &amp;&amp; stemmerName.length &gt; 0){
+                              this.stemmers[stemmerName] = {};
+                              this.stemmers[stemmerName].desc = stemmerDesc;
                               this.stemmers[stemmerName].fct = stemmerFct;
-                        		}
-                        	}
+                            }
+                          }
                         
                           //===================================================
                           // Prototypes
@@ -388,132 +454,287 @@
                           var Me = Morpho.prototype;
                         
                           /**
-                           * Enables the debugging messages
-                           * @method enableDebug
-                           */
+                          * Enables the debugging messages
+                          * @method enableDebug
+                          */
                           Me.enableDebug = function(){
                             this.g.debugFunction = realDebug;
                           }
                         
                           /**
-                           * disables the debugging messages
-                           * @method disableDebug
-                           */
+                          * disables the debugging messages
+                          * @method disableDebug
+                          */
                           Me.disableDebug = function(){
                             this.g.debugFunction = dummyDebug;
                           }
                         
                           /**
-                        	* Sets the current stemmer
-                        	* @method setCurrentStemmer
-                        	* @param {string} StemmerName stemmer method&#x27;s name
-                        	*/
-                        	Me.setCurrentStemmer = function (StemmerName) {
-                        		if (StemmerName in this.stemmers){
-                        			this.currentStemmer = StemmerName;
-                        		}
-                        	}
+                          * Sets the current stemmer
+                          *
+                          * @final
+                          * @method setCurrentStemmer
+                          * @param {string} StemmerName stemmer method&#x27;s name
+                          */
+                          Me.setCurrentStemmer = function (StemmerName) {
+                            if (StemmerName in this.stemmers){
+                              this.currentStemmer = StemmerName;
+                            }
+                          }
                         
                           /**
-                        	* Returns the list of available stemming methods
-                        	* @method availableStemmers
-                        	* @return {array}  Array of Strings containing stemmers names
-                        	*/
-                        	Me.availableStemmers = function(){
-                        		return Object.keys(this.stemmers);
-                        	}
+                          * Returns the list of available stemming methods
+                          * @final
+                          * @method availableStemmers
+                          * @return {array}  Array of Strings containing stemmers names
+                          */
+                          Me.availableStemmers = function(){
+                            return Object.keys(this.stemmers);
+                          }
                         
                           /**
-                           * This method is used to recover the name of the tense
-                           * @param  {Tense} tense the tense which we want to get the name
-                           * @return {String}       the name of the tense in the selected language
-                           */
+                          * This method is used to recover the name of the tense
+                          * @param  {Tense} tense the tense which we want to get the name
+                          * @return {String}       the name of the tense in the selected language
+                          */
                           Me.getTenseName = function(tense){
-                            var T = Tense;
                             switch (tense) {
-                              case T.Past:
-                                return &quot;past&quot;;
-                              case T.Present:
-                                return &quot;present&quot;;
-                              case T.Future:
-                                return &quot;future&quot;;
+                              case Tense.Pa:
+                              return &quot;past&quot;;
+                              case Tense.Pr:
+                              return &quot;present&quot;;
+                              case Tense.Fu:
+                              return &quot;future&quot;;
                             }
                         
                             return &quot;&quot;;
                           }
                         
                           /**
-                           * This method is used to get personal pronouns characteristics
+                           * Returns a list of verb types
+                           * @abstract
                            * @public
-                           * @method getPronounOpts
-                           * @return {array}  Array of different objects; each object contains the properties
-                           * of pronouns. For example: {person: Morpho.Feature.Person.First, number: Morpho.Feature.Number.Singular}
-                           * which refers to the personal pronoun &quot;I&quot;
+                           * @method getVerbTypes
+                           * @return {Array}     [description]
                            */
-                          Me.getPronounOpts = function(){
+                          Me.getVerbTypes = function(){
                             return [];
                           }
                         
                           /**
-                           * This function returns an array of available tenses
+                           * Given a verb, it detects its type
+                           * @abstract
                            * @public
-                           * @method getTenses
-                           * @return {array}  Array of tenses available for the language
+                           * @method getVerbType
+                           * @return {[type]}    [description]
                            */
-                          Me.getTenses = function(){
+                          Me.getVerbType = function(){
+                            return &quot;&quot;;
+                          }
+                        
+                          /**
+                          * This function returns an object of available conjugation forms
+                          * &#x60;&#x60;&#x60;
+                          * {
+                          *  &quot;form_name&quot;: {opts}
+                          * }
+                          * &#x60;&#x60;&#x60;
+                          * @public
+                          * @method getForms
+                          * @return {array}  Array of tenses available for the language
+                          */
+                          Me.getForms = function(){
                             //Past and Present are defaults
+                            return {
+                              &quot;Indicative present&quot;: {
+                                mood: Mood.Indi,
+                                tense: Tense.Pr,
+                                aspect: Aspect.S
+                              },
+                              &quot;Indicative past&quot;: {
+                                mood: Mood.Indi,
+                                tense: Tense.Pa,
+                                aspect: Aspect.S
+                              },
+                              &quot;Indicative future&quot;: {
+                                mood: Mood.Indi,
+                                tense: Tense.Fu,
+                                aspect: Aspect.S
+                              }
+                            };
+                          }
+                        
+                        
+                          /**
+                          * Each language has a conjugation table model.
+                          * For example, in English, Arabic and French, we put pronouns in rows.
+                          * As for Japanese, the conjugation doesn&#x27;t follow that pattern.
+                          * @method getConjugModel
+                          * @return {[type]}   [description]
+                          */
+                          Me.getConjugModel = function(){
+                            //Past and Present are defaults
+                            return {
+                              rows: [&quot;Pronoun&quot;],
+                              cols: [&quot;Voice&quot;, &quot;Negation&quot;]
+                            };
+                          }
+                        
+                        
+                          /**
+                           * [getOptLists description]
+                           * @method getOptLists
+                           * @param  {[type]}    optLabel [description]
+                           * @return {[type]}             [description]
+                           */
+                          Me.getOptLists = function(optLabel){
+                            switch (optLabel) {
+                              case &quot;Pronoun&quot;: return this.getPronounOpts();
+                              case &quot;Negation&quot;: return this.getNegationOpts();
+                              case &quot;Voice&quot;: return this.getVoiceOpts();
+                              default:
+                        
+                            }
+                            return [];
+                          }
+                        
+                          Me.getOptName = function(optLabel, opts){
+                            switch (optLabel) {
+                              case &quot;Pronoun&quot;: return this.getPronounName(opts);
+                              case &quot;Negation&quot;: return this.getNegationName(opts);
+                              case &quot;Voice&quot;: return this.getVoiceName(opts);
+                              default:
+                        
+                            }
+                            return &quot;&quot;;
+                          }
+                        
+                          /**
+                           * [getNegationOpts description]
+                           * @protected
+                           * @method getNegationOpts
+                           * @return {[type]}        [description]
+                           */
+                          Me.getNegationOpts = function(){
                             return [
-                              Tense.Past,
-                              Tense.Present
+                                {negated:0}, //Positive
+                                {negated:1}//negative
                             ];
                           }
                         
                           /**
-                           * This function is used for verb conjugation
-                           * @method conjugate
-                           * @param  {string} verb the word to be conjugated
-                           * @param  {object} opts  options for tense, case, voice, aspect, person, number, gender, mood, and other
-                           * @return {string}      inflected word
+                           * [getNegationName description]
+                           * @protected
+                           * @method getNegationName
+                           * @param  {[type]}        opts [description]
+                           * @return {[type]}             [description]
                            */
-                          Me.conjugate = function(verb, opts){
-                            return verb;
+                          Me.getNegationName = function(opts){
+                            if (! opts) return &quot;&quot;;
+                            if (opts.negated) return &quot;negative&quot;;
+                            return &quot;affirmative&quot;;
                           }
                         
                           /**
-                           * Get the personal pronoun using options like: person, gender, etc.&lt;br&gt;
-                           * for example, the parameters for the personal pronoun &quot;I&quot;: &lt;br&gt;
-                           * &#x60;&#x60;&#x60;
-                           *    {
-                           *      person: Morpho.Feature.Person.First,
-                           *      number: Morpho.Feature.Number.Singular
-                           *    }
-                           * &#x60;&#x60;&#x60;
+                           * [getVoiceOpts description]
+                           * @protected
+                           * @method getVoiceOpts
+                           * @return {[type]}     [description]
+                           */
+                          Me.getVoiceOpts = function(){
+                            return [
+                                {voice: Voice.A}, //Active voice
+                                {voice: Voice.P} //Passive voice
+                            ];
+                          }
+                        
+                          /**
+                           * [getVoiceName description]
+                           * @protected
+                           * @method getVoiceName
+                           * @param  {[type]}     opts [description]
+                           * @return {[type]}          [description]
+                           */
+                          Me.getVoiceName = function(opts){
+                            if (! opts) return &quot;&quot;;
+                            if (! opts.voice) return &quot;&quot;;
+                            switch (opts.voice) {
+                              case Voice.A: return &quot;active&quot;;
+                              case Voice.P: return &quot;passive&quot;;
+                            }
+                            return &quot;&quot;;
+                          }
+                        
+                          /**
+                           * [getPronounOpts description]
+                           * @protected
+                           * @method getPronounOpts
+                           * @return {[type]}       [description]
+                           */
+                          Me.getPronounOpts = function(){
+                            return [{}];
+                          }
+                        
+                          /**
+                           * [getPronounName description]
+                           * @protected
                            * @method getPronounName
-                           * @param  {object} opts An object containing parameters: person, gender, number.
-                           * @return {string}      the pronoun
+                           * @param  {[type]}       opts [description]
+                           * @return {[type]}            [description]
                            */
                           Me.getPronounName = function(opts){
                             return &quot;&quot;;
                           }
                         
+                        
                           /**
-                           * This function is used for noun inflexion&lt;br&gt;
-                           * For example: noun to plural nouns
-                           * @method declenseNoun
-                           * @param  {string} noun the noun to be inflected
-                           * @param  {object} opts  the options: number for example
-                           * @return {string}      the inflected noun
-                           */
+                          * This function is used for verb conjugation
+                          * @method conjugate
+                          * @param  {string} verb the word to be conjugated
+                          * @param  {object} opts  options for tense, case, voice, aspect, person, number, gender, mood, and other
+                          * @return {string}      inflected word
+                          */
+                          Me.conjugate = function(verb, opts){
+                            return verb;
+                          }
+                        
+                        
+                        
+                          /**
+                          * Get the personal pronoun using options like: person, gender, etc.&lt;br&gt;
+                          * for example, the parameters for the personal pronoun &quot;I&quot;: &lt;br&gt;
+                          * &#x60;&#x60;&#x60;
+                          *    {
+                          *      person: Morpho.Feature.Person.First,
+                          *      number: Morpho.Feature.Number.Singular
+                          *    }
+                          * &#x60;&#x60;&#x60;
+                          * @method getPronounName
+                          * @param  {object} opts An object containing parameters: person, gender, number.
+                          * @return {string}      the pronoun
+                          */
+                          Me.getPronounName = function(opts){
+                            return &quot;&quot;;
+                          }
+                        
+                          /**
+                          * This function is used for noun inflexion&lt;br&gt;
+                          * For example: noun to plural nouns
+                          * @method declenseNoun
+                          * @param  {string} noun the noun to be inflected
+                          * @param  {object} opts  the options: number for example
+                          * @return {string}      the inflected noun
+                          */
                           Me.declenseNoun = function(noun, opts){
                             return noun;
                           }
                         
                           /**
-                           * Stem a word: delete prefixes, suffixes and infixes
-                           * @method stem
-                           * @param  {string} word the word to be stemmed
-                           * @return {string}      stemmed word
-                           */
+                          * Stem a word: delete prefixes, suffixes and infixes
+                          * @method stem
+                          * @param  {string} word the word to be stemmed
+                          * @return {string}      stemmed word
+                          */
                           Me.stem = function(word){
                             var stemmer = this.stemmers[this.currentStemmer];
                             if (typeof stemmer !== &quot;object&quot;) return word;
@@ -522,13 +743,98 @@
                           }
                         
                           /**
-                           * lemmatize a word: return it to its origin
-                           * @method lemmatize
-                           * @param  {string} word the word to be lemmatized
-                           * @return {string}      lemmatized word
-                           */
+                          * lemmatize a word: return it to its origin
+                          * @method lemmatize
+                          * @param  {string} word the word to be lemmatized
+                          * @return {string}      lemmatized word
+                          */
                           Me.lemmatize = function(word){
                             return word;
+                          }
+                        
+                          /**
+                          * Normalization method, used to delete non used chars or to replace some with others, etc.
+                          * @method normalize
+                          * @param  {string} word the word to be normalized
+                          * @param  {string} opts some options (optional) where each language defines its own
+                          * normalization options
+                          * @return {string}      normalized word
+                          */
+                          Me.normalize = function(word, opts){
+                            return word;
+                          }
+                        
+                          //========================================================================
+                          // HELPERS
+                          // =======================================================================
+                        
+                          /**
+                           * [parseConjModelBranch description]
+                           * @private
+                           * @static
+                           * @method parseConjModelBranch
+                           * @param  {[type]}             morpho [description]
+                           * @param  {[type]}             branch [description]
+                           * @return {[type]}                    [description]
+                           */
+                          function parseConjModelBranch(morpho, branch){
+                            var result = {
+                              labels: [], // Array[Array[string]]: each level have many labels
+                              spans: [1], // spans of each level
+                              opts: [{}]
+                            };
+                        
+                            for (var bi = 0; bi &lt; branch.length; bi++){
+                              var tmpOpts = [];
+                              var opts = morpho.getOptLists(branch[bi]);
+                              for(var si = 0; si &lt; result.spans.length; si++){
+                                result.spans[si] *= opts.length;
+                              }
+                              var labels = [];
+                              result.opts.forEach(function(val, idx, a){
+                                opts.forEach(function(val2, idx2, a2){
+                                  var fuseOpts = Object.assign({}, val, val2);
+                                  tmpOpts.push(fuseOpts);
+                                  if(!idx){//we process labels just once
+                                    labels.push(morpho.getOptName(branch[bi], val2));
+                                  }
+                                });
+                              });
+                        
+                              result.opts = tmpOpts;
+                              result.spans.push(1);
+                              result.labels.push(labels);
+                        
+                            }
+                            result.spans.shift();
+                        
+                            return result;
+                          }
+                        
+                          /**
+                           * [parseConjModel description]
+                           * @static
+                           * @public
+                           * @method parseConjModel
+                           * @param  {[type]}       morpho [description]
+                           * @return {[type]}              [description]
+                           */
+                          Morpho.parseConjModel = function(morpho) {
+                        
+                            var result = {
+                              rows: {},
+                              cols: {}
+                            }
+                        
+                            if (! (morpho instanceof Morpho)) return result;
+                        
+                            var model = morpho.getConjugModel();
+                        
+                            result.rows = parseConjModelBranch(morpho, model.rows);
+                            result.cols = parseConjModelBranch(morpho, model.cols);
+                        
+                            return result;
+                        
                           }
                         
                         }());

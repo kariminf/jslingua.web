@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>eng/eng.morpho.js - JsLingua API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.7.0/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="../assets/css/marviq.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-skin-sam">
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+    	<div class="nav">
+            <!-- <h1 class="brand" style="padding: 10px 16px 10px; height: 20px; line-height: 20px; margin-left: 0;">
+
+        JsLingua API
+        </h1 -->
+            <li>
+                <img alt="JsLingua API" src="../assets/img/logo.png" style="margin-top: 7px; margin-left: 25px; max-height: 30px" title="JsLingua API" />
+            </li>
+            <li class="divider-vertical"></li>
+            <li>
+                <h1 class="projectName">JsLingua API</h1>
+            </li>
+            <li class="divider-vertical"></li>
+            <li>
+                <p class="navbar-text">
+                    API Docs for Version: <b>0.4.4</b>
+                </p>
+            </li>
+        </div>
+        <form class="navbar-form pull-right" style="line-height: 40px; height: 40px;">
+            <input style="margin-top: 0;" type="text" class="search-query" placeholder="Search for classes/modules..." data-obj='["classes/AraInfo", "classes/AraLang", "classes/AraTrans", "classes/EngInfo", "classes/EngLang", "classes/EngTrans", "classes/Info", "classes/JpnInfo", "classes/JpnLang", "classes/JpnTrans", "classes/JsLingua", "classes/Lang", "classes/Morpho", "classes/Tools", "classes/Trans", "modules/JsLingua", "modules/Tools"]'>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+	    <div>
+	        <h3>APIs</h3>
+	        <div id="sidebar">
+	            <ul id="main-nav" class="nav nav-tabs" style="margin-bottom:0;">
+	                <li class="active"><a href="#classes" data-toggle="tab">Classes</a></li>
+	                <li><a href="#collections" data-toggle="tab">Collections</a></li>
+	                <li><a href="#models" data-toggle="tab">Models</a></li>
+	                <li><a href="#views" data-toggle="tab">Views</a></li>
+	                <li><a href="#services" data-toggle="tab">Services</a></li>
+	            </ul>
+	    
+	            <div id="api-tabview-filter">
+	                <input type="search" placeholder="Type to filter APIs">
+	            </div>
+	    
+	            <div class="tab-content" style="border: 1px solid #DDD; border-top:0;">
+	                <div class="tab-pane active" id="classes">
+	                    <ul id="api-classes" class="nav nav-list">
+	                            <li><a href="../classes/AraInfo.html">AraInfo</a></li>
+	                            <li><a href="../classes/AraLang.html">AraLang</a></li>
+	                            <li><a href="../classes/AraTrans.html">AraTrans</a></li>
+	                            <li><a href="../classes/EngInfo.html">EngInfo</a></li>
+	                            <li><a href="../classes/EngLang.html">EngLang</a></li>
+	                            <li><a href="../classes/EngTrans.html">EngTrans</a></li>
+	                            <li><a href="../classes/Info.html">Info</a></li>
+	                            <li><a href="../classes/JpnInfo.html">JpnInfo</a></li>
+	                            <li><a href="../classes/JpnLang.html">JpnLang</a></li>
+	                            <li><a href="../classes/JpnTrans.html">JpnTrans</a></li>
+	                            <li><a href="../classes/JsLingua.html">JsLingua</a></li>
+	                            <li><a href="../classes/Lang.html">Lang</a></li>
+	                            <li><a href="../classes/Morpho.html">Morpho</a></li>
+	                            <li><a href="../classes/Tools.html">Tools</a></li>
+	                            <li><a href="../classes/Trans.html">Trans</a></li>
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane active" id="collections">
+	                    <ul id="api-classes" class="nav nav-list">
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane active" id="models">
+	                    <ul id="api-classes" class="nav nav-list">
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane active" id="views">
+	                    <ul id="api-classes" class="nav nav-list">
+	                    </ul>
+	                </div>
+	    
+	                <div class="tab-pane active" id="services">
+	                    <ul id="api-classes" class="nav nav-list">
+	                    </ul>
+	                </div>
+	    
+	            </div>
+	        </div>
+	    </div>
+        </div>
+        <div class="span9">
+                <form id="options-form" class="form-inline pull-right">
+                    Show:
+                    <label for="api-show-inherited" class="checkbox">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected" class="checkbox">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private" class="checkbox">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated" class="checkbox">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </form>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <div class="page-header">
+                            <h1>eng/eng.morpho.js <small>File</small></h1>
+                        </div>
+                        
+                        <div class="file">
+                            <pre class="prettyprint linenums">
+                        (function () {
+                        
+                          //TODO see https://en.wikipedia.org/wiki/English_irregular_verbs#List
+                          var Morpho = {};
+                          if ( typeof module === &quot;object&quot; &amp;&amp; module &amp;&amp; typeof module.exports === &quot;object&quot; ) {
+                            Morpho = require(&quot;../morpho.js&quot;);
+                            module.exports = EngMorpho;
+                          } else {
+                            Morpho = window.JsLingua.Cls.Morpho;
+                            window.JsLingua.addService(&quot;Morpho&quot;, &quot;eng&quot;, EngMorpho);
+                          }
+                        
+                          //Different global features
+                          var F = Morpho.Feature;
+                          var Tense = F.Tense;
+                          var Mood = F.Mood;
+                          var Voice = F.Voice;
+                          var GNumber = F.Number;
+                          var Aspect = F.Aspect;
+                          var Gender = F.Gender;
+                          var Person = F.Person;
+                        
+                          var g;
+                        
+                          function EngMorpho() {
+                            Morpho.call(this, &quot;eng&quot;);
+                            Morpho.newStemmer.call(this, &quot;porterStemmer&quot;, &quot;English proter stemmr&quot;, porterStemmer);
+                            g = this.g;
+                          }
+                        
+                          EngMorpho.prototype = Object.create(Morpho.prototype);
+                          var Me = EngMorpho.prototype;
+                        
+                          Me.constructor = EngMorpho;
+                        
+                          var debugFunction = Morpho.prototype.debugFunction;
+                        
+                        
+                          Me.getPronounOpts = function(){
+                            return [
+                                {person:Person.F, number: GNumber.S}, //I
+                                {person:Person.S},//You
+                                {person:Person.T, number: GNumber.S, gender: Gender.M},//He
+                                {person:Person.T, number: GNumber.S, gender: Gender.F},//She
+                                {person:Person.T, number: GNumber.S, gender: Gender.N},//It
+                                {person:Person.F, number: GNumber.P}, //We
+                                {person:Person.T, number: GNumber.P}//They
+                            ];
+                          }
+                        
+                        
+                          Me.getPronounName = function(opts){
+                            switch (opts.person) {
+                              case Person.F:
+                              if (opts.number === GNumber.S) return &quot;I&quot;;
+                              else return &quot;We&quot;;
+                        
+                              case Person.S:
+                              return &quot;You&quot;;
+                        
+                              case Person.T:
+                              if (opts.number == GNumber.S) {
+                                switch (opts.gender) {
+                                  case Gender.M: return &quot;He&quot;;
+                                  case Gender.F: return &quot;She&quot;;
+                                  default: return &quot;It&quot;;
+                                }
+                              } else return &quot;They&quot;;
+                        
+                            }
+                            return &quot;&quot;;
+                          }
+                        
+                        
+                          Me.getForms = function(){
+                            //super doesn&#x27;t work here
+                            var superFrm = Morpho.prototype.getForms.call(this);
+                            var engForms =  {
+                              &quot;Indicative present perfect&quot;: {
+                                mood: Mood.Ind,
+                                tense: Tense.Pr,
+                                aspect: Aspect.P
+                              },
+                              &quot;Indicative past perfect&quot;: {
+                                mood: Mood.Ind,
+                                tense: Tense.Pa,
+                                aspect: Aspect.P
+                              },
+                              &quot;Indicative future perfect&quot;: {
+                                mood: Mood.Ind,
+                                tense: Tense.Fu,
+                                aspect: Aspect.P
+                              },
+                              &quot;Indicative present continuous&quot;: {
+                                mood: Mood.Ind,
+                                tense: Tense.Pr,
+                                aspect: Aspect.C
+                              },
+                              &quot;Indicative past continuous&quot;: {
+                                mood: Mood.Ind,
+                                tense: Tense.Pa,
+                                aspect: Aspect.C
+                              },
+                              &quot;Indicative future continuous&quot;: {
+                                mood: Mood.Ind,
+                                tense: Tense.Fu,
+                                aspect: Aspect.C
+                              },
+                              &quot;Indicative present perfect continuous&quot;: {
+                                mood: Mood.Ind,
+                                tense: Tense.Pr,
+                                aspect: Aspect.PC
+                              },
+                              &quot;Indicative past perfect continuous&quot;: {
+                                mood: Mood.Ind,
+                                tense: Tense.Pa,
+                                aspect: Aspect.PC
+                              },
+                              &quot;Indicative future perfect continuous&quot;: {
+                                mood: Mood.Ind,
+                                tense: Tense.Fu,
+                                aspect: Aspect.PC
+                              }
+                            };
+                        
+                            return Object.assign({}, superFrm, engForms);
+                          }
+                        
+                          //var C = Object.freeze;
+                        
+                          //=================
+                          //Conjugation zone
+                          //=================
+                        
+                          //https://en.wikipedia.org/wiki/List_of_English_irregular_verbs
+                          //TODO will, can, shall
+                        
+                          var beHave = {
+                            &quot;be&quot;:  {
+                              Pr: [&quot;am&quot;, &quot;is&quot;, &quot;are&quot;],
+                              Pa: [&quot;was&quot;, &quot;was&quot;, &quot;were&quot;],
+                              Pp: &quot;been&quot;
+                            },
+                            &quot;have&quot;:  {
+                              Pr: [&quot;have&quot;, &quot;has&quot;, &quot;have&quot;],
+                              Pa: [&quot;had&quot;, &quot;had&quot;, &quot;had&quot;],
+                              Pp: &quot;had&quot;
+                            }
+                          }
+                        
+                        
+                          var irregular0 = {
+                            &quot;bet&quot;: 1, &quot;bid&quot;: 1, &quot;broadcast&quot;: 1, &quot;burst&quot;: 1,  &quot;cast&quot;: 1, &quot;clad&quot;: 1,
+                            &quot;clearcut&quot;: 1, &quot;cost&quot;: 1, &quot;crosscut&quot;: 1, &quot;cut&quot;: 1, &quot;fit&quot;: 1, &quot;handset&quot;: 1,
+                            &quot;hit&quot;: 1, &quot;hurt&quot;: 1, &quot;intercut&quot;: 1, &quot;let&quot;: 1, &quot;lipread&quot;: 1, &quot;podcast&quot;: 1,
+                            &quot;precast&quot;: 1, &quot;proofread&quot;: 1, &quot;put&quot;: 1, &quot;quit&quot;: 1, &quot;read&quot;: 1, &quot;retrofit&quot;: 1,
+                            &quot;set&quot;: 1, &quot;shed&quot;: 1, &quot;shut&quot;: 1, &quot;simulcast&quot;: 1, &quot;slit&quot;: 1, &quot;spit&quot;: 1,
+                            &quot;split&quot;: 1, &quot;spread&quot;: 1, &quot;sublet&quot;: 1, &quot;telecast&quot;: 1, &quot;thrust&quot;: 1,
+                            &quot;typecast&quot;: 1, &quot;typeset&quot;: 1, &quot;webcast&quot;: 1, &quot;wed&quot;: 1
+                          },
+                          irregular1 = {
+                            &quot;babysit&quot;: &quot;babysat&quot;, &quot;bend&quot;: &quot;bent&quot;, &quot;beseech&quot;: &quot;besought&quot;,
+                            &quot;besprenge&quot;: &quot;besprent&quot;, &quot;bind&quot;: &quot;bound&quot;, &quot;bleed&quot;: &quot;bled&quot;,
+                            &quot;breastfeed&quot;: &quot;breastfed&quot;, &quot;breed&quot;: &quot;bred&quot;, &quot;bring&quot;: &quot;brought&quot;,
+                            &quot;build&quot;: &quot;built&quot;, &quot;buy&quot;: &quot;bought&quot;, &quot;catch&quot;: &quot;caught&quot;,
+                            &quot;cling&quot;: &quot;clung&quot;, &quot;creep&quot;: &quot;crept&quot;, &quot;deal&quot;: &quot;dealt&quot;,
+                            &quot;dig&quot;: &quot;dug&quot;, &quot;feed&quot;: &quot;fed&quot;, &quot;feel&quot;: &quot;felt&quot;,
+                            &quot;fight&quot;: &quot;fought&quot;, &quot;find&quot;: &quot;found&quot;, &quot;flee&quot;: &quot;fled&quot;,
+                            &quot;fling&quot;: &quot;flung&quot;, &quot;forthlead&quot;: &quot;forthled&quot;, &quot;forthtell&quot;: &quot;forthtold&quot;,
+                            &quot;get&quot;: &quot;got&quot;, &quot;hamstring&quot;: &quot;hamstrung&quot;, &quot;handspring&quot;: &quot;handsprung&quot;,
+                            &quot;hang&quot;: &quot;hung&quot;, &quot;hear&quot;: &quot;heard&quot;, &quot;hold&quot;: &quot;held&quot;,
+                            &quot;housesit&quot;: &quot;housesat&quot;, &quot;interbreed&quot;: &quot;interbred&quot;, &quot;interlay&quot;: &quot;interlaid&quot;,
+                            &quot;keep&quot;: &quot;kept&quot;, &quot;lay&quot;: &quot;laid&quot;, &quot;lead&quot;: &quot;led&quot;, &quot;leave&quot;: &quot;left&quot;,
+                            &quot;lend&quot;: &quot;lent&quot;, &quot;lose&quot;: &quot;lost&quot;, &quot;make&quot;: &quot;made&quot;, &quot;mean&quot;: &quot;meant&quot;,
+                            &quot;meet&quot;: &quot;met&quot;, &quot;naysay&quot;: &quot;naysaid&quot;, &quot;onlay&quot;: &quot;onlaid&quot;, &quot;onlead&quot;: &quot;onled&quot;,
+                            &quot;pay&quot;: &quot;paid&quot;, &quot;rend&quot;: &quot;rent&quot;, &quot;say&quot;: &quot;said&quot;, &quot;seek&quot;: &quot;sought&quot;,
+                            &quot;sell&quot;: &quot;sold&quot;, &quot;send&quot;: &quot;sent&quot;, &quot;shrink&quot;: &quot;shrunk&quot;, &quot;shoot&quot;: &quot;shot&quot;,
+                            &quot;sink&quot;: &quot;sunk&quot;, &quot;sit&quot;: &quot;sat&quot;, &quot;sleep&quot;: &quot;slept&quot;, &quot;slide&quot;: &quot;slid&quot;,
+                            &quot;sling&quot;: &quot;slung&quot;, &quot;slit&quot;: &quot;slit&quot;, &quot;soothsay&quot;: &quot;soothsaid&quot;, &quot;spend&quot;: &quot;spent&quot;,
+                            &quot;spin&quot;: &quot;spun&quot;, &quot;sprenge&quot;: &quot;sprent&quot;,&quot;spring&quot;: &quot;sprung&quot;, &quot;stand&quot;: &quot;stood&quot;,
+                            &quot;stick&quot;: &quot;stuck&quot;, &quot;sting&quot;: &quot;stung&quot;, &quot;stink&quot;: &quot;stunk&quot;, &quot;strike&quot;: &quot;struck&quot;,
+                            &quot;string&quot;: &quot;strung&quot;, &quot;sweep&quot;: &quot;swept&quot;, &quot;swing&quot;: &quot;swung&quot;, &quot;teach&quot;: &quot;taught&quot;,
+                            &quot;tell&quot;: &quot;told&quot;, &quot;think&quot;: &quot;thought&quot;, &quot;tread&quot;: &quot;trod&quot;, &quot;understand&quot;: &quot;understood&quot;,
+                            &quot;waylay&quot;: &quot;waylaid&quot;, &quot;win&quot;: &quot;won&quot;, &quot;wind&quot;: &quot;wound&quot;, &quot;wring&quot;: &quot;wrung&quot;
+                          },
+                          irregular2 = {
+                            &quot;acknow&quot;:  [&quot;acknew&quot;, &quot;1n&quot;], &quot;ake&quot;:  [&quot;oke&quot;, &quot;1n&quot;], &quot;arise&quot;:  [&quot;arose&quot;, &quot;1n&quot;],
+                            &quot;awake&quot;:  [&quot;awoke&quot;, &quot;2n&quot;], &quot;bear&quot;:  [&quot;bore&quot;, &quot;born&quot;], &quot;beat&quot;:  [&quot;1&quot;, &quot;1en&quot;],
+                            &quot;bedo&quot;:  [&quot;bedid&quot;, &quot;1ne&quot;], &quot;begin&quot;:  [&quot;began&quot;, &quot;begun&quot;], &quot;bego&quot;:  [&quot;bewent&quot;, &quot;1ne&quot;],
+                            &quot;bite&quot;:  [&quot;bit&quot;, &quot;2ten&quot;], &quot;blow&quot;:  [&quot;blew&quot;, &quot;1n&quot;], &quot;break&quot;:  [&quot;broke&quot;, &quot;2n&quot;],
+                            &quot;browbeat&quot;:  [&quot;1&quot;, &quot;1en&quot;], &quot;choose&quot;:  [&quot;chose&quot;, &quot;2n&quot;], &quot;come&quot;:  [&quot;came&quot;, &quot;1&quot;],
+                            &quot;cowrite&quot;:  [&quot;cowrote&quot;, &quot;1-ten&quot;], &quot;do&quot;:  [&quot;did&quot;, &quot;1ne&quot;], &quot;downdraw&quot;:  [&quot;downdrew&quot;, &quot;1n&quot;],
+                            &quot;draw&quot;:  [&quot;drew&quot;, &quot;1n&quot;], &quot;drink&quot;:  [&quot;drank&quot;, &quot;drunk&quot;], &quot;drive&quot;:  [&quot;drove&quot;, &quot;1n&quot;],
+                            &quot;eat&quot;:  [&quot;ate&quot;, &quot;1en&quot;], &quot;fall&quot;:  [&quot;fell&quot;, &quot;1en&quot;], &quot;fly&quot;:  [&quot;flew&quot;, &quot;flown&quot;],
+                            &quot;forbid&quot;:  [&quot;1&quot;, &quot;1den&quot;], &quot;forego&quot;:  [&quot;forewent&quot;, &quot;1ne&quot;], &quot;forgo&quot;:  [&quot;forwent&quot;, &quot;1ne&quot;],
+                            &quot;forlend&quot;:  [&quot;forlent&quot;, &quot;forlen&quot;], &quot;freeze&quot;:  [&quot;froze&quot;, &quot;2n&quot;],
+                            &quot;frostbite&quot;:  [&quot;frostbit&quot;, &quot;2ten&quot;], &quot;ghostwrite&quot;:  [&quot;ghostwrote&quot;, &quot;1-ten&quot;],
+                            &quot;give&quot;:  [&quot;gave&quot;, &quot;1n&quot;], &quot;go&quot;:  [&quot;went&quot;, &quot;gone&quot;], &quot;grow&quot;:  [&quot;grew&quot;, &quot;1n&quot;],
+                            &quot;handwrite&quot;:  [&quot;handwrote&quot;, &quot;1-ten&quot;], &quot;hide&quot;:  [&quot;hid&quot;, &quot;2den&quot;],
+                            &quot;interweave&quot;:  [&quot;interwove&quot;, &quot;2n&quot;], &quot;know&quot;:  [&quot;knew&quot;, &quot;1n&quot;],
+                            &quot;lie&quot;:  [&quot;lay&quot;, &quot;lain&quot;], &quot;misdo&quot;:  [&quot;misdid&quot;, &quot;1ne&quot;], &quot;outdo&quot;:  [&quot;outdid&quot;, &quot;1ne&quot;],
+                            &quot;overdo&quot;:  [&quot;overdid&quot;, &quot;1ne&quot;], &quot;partake&quot;:  [&quot;partook&quot;, &quot;1n&quot;],
+                            &quot;redo&quot;:  [&quot;redid&quot;, &quot;1ne&quot;], &quot;ride&quot;:  [&quot;rode&quot;, &quot;ridden&quot;], &quot;ring&quot;:  [&quot;rang&quot;, &quot;rung&quot;],
+                            &quot;rise&quot;:  [&quot;rose&quot;, &quot;1n&quot;], &quot;run&quot;:  [&quot;ran&quot;, &quot;run&quot;], &quot;see&quot;:  [&quot;saw&quot;, &quot;1n&quot;],
+                            &quot;shake&quot;:  [&quot;shook&quot;, &quot;1n&quot;], &quot;sightsee&quot;:  [&quot;sightsaw&quot;, &quot;1n&quot;],
+                            &quot;sing&quot;:  [&quot;sang&quot;, &quot;sung&quot;], &quot;smite&quot;:  [&quot;smote&quot;, &quot;1-ten&quot;],
+                            &quot;speak&quot;:  [&quot;spoke&quot;, &quot;2n&quot;], &quot;steal&quot;:  [&quot;stole&quot;, &quot;2n&quot;],
+                            &quot;stride&quot;:  [&quot;strode&quot;, &quot;1-den&quot;], &quot;swear&quot;:  [&quot;swore&quot;, &quot;2-n&quot;],
+                            &quot;swim&quot;:  [&quot;swam&quot;, &quot;swum&quot;], &quot;swink&quot;:  [&quot;swonk&quot;, &quot;2en&quot;],
+                            &quot;take&quot;:  [&quot;took&quot;, &quot;1n&quot;], &quot;tear&quot;:  [&quot;tore&quot;, &quot;torn&quot;], &quot;throw&quot;:  [&quot;threw&quot;, &quot;1-n&quot;],
+                            &quot;toswink&quot;:  [&quot;toswank&quot;, &quot;toswunken&quot;], &quot;underdo&quot;:  [&quot;underdid&quot;, &quot;1ne&quot;],
+                            &quot;undergo&quot;:  [&quot;underwent&quot;, &quot;1ne&quot;], &quot;undo&quot;:  [&quot;undid&quot;, &quot;1ne&quot;],
+                            &quot;wake&quot;:  [&quot;woke&quot;, &quot;2n&quot;], &quot;wear&quot;:  [&quot;wore&quot;, &quot;worn&quot;], &quot;weave&quot;:  [&quot;wove&quot;, &quot;2n&quot;],
+                            &quot;withgo&quot;:  [&quot;withwent&quot;, &quot;1ne&quot;], &quot;write&quot;:  [&quot;wrote&quot;, &quot;1-ten&quot;]
+                          };
+                        
+                          function beHaveConj(verb, idx, opts){
+                            if (! verb in beHave) return verb;
+                            if (! &quot;Pr|Pa|Pp&quot;.includes(idx)) return verb;
+                            if (idx === &quot;Pp&quot;) return beHave[verb][idx];
+                        
+                            if (opts.number === GNumber.S){
+                              if (opts.person == Person.F) return beHave[verb][idx][0];
+                              else if (opts.person == Person.T) return beHave[verb][idx][1];
+                              return beHave[verb][idx][2];
+                            }
+                        
+                            return beHave[verb][idx][2];
+                          }
+                        
+                        
+                          function isIrregular(verb){
+                            if (irregular0[verb]) return 1;
+                            if (irregular1[verb]) return 1;
+                            if (irregular2[verb]) return 1;
+                            return 0;//false
+                          }
+                        
+                          /**
+                           * Not safe: must be used with isIrregular
+                           * @method irregularConj
+                           * @param  {[type]}      verb [description]
+                           * @param  {[type]}      idx  0 for past, 1 for past participle
+                           * @return {[type]}           [description]
+                           */
+                          function irregularConj(verb, idx){
+                            if (irregular0[verb]) return verb;
+                            if (irregular1[verb])return irregular1[verb];
+                            //Here, we suppose it is irregular2[verb]
+                            var res = irregular2[verb][idx];
+                            res = res.replace(&quot;1&quot;, verb);
+                            if(idx === 1){
+                              res = res.replace(&quot;2&quot;, irregular2[verb][0]);
+                              res = res.replace(/.-/,&quot;&quot;);
+                            }
+                            return res;
+                          }
+                        
+                          //Override conjugate function
+                          Me.conjugate = function(verb, opts){
+                        
+                            if((opts.mood) &amp;&amp; (opts.mood === Mood.Imp)){
+                              if(opts.person === Person.S) return verb;
+                              return &quot;&quot;;
+                            }
+                        
+                            var begin = &quot;&quot;;
+                            var end = &quot;&quot;;
+                        
+                            if((opts.voice) &amp;&amp; (opts.voice === Voice.P)){
+                              if (beHave[verb]) end = &quot; &quot; + beHaveConj(verb, &quot;Pp&quot;, opts);
+                              else if (isIrregular(verb)) end = &quot; &quot; + irregularConj(verb, 1);
+                              else end = &quot; &quot; + this.conjugate(verb, {tense:Tense.Pa});
+                              verb = &quot;be&quot;;
+                            }
+                        
+                            if(opts.aspect){
+                              if([Aspect.C, Aspect.PC].includes(opts.aspect)){
+                                // http://www.eclecticenglish.com/grammar/PresentContinuous1G.html
+                                var base = verb;
+                                if([&quot;lie&quot;, &quot;die&quot;].includes(verb)) base = verb.slice(0,-2) + &quot;y&quot;;
+                                else if (/^[^aeuio]*[aeuio][^aeuioy]$/g.test(verb)) base = verb + verb.slice(-1);
+                                else if (/^.{2,}e$/g.test(verb)) base = verb.slice(0,-1);
+                        
+                                end = &quot; &quot; + base + &quot;ing&quot; + end;
+                                verb = &quot;be&quot;;
+                              }
+                              if([Aspect.P, Aspect.PC].includes(opts.aspect)){
+                                if (beHave[verb]) end = &quot; &quot; + beHaveConj(verb, &quot;Pp&quot;, opts) + end;
+                                else if (isIrregular(verb)) end = &quot; &quot; + irregularConj(verb, 1) + end;
+                                else end = &quot; &quot; + this.conjugate(verb, {tense:Tense.Pa}) + end;
+                                verb = &quot;have&quot;;
+                              }
+                            }
+                        
+                            if((opts.negated) &amp;&amp; (opts.tense !== Tense.Fu)){
+                              end = &quot; not&quot; + end;
+                              if ((!opts.aspect) || opts.aspect === Aspect.S){
+                                if ((!opts.voice) || opts.voice === Voice.A){
+                                  end += &quot; &quot; + verb;
+                                  verb = &quot;do&quot;;
+                                  //console.log(&quot;negation active aspect&quot;);
+                                }
+                              }
+                            }
+                        
+                            switch (opts.tense) {
+                        
+                              case Tense.Pr:
+                              if (beHave[verb]) return begin + beHaveConj(verb, &quot;Pr&quot;, opts) + end;
+                              if (opts.person == Person.T &amp;&amp; opts.number === GNumber.S){
+                                //hurry, clarify
+                                verb = verb.replace(/([^aeuio])y$/, &quot;$1ie&quot;);
+                                //go, veto, do, wash, mix, fizz (add e )
+                                verb = verb.replace(/(s|z|sh|ch|[^aeui]o)$/, &quot;$1e&quot;);
+                                end = &quot;s&quot; + end;
+                              }
+                              break;
+                        
+                              case Tense.Pa:
+                              //To be, To have
+                              if (beHave[verb]) return begin + beHaveConj(verb, &quot;Pa&quot;, opts) + end;
+                              //Irregular (the block is just for variables)
+                              {
+                                var pref = /(back|be|down|fore|for|in|mis|off|out|over|pre|re|sub|under|un|up|with)(.{3,})/gi;
+                                var match = pref.exec(verb);
+                                if(match){
+                                  //verify if the verb is in Irregular list with the prefix
+                                  if(isIrregular(verb)) return begin + irregularConj(verb, 0) + end;
+                                  //Otherwise, delete the prefix and procede
+                                  begin = match[1];
+                                  verb = match[2];
+                                }
+                              }
+                        
+                              if(isIrregular(verb)) return begin + irregularConj(verb, 0) + end;
+                        
+                              verb = verb.replace(/([^aeuio])y$/, &quot;$1i&quot;);
+                              verb = verb.replace(/c$/, &quot;ck&quot;);
+                              verb = verb.replace(/^([^aeuio]*[aeuio])([^aeuiohwxy])$/, &quot;$1$2$2&quot;);
+                              if (verb.endsWith(&quot;e&quot;)) end = &quot;d&quot; + end;
+                              else end = &quot;ed&quot; + end;
+                              break;
+                        
+                              case Tense.Fu:
+                              begin = &quot;will &quot;;
+                              if(opts.negated) begin += &quot;not &quot;;
+                              break;
+                        
+                            }//swich(tense)
+                        
+                            return begin + verb + end;;
+                        
+                          }
+                        
+                          //=========================================================
+                          //                 STEMMERS
+                          //=========================================================
+                        
+                          /*
+                          To validate this implementation,I rely largely on these resources:
+                          url1: http://snowballstem.org/algorithms/porter/stemmer.html
+                          url2: https://github.com/kristopolous/Porter-Stemmer/blob/master/PorterStemmer1980.js
+                          */
+                          var step2list = {
+                            &quot;ational&quot; : &quot;ate&quot;,
+                            &quot;tional&quot; : &quot;tion&quot;,
+                            &quot;enci&quot; : &quot;ence&quot;,
+                            &quot;anci&quot; : &quot;ance&quot;,
+                            &quot;izer&quot; : &quot;ize&quot;,
+                            &quot;bli&quot; : &quot;ble&quot;,
+                            &quot;alli&quot; : &quot;al&quot;,
+                            &quot;entli&quot; : &quot;ent&quot;,
+                            &quot;eli&quot; : &quot;e&quot;,
+                            &quot;ousli&quot; : &quot;ous&quot;,
+                            &quot;ization&quot; : &quot;ize&quot;,
+                            &quot;ation&quot; : &quot;ate&quot;,
+                            &quot;ator&quot; : &quot;ate&quot;,
+                            &quot;alism&quot; : &quot;al&quot;,
+                            &quot;iveness&quot; : &quot;ive&quot;,
+                            &quot;fulness&quot; : &quot;ful&quot;,
+                            &quot;ousness&quot; : &quot;ous&quot;,
+                            &quot;aliti&quot; : &quot;al&quot;,
+                            &quot;iviti&quot; : &quot;ive&quot;,
+                            &quot;biliti&quot; : &quot;ble&quot;,
+                            &quot;logi&quot; : &quot;log&quot;
+                          },
+                          step3list = {
+                            &quot;icate&quot; : &quot;ic&quot;,
+                            &quot;ative&quot; : &quot;&quot;,
+                            &quot;alize&quot; : &quot;al&quot;,
+                            &quot;iciti&quot; : &quot;ic&quot;,
+                            &quot;ical&quot; : &quot;ic&quot;,
+                            &quot;ful&quot; : &quot;&quot;,
+                            &quot;ness&quot; : &quot;&quot;
+                          },
+                          c = &quot;[^aeiou]&quot;,          // consonant
+                          v = &quot;[aeiouy]&quot;,          // vowel
+                          C = c + &quot;[^aeiouy]*&quot;,    // consonant sequence
+                          V = v + &quot;[aeiou]*&quot;,      // vowel sequence
+                          mgr0 = &quot;^(&quot; + C + &quot;)?&quot; + V + C,               // [C]VC... is m&gt;0
+                          meq1 = &quot;^(&quot; + C + &quot;)?&quot; + V + C + &quot;(&quot; + V + &quot;)?$&quot;,  // [C]VC[V] is m=1
+                          mgr1 = &quot;^(&quot; + C + &quot;)?&quot; + V + C + V + C,       // [C]VCVC... is m&gt;1
+                          s_v = &quot;^(&quot; + C + &quot;)?&quot; + v;                   // vowel in stem
+                        
+                        
+                          function porterStemmer(word){
+                            var stemmed,
+                            suffix,
+                            firstch,
+                            re,
+                            re2,
+                            re3,
+                            re4,
+                            origword = word;
+                        
+                            if (word.length &lt; 3) { return word; }
+                        
+                            firstch = word.substr(0,1);
+                            if (firstch == &quot;y&quot;) {
+                              word = firstch.toUpperCase() + word.substr(1);
+                            }
+                            // Step 1a
+                            re = /^(.+?)(ss|i)es$/;
+                            re2 = /^(.+?)([^s])s$/;
+                        
+                            if (re.test(word)) {
+                              word = word.replace(re,&quot;$1$2&quot;);
+                              g.debugFunction(&#x27;1a&#x27;,re, word);
+                        
+                            } else if (re2.test(word)) {
+                              word = word.replace(re2,&quot;$1$2&quot;);
+                              g.debugFunction(&#x27;1a&#x27;,re2, word);
+                            }
+                        
+                            // Step 1b
+                            re = /^(.+?)eed$/;
+                            re2 = /^(.+?)(ed|ing)$/;
+                            if (re.test(word)) {
+                              var fp = re.exec(word);
+                              re = new RegExp(mgr0);
+                              if (re.test(fp[1])) {
+                                re = /.$/;
+                                word = word.replace(re,&quot;&quot;);
+                                g.debugFunction(&#x27;1b&#x27;,re, word);
+                              }
+                            } else if (re2.test(word)) {
+                              var fp = re2.exec(word);
+                              stemmed = fp[1];
+                              re2 = new RegExp(s_v);
+                              if (re2.test(stemmed)) {
+                                word = stemmed;
+                                g.debugFunction(&#x27;1b&#x27;, re2, word);
+                        
+                                re2 = /(at|bl|iz)$/;
+                                re3 = new RegExp(&quot;([^aeiouylsz])\\1$&quot;);
+                                re4 = new RegExp(&quot;^&quot; + C + v + &quot;[^aeiouwxy]$&quot;);
+                        
+                                if (re2.test(word)) {
+                                  word = word + &quot;e&quot;;
+                                  g.debugFunction(&#x27;1b&#x27;, re2, word);
+                        
+                                } else if (re3.test(word)) {
+                                  re = /.$/;
+                                  word = word.replace(re,&quot;&quot;);
+                                  g.debugFunction(&#x27;1b&#x27;, re3, word);
+                        
+                                } else if (re4.test(word)) {
+                                  word = word + &quot;e&quot;;
+                                  g.debugFunction(&#x27;1b&#x27;, re4, word);
+                                }
+                              }
+                            }
+                        
+                            // Step 1c
+                            re = new RegExp(&quot;^(.*&quot; + v + &quot;.*)y$&quot;);
+                            if (re.test(word)) {
+                              var fp = re.exec(word);
+                              stemmed = fp[1];
+                              word = stemmed + &quot;i&quot;;
+                              g.debugFunction(&#x27;1c&#x27;, re, word);
+                            }
+                        
+                            // Step 2
+                            re = /^(.+?)(ational|tional|enci|anci|izer|bli|alli|entli|eli|ousli|ization|ation|ator|alism|iveness|fulness|ousness|aliti|iviti|biliti|logi)$/;
+                            if (re.test(word)) {
+                              var fp = re.exec(word);
+                              stemmed = fp[1];
+                              suffix = fp[2];
+                              re = new RegExp(mgr0);
+                              if (re.test(stemmed)) {
+                                word = stemmed + step2list[suffix];
+                                g.debugFunction(&#x27;2&#x27;, re, word);
+                              }
+                            }
+                        
+                            // Step 3
+                            re = /^(.+?)(icate|ative|alize|iciti|ical|ful|ness)$/;
+                            if (re.test(word)) {
+                              var fp = re.exec(word);
+                              stemmed = fp[1];
+                              suffix = fp[2];
+                              re = new RegExp(mgr0);
+                              if (re.test(stemmed)) {
+                                word = stemmed + step3list[suffix];
+                                g.debugFunction(&#x27;3&#x27;, re, word);
+                              }
+                            }
+                        
+                            // Step 4
+                            re = /^(.+?)(al|ance|ence|er|ic|able|ible|ant|ement|ment|ent|ou|ism|ate|iti|ous|ive|ize)$/;
+                            re2 = /^(.+?)(s|t)(ion)$/;
+                            if (re.test(word)) {
+                              var fp = re.exec(word);
+                              stemmed = fp[1];
+                              re = new RegExp(mgr1);
+                              if (re.test(stemmed)) {
+                                word = stemmed;
+                                g.debugFunction(&#x27;4&#x27;, re, word);
+                              }
+                            } else if (re2.test(word)) {
+                              var fp = re2.exec(word);
+                              stemmed = fp[1] + fp[2];
+                              re2 = new RegExp(mgr1);
+                              if (re2.test(stemmed)) {
+                                word = stemmed;
+                                g.debugFunction(&#x27;4&#x27;, re2, word);
+                              }
+                            }
+                        
+                            // Step 5
+                            re = /^(.+?)e$/;
+                            if (re.test(word)) {
+                              var fp = re.exec(word);
+                              stemmed = fp[1];
+                              re = new RegExp(mgr1);
+                              re2 = new RegExp(meq1);
+                              re3 = new RegExp(&quot;^&quot; + C + v + &quot;[^aeiouwxy]$&quot;);
+                              if (re.test(stemmed) || (re2.test(stemmed) &amp;&amp; !(re3.test(stemmed)))) {
+                                word = stemmed;
+                                g.debugFunction(&#x27;5&#x27;, re, re2, re3, word);
+                              }
+                            }
+                        
+                            re = /ll$/;
+                            re2 = new RegExp(mgr1);
+                            if (re.test(word) &amp;&amp; re2.test(word)) {
+                              re = /.$/;
+                              word = word.replace(re,&quot;&quot;);
+                              g.debugFunction(&#x27;5&#x27;, re, re2, word);
+                            }
+                        
+                            // and turn initial Y back to y
+                            if (firstch == &quot;y&quot;) {
+                              word = firstch.toLowerCase() + word.substr(1);
+                            }
+                        
+                            return word;
+                          }
+                        
+                        }());
+                        
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script src="../assets/js/yuidoc-bootstrap.js"></script>
+<script>prettyPrint();</script>
+</body>
+</html>

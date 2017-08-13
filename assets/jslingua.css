@@ -44,6 +44,39 @@
   width: 80%;
 }
 
+.k-card {
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid DarkOrchid;
+  padding: .1em;
+  margin: .3em;
+}
+
+.k-card h3 {
+  text-align: center;
+}
+
+.k-tab{
+  border-spacing: .3em;
+  border-collapse: separate;
+  width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.k-tab tr td {
+  padding: .1em;
+}
+
+.k-tab tr  td {
+  border: 1px solid DarkViolet;
+}
+
+.k-tab tr th:not(.noCol) {
+  background-color: Orchid;
+  padding: .1em;
+}
+
 .k-select {
   border: 1px solid DarkViolet;
   padding: 3px;

@@ -24,19 +24,19 @@
             "fors": {},
             "namespaces": {}
         },
+        "ara/ara.morpho.js": {
+            "name": "ara/ara.morpho.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "ara/ara.trans.js": {
             "name": "ara/ara.trans.js",
             "modules": {},
             "classes": {
                 "AraTrans": 1
             },
-            "fors": {},
-            "namespaces": {}
-        },
-        "docs/docs/assets/vendor/bootstrap/js/bootstrap.min.js": {
-            "name": "docs/docs/assets/vendor/bootstrap/js/bootstrap.min.js",
-            "modules": {},
-            "classes": {},
             "fors": {},
             "namespaces": {}
         },
@@ -55,6 +55,13 @@
             "classes": {
                 "EngLang": 1
             },
+            "fors": {},
+            "namespaces": {}
+        },
+        "eng/eng.morpho.js": {
+            "name": "eng/eng.morpho.js",
+            "modules": {},
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
@@ -481,6 +488,52 @@
             "class": "AraLang"
         },
         {
+            "file": "ara/ara.morpho.js",
+            "line": 320,
+            "description": "Normalization method for Arabic: it helps delete vocalization\n* voc: delete vocalization\n* alef: Replace all alef variants with the simple alef\n* yeh: Relace the alif maqsorah with yeh\n* teh: Replace teh marbuta with heh\n* _: Delete tatweel",
+            "itemtype": "method",
+            "name": "normalize",
+            "params": [
+                {
+                    "name": "word",
+                    "description": "the word to be normalized",
+                    "type": "String"
+                },
+                {
+                    "name": "opts",
+                    "description": "some options (optional) where each language defines its own\nnormalization options",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "normalized word",
+                "type": "String"
+            },
+            "class": "AraTrans"
+        },
+        {
+            "file": "ara/ara.morpho.js",
+            "line": 374,
+            "description": "A method for Arabic stemming which aims to use regex as much as possible",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "itemtype": "method",
+            "name": "jslinguaAraStemmer",
+            "params": [
+                {
+                    "name": "word",
+                    "description": "[description]",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "AraTrans"
+        },
+        {
             "file": "ara/ara.trans.js",
             "line": 323,
             "description": "Arabic to morse normalization",
@@ -586,12 +639,6 @@
             "class": "AraTrans"
         },
         {
-            "file": "docs/docs/assets/vendor/bootstrap/js/bootstrap.min.js",
-            "line": 1,
-            "description": "Bootstrap.js by @fat & @mdo\nplugins: bootstrap-transition.js, bootstrap-modal.js, bootstrap-dropdown.js, bootstrap-scrollspy.js, bootstrap-tab.js, bootstrap-tooltip.js, bootstrap-popover.js, bootstrap-affix.js, bootstrap-alert.js, bootstrap-button.js, bootstrap-collapse.js, bootstrap-carousel.js, bootstrap-typeahead.js\nCopyright 2012 Twitter, Inc.\nhttp://www.apache.org/licenses/LICENSE-2.0.txt",
-            "class": "EngInfo"
-        },
-        {
             "file": "eng/eng.lang.js",
             "line": 60,
             "description": "Transform from Arabic numbers to English letters",
@@ -637,6 +684,30 @@
                 "type": "String"
             },
             "class": "EngLang"
+        },
+        {
+            "file": "eng/eng.morpho.js",
+            "line": 239,
+            "description": "Not safe: must be used with isIrregular",
+            "itemtype": "method",
+            "name": "irregularConj",
+            "params": [
+                {
+                    "name": "verb",
+                    "description": "[description]",
+                    "type": "[type]"
+                },
+                {
+                    "name": "idx",
+                    "description": "0 for past, 1 for past participle",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "EngTrans"
         },
         {
             "file": "eng/eng.trans.js",
@@ -745,18 +816,33 @@
         },
         {
             "file": "jpn/jpn.morpho.js",
-            "line": 83,
-            "override": "[getPronounName description]",
+            "line": 180,
+            "description": "[basicForm description]",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "basicForm",
             "params": [
                 {
-                    "name": "opts",
+                    "name": "verb",
                     "description": "[description]",
-                    "type": "[type]"
+                    "type": "String"
+                },
+                {
+                    "name": "sound",
+                    "description": "[description]",
+                    "type": "Array"
+                },
+                {
+                    "name": "vtype",
+                    "description": "[description]",
+                    "type": "String"
                 }
             ],
             "return": {
                 "description": "[description]",
-                "type": "[type]"
+                "type": "String"
             },
             "class": "JpnTrans"
         },
@@ -952,6 +1038,9 @@
             "file": "jslingua.js",
             "line": 70,
             "description": "Add a service for a specific language",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
             "itemtype": "method",
             "name": "addService",
             "params": [
@@ -976,8 +1065,11 @@
         },
         {
             "file": "jslingua.js",
-            "line": 86,
+            "line": 88,
             "description": "Get the codes of available languages of a given service",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
             "itemtype": "method",
             "name": "serviceLanguages",
             "params": [
@@ -996,8 +1088,11 @@
         },
         {
             "file": "jslingua.js",
-            "line": 97,
+            "line": 101,
             "description": "Get the service class for a given language and service name.<br>\nFor example: JsLingua.getService(\"Info\", \"ara\") Gives a class AraInfo",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
             "itemtype": "method",
             "name": "getService",
             "params": [
@@ -1021,8 +1116,29 @@
         },
         {
             "file": "jslingua.js",
-            "line": 115,
+            "line": 117,
+            "description": "[getVersion description]",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "itemtype": "method",
+            "name": "getVersion",
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "JsLingua",
+            "module": "JsLingua"
+        },
+        {
+            "file": "jslingua.js",
+            "line": 128,
             "description": "To recover the direction of writing for the given language <br>\nThis can be done using the info.js instance of the target language.\nBut, the direction is used a lot for presentation, so a centralized\nversion is to be afforded, so we don't import the js file for each\nlanguage in each webpage.",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "itemtype": "method",
+            "name": "getDir",
             "params": [
                 {
                     "name": "langCode",
@@ -1347,7 +1463,10 @@
         {
             "file": "morpho.js",
             "line": 92,
-            "description": "The mood: Indicative, Subjunctive, Conditional,\nOptative, Imperative, Jussive, Potential,\nHypothetical, Inferential",
+            "description": "The mood: indicative, subjunctive, conditional,\noptative, imperative, jussive, potential,\nhypothetical, inferential",
+            "see": [
+                "http://universaldependencies.org/u/feat/Mood.html"
+            ],
             "access": "Morpho.Feature.Mood",
             "itemtype": "attribute",
             "name": "Mood",
@@ -1359,7 +1478,124 @@
         },
         {
             "file": "morpho.js",
+            "line": 105,
+            "description": "The indicative can be considered the default mood.\nA verb in indicative merely states that something happens,\nhas happened or will happen, without adding any attitude of the speaker.",
+            "example": [
+                " You study at the university"
+            ],
+            "type": "{String}",
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
             "line": 114,
+            "description": "The speaker uses imperative to order or ask the addressee to do the action of the verb.",
+            "example": [
+                " Study at the university"
+            ],
+            "type": "{String}",
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 121,
+            "description": "The conditional mood is used to express actions that would have taken\nplace under some circumstances but they actually did not / do not happen.\nGrammars of some languages may classify conditional as tense (rather than mood)\nbut e.g. in Czech it combines with two different tenses (past and present).",
+            "example": [
+                " if she went home"
+            ],
+            "type": "{String}",
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 131,
+            "description": "The action of the verb is possible but not certain.\nThis mood corresponds to the modal verbs can, might, be able to. Used e.g. in Finnish.",
+            "example": [
+                " she can go home"
+            ],
+            "type": "{String}",
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 139,
+            "description": "The subjunctive mood is used under certain circumstances in subordinate clauses,\ntypically for actions that are subjective or otherwise uncertain.\nIn German, it may be also used to convey the conditional meaning.",
+            "example": [
+                " \"Je veux que tu le fasses\": I want that you to do it"
+            ],
+            "type": "{String}",
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 148,
+            "description": "The jussive mood expresses the desire that the action happens;\nit is thus close to both imperative and optative.\nUnlike in desiderative, it is the speaker, not the subject who wishes that it happens.\nUsed e.g. in Arabic.",
+            "example": [
+                " فليكن let it be"
+            ],
+            "type": "{String}",
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 158,
+            "description": "Means “in order to”, occurs in Amazonian languages.",
+            "type": "{String}",
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 164,
+            "description": "The quotative mood is used e.g. in Estonian to denote direct speech.",
+            "type": "{String}",
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 170,
+            "description": "Expresses exclamations like “May you have a long life!” or\n“If only I were rich!” In Turkish it also expresses suggestions.",
+            "example": [
+                " let’s go home"
+            ],
+            "type": "{String}",
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 178,
+            "description": "The desiderative mood corresponds to the modal verb “want to”:\n“He wants to come.” Used e.g. in Turkish.",
+            "type": "{String}",
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 185,
+            "description": "The necessitative mood expresses necessity and corresponds to the modal\nverbs “must, should, have to”: “He must come.”",
+            "type": "{String}",
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 192,
+            "description": "Expresses surprise, irony or doubt. Occurs in Albanian,\nother Balkan languages, and in Caddo (Native American from Oklahoma).",
+            "type": "{String}",
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 201,
             "description": "The voice: Active,Passive, Middle",
             "access": "Morpho.Feature.Voice",
             "itemtype": "attribute",
@@ -1372,11 +1608,11 @@
         },
         {
             "file": "morpho.js",
-            "line": 128,
-            "description": "The number: Singular, Dual, Plural",
+            "line": 215,
+            "description": "The grammatical number: Singular, Dual, Plural",
             "access": "Morpho.Feature.Number",
             "itemtype": "attribute",
-            "name": "Num",
+            "name": "GNumber",
             "readonly": "",
             "static": 1,
             "type": "{object}",
@@ -1385,20 +1621,7 @@
         },
         {
             "file": "morpho.js",
-            "line": 142,
-            "description": "The case: Nominative, Accusative, Genitive, Dative,\nPrepositional, Ablative, Instrumental, Vocative",
-            "access": "Morpho.Feature.Case",
-            "itemtype": "attribute",
-            "name": "Case",
-            "readonly": "",
-            "static": 1,
-            "type": "{object}",
-            "class": "Morpho",
-            "module": "JsLingua"
-        },
-        {
-            "file": "morpho.js",
-            "line": 162,
+            "line": 229,
             "description": "The person: First, Second, Third.",
             "access": "Morpho.Feature.Person",
             "itemtype": "attribute",
@@ -1411,7 +1634,7 @@
         },
         {
             "file": "morpho.js",
-            "line": 176,
+            "line": 243,
             "description": "The gender: Masculine, Feminine, Neuter.",
             "access": "Morpho.Feature.Gender",
             "itemtype": "attribute",
@@ -1424,7 +1647,7 @@
         },
         {
             "file": "morpho.js",
-            "line": 190,
+            "line": 257,
             "description": "This is a map to different morphology features:\n<ul>\n<li>POS</li>\n<li>Tense</li>\n<li>Aspect</li>\n<li>Mood</li>\n<li>Voice</li>\n<li>Number: It returns <a href=\"#attr_Num\">Num</a></li>\n<li>Case: It returns <a href=\"#attr_Case\">Case</a></li>\n<li>Person: It returns <a href=\"#attr_Person\">Person</a></li>\n<li>Gender: It returns <a href=\"#attr_Gender\">Gender</a></li>\n</ul>\nWe can access these features either by:<br>\nMorpho.Feature.feature_name <br>\nOr: <br>\nMorpho.Feature[\"feature_name\"]",
             "itemtype": "attribute",
             "name": "Feature",
@@ -1437,7 +1660,7 @@
         },
         {
             "file": "morpho.js",
-            "line": 231,
+            "line": 297,
             "description": "Add new stemmer method",
             "itemtype": "method",
             "name": "newStemmer",
@@ -1466,7 +1689,7 @@
         },
         {
             "file": "morpho.js",
-            "line": 253,
+            "line": 319,
             "description": "Enables the debugging messages",
             "itemtype": "method",
             "name": "enableDebug",
@@ -1475,7 +1698,7 @@
         },
         {
             "file": "morpho.js",
-            "line": 261,
+            "line": 327,
             "description": "disables the debugging messages",
             "itemtype": "method",
             "name": "disableDebug",
@@ -1484,8 +1707,9 @@
         },
         {
             "file": "morpho.js",
-            "line": 269,
+            "line": 335,
             "description": "Sets the current stemmer",
+            "final": 1,
             "itemtype": "method",
             "name": "setCurrentStemmer",
             "params": [
@@ -1500,8 +1724,9 @@
         },
         {
             "file": "morpho.js",
-            "line": 280,
+            "line": 348,
             "description": "Returns the list of available stemming methods",
+            "final": 1,
             "itemtype": "method",
             "name": "availableStemmers",
             "return": {
@@ -1513,7 +1738,7 @@
         },
         {
             "file": "morpho.js",
-            "line": 289,
+            "line": 358,
             "description": "This method is used to recover the name of the tense",
             "params": [
                 {
@@ -1531,14 +1756,15 @@
         },
         {
             "file": "morpho.js",
-            "line": 308,
-            "description": "This method is used to get personal pronouns characteristics",
+            "line": 376,
+            "description": "Returns a list of verb types",
+            "abstract": "",
             "access": "public",
             "tagname": "",
             "itemtype": "method",
-            "name": "getPronounOpts",
+            "name": "getVerbTypes",
             "return": {
-                "description": "Array of different objects; each object contains the properties\nof pronouns. For example: {person: Morpho.Feature.Person.First, number: Morpho.Feature.Number.Singular}\nwhich refers to the personal pronoun \"I\"",
+                "description": "[description]",
                 "type": "Array"
             },
             "class": "Morpho",
@@ -1546,12 +1772,28 @@
         },
         {
             "file": "morpho.js",
-            "line": 320,
-            "description": "This function returns an array of available tenses",
+            "line": 387,
+            "description": "Given a verb, it detects its type",
+            "abstract": "",
             "access": "public",
             "tagname": "",
             "itemtype": "method",
-            "name": "getTenses",
+            "name": "getVerbType",
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 398,
+            "description": "This function returns an object of available conjugation forms\n```\n{\n \"form_name\": {opts}\n}\n```",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getForms",
             "return": {
                 "description": "Array of tenses available for the language",
                 "type": "Array"
@@ -1561,7 +1803,151 @@
         },
         {
             "file": "morpho.js",
-            "line": 334,
+            "line": 431,
+            "description": "Each language has a conjugation table model.\nFor example, in English, Arabic and French, we put pronouns in rows.\nAs for Japanese, the conjugation doesn't follow that pattern.",
+            "itemtype": "method",
+            "name": "getConjugModel",
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 447,
+            "description": "[getOptLists description]",
+            "itemtype": "method",
+            "name": "getOptLists",
+            "params": [
+                {
+                    "name": "optLabel",
+                    "description": "[description]",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 475,
+            "description": "[getNegationOpts description]",
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getNegationOpts",
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 488,
+            "description": "[getNegationName description]",
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getNegationName",
+            "params": [
+                {
+                    "name": "opts",
+                    "description": "[description]",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 501,
+            "description": "[getVoiceOpts description]",
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getVoiceOpts",
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 514,
+            "description": "[getVoiceName description]",
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getVoiceName",
+            "params": [
+                {
+                    "name": "opts",
+                    "description": "[description]",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 531,
+            "description": "[getPronounOpts description]",
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getPronounOpts",
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 541,
+            "description": "[getPronounName description]",
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getPronounName",
+            "params": [
+                {
+                    "name": "opts",
+                    "description": "[description]",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 553,
             "description": "This function is used for verb conjugation",
             "itemtype": "method",
             "name": "conjugate",
@@ -1586,7 +1972,7 @@
         },
         {
             "file": "morpho.js",
-            "line": 345,
+            "line": 566,
             "description": "Get the personal pronoun using options like: person, gender, etc.<br>\nfor example, the parameters for the personal pronoun \"I\": <br>\n```\n   {\n     person: Morpho.Feature.Person.First,\n     number: Morpho.Feature.Number.Singular\n   }\n```",
             "itemtype": "method",
             "name": "getPronounName",
@@ -1606,7 +1992,7 @@
         },
         {
             "file": "morpho.js",
-            "line": 362,
+            "line": 583,
             "description": "This function is used for noun inflexion<br>\nFor example: noun to plural nouns",
             "itemtype": "method",
             "name": "declenseNoun",
@@ -1631,7 +2017,7 @@
         },
         {
             "file": "morpho.js",
-            "line": 374,
+            "line": 595,
             "description": "Stem a word: delete prefixes, suffixes and infixes",
             "itemtype": "method",
             "name": "stem",
@@ -1651,7 +2037,7 @@
         },
         {
             "file": "morpho.js",
-            "line": 387,
+            "line": 608,
             "description": "lemmatize a word: return it to its origin",
             "itemtype": "method",
             "name": "lemmatize",
@@ -1665,6 +2051,82 @@
             "return": {
                 "description": "lemmatized word",
                 "type": "String"
+            },
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 618,
+            "description": "Normalization method, used to delete non used chars or to replace some with others, etc.",
+            "itemtype": "method",
+            "name": "normalize",
+            "params": [
+                {
+                    "name": "word",
+                    "description": "the word to be normalized",
+                    "type": "String"
+                },
+                {
+                    "name": "opts",
+                    "description": "some options (optional) where each language defines its own\nnormalization options",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "normalized word",
+                "type": "String"
+            },
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 634,
+            "description": "[parseConjModelBranch description]",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "itemtype": "method",
+            "name": "parseConjModelBranch",
+            "params": [
+                {
+                    "name": "morpho",
+                    "description": "[description]",
+                    "type": "[type]"
+                },
+                {
+                    "name": "branch",
+                    "description": "[description]",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "Morpho",
+            "module": "JsLingua"
+        },
+        {
+            "file": "morpho.js",
+            "line": 677,
+            "description": "[parseConjModel description]",
+            "static": 1,
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "parseConjModel",
+            "params": [
+                {
+                    "name": "morpho",
+                    "description": "[description]",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
             },
             "class": "Morpho",
             "module": "JsLingua"
@@ -1933,10 +2395,6 @@
     ],
     "warnings": [
         {
-            "message": "unknown tag: override",
-            "line": " jpn/jpn.morpho.js:83"
-        },
-        {
             "message": "unknown tag: access",
             "line": " morpho.js:45"
         },
@@ -1954,43 +2412,83 @@
         },
         {
             "message": "unknown tag: access",
+            "line": " morpho.js:201"
+        },
+        {
+            "message": "unknown tag: access",
+            "line": " morpho.js:215"
+        },
+        {
+            "message": "unknown tag: access",
+            "line": " morpho.js:229"
+        },
+        {
+            "message": "unknown tag: access",
+            "line": " morpho.js:243"
+        },
+        {
+            "message": "unknown tag: access",
+            "line": " morpho.js:257"
+        },
+        {
+            "message": "unknown tag: abstract",
+            "line": " morpho.js:376"
+        },
+        {
+            "message": "unknown tag: abstract",
+            "line": " morpho.js:387"
+        },
+        {
+            "message": "Missing item type\nThe indicative can be considered the default mood.\nA verb in indicative merely states that something happens,\nhas happened or will happen, without adding any attitude of the speaker.",
+            "line": " morpho.js:105"
+        },
+        {
+            "message": "Missing item type\nThe speaker uses imperative to order or ask the addressee to do the action of the verb.",
             "line": " morpho.js:114"
         },
         {
-            "message": "unknown tag: access",
-            "line": " morpho.js:128"
+            "message": "Missing item type\nThe conditional mood is used to express actions that would have taken\nplace under some circumstances but they actually did not / do not happen.\nGrammars of some languages may classify conditional as tense (rather than mood)\nbut e.g. in Czech it combines with two different tenses (past and present).",
+            "line": " morpho.js:121"
         },
         {
-            "message": "unknown tag: access",
-            "line": " morpho.js:142"
+            "message": "Missing item type\nThe action of the verb is possible but not certain.\nThis mood corresponds to the modal verbs can, might, be able to. Used e.g. in Finnish.",
+            "line": " morpho.js:131"
         },
         {
-            "message": "unknown tag: access",
-            "line": " morpho.js:162"
+            "message": "Missing item type\nThe subjunctive mood is used under certain circumstances in subordinate clauses,\ntypically for actions that are subjective or otherwise uncertain.\nIn German, it may be also used to convey the conditional meaning.",
+            "line": " morpho.js:139"
         },
         {
-            "message": "unknown tag: access",
-            "line": " morpho.js:176"
+            "message": "Missing item type\nThe jussive mood expresses the desire that the action happens;\nit is thus close to both imperative and optative.\nUnlike in desiderative, it is the speaker, not the subject who wishes that it happens.\nUsed e.g. in Arabic.",
+            "line": " morpho.js:148"
         },
         {
-            "message": "unknown tag: access",
-            "line": " morpho.js:190"
+            "message": "Missing item type\nMeans “in order to”, occurs in Amazonian languages.",
+            "line": " morpho.js:158"
         },
         {
-            "message": "Missing item type\nBootstrap.js by @fat & @mdo\nplugins: bootstrap-transition.js, bootstrap-modal.js, bootstrap-dropdown.js, bootstrap-scrollspy.js, bootstrap-tab.js, bootstrap-tooltip.js, bootstrap-popover.js, bootstrap-affix.js, bootstrap-alert.js, bootstrap-button.js, bootstrap-collapse.js, bootstrap-carousel.js, bootstrap-typeahead.js\nCopyright 2012 Twitter, Inc.\nhttp://www.apache.org/licenses/LICENSE-2.0.txt",
-            "line": " docs/docs/assets/vendor/bootstrap/js/bootstrap.min.js:1"
+            "message": "Missing item type\nThe quotative mood is used e.g. in Estonian to denote direct speech.",
+            "line": " morpho.js:164"
         },
         {
-            "message": "Missing item type",
-            "line": " jpn/jpn.morpho.js:83"
+            "message": "Missing item type\nExpresses exclamations like “May you have a long life!” or\n“If only I were rich!” In Turkish it also expresses suggestions.",
+            "line": " morpho.js:170"
         },
         {
-            "message": "Missing item type\nTo recover the direction of writing for the given language <br>\nThis can be done using the info.js instance of the target language.\nBut, the direction is used a lot for presentation, so a centralized\nversion is to be afforded, so we don't import the js file for each\nlanguage in each webpage.",
-            "line": " jslingua.js:115"
+            "message": "Missing item type\nThe desiderative mood corresponds to the modal verb “want to”:\n“He wants to come.” Used e.g. in Turkish.",
+            "line": " morpho.js:178"
+        },
+        {
+            "message": "Missing item type\nThe necessitative mood expresses necessity and corresponds to the modal\nverbs “must, should, have to”: “He must come.”",
+            "line": " morpho.js:185"
+        },
+        {
+            "message": "Missing item type\nExpresses surprise, irony or doubt. Occurs in Albanian,\nother Balkan languages, and in Caddo (Native American from Oklahoma).",
+            "line": " morpho.js:192"
         },
         {
             "message": "Missing item type\nThis method is used to recover the name of the tense",
-            "line": " morpho.js:289"
+            "line": " morpho.js:358"
         }
     ]
 }

@@ -14,8 +14,8 @@
   addScript("jslingua.min.js");
   addScript("lang.min.js");
   addScript("ara.lang.min.js");
-  addScript("jpn.lang.min.js");
   addScript("eng.lang.min.js");
+  addScript("jpn.lang.min.js");
   </script>
 
   <script type="text/javascript">
@@ -40,7 +40,12 @@
   }
 
   function setTester (){
-    tester = new (JsLingua.getService("Lang", _($("l")).text))();
+    var lang = _($("l")).text;
+    $("nbrp").dir = JsLingua.getDir(lang);
+    $("ltst").dir = JsLingua.getDir(lang);
+    $("tsrc").dir = JsLingua.getDir(lang);
+    $("tdest").dir = JsLingua.getDir(lang);
+    tester = new (JsLingua.getService("Lang", lang))();
     cs = tester.availableCharSets();
   }
 
@@ -81,9 +86,9 @@
       found = tester[func](element)(text);
 
       if (found)
-      res += '<span class="l t">' + element + "</span>";
+      res += '<span class="k-card t">' + element + "</span>";
       else {
-        res += '<span class="l f">' + element + "</span>";
+        res += '<span class="k-card f">' + element + "</span>";
       }
     });
     container.innerHTML = res;
@@ -103,19 +108,13 @@
   </script>
 
   <style >
-  .l {
-    display: inline-block;
-    border: 1px solid Black;
-    vertical-align: middle;
-    border-radius: 2px;
-    margin: 2px;
-    padding: 2px;
-  }
   .t {
-    background-color: DarkOrchid;
+    background-color: slateblue;
+    color: yellow;
   }
   .f {
-    background-color: Gray;
+    background-color: gray;
+    color: black;
   }
   </style>
 
@@ -126,6 +125,24 @@
 
   <div class="content-wrapper">
     <div class="content pure-g">
+
+      <div class="pure-u-1">
+        <div class="kfs">
+          <h1><span>Description</span></h1>
+          <div>
+            This module affords functions to detect languages letters and functions based on that.
+            <ul>
+              <li>Choose the language first</li>
+              <li>To get the pronounciation, put the number (e.g. 103598)
+                then push "in letters" button
+              </li>
+              <li>To find out if a text contains some or all charsets of a language,
+                just try it in the next functionality. the gray color means a negative result.</li>
+              <li>You can find some transformation functions from a charset to another.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <div class="pure-u-1">
         <div class="kfs">

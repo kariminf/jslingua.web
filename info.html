@@ -14,8 +14,8 @@
   addScript("jslingua.min.js");
   addScript("info.min.js");
   addScript("ara.info.min.js");
-  addScript("jpn.info.min.js");
   addScript("eng.info.min.js");
+  addScript("jpn.info.min.js");
   </script>
 
   <script type="text/javascript">
@@ -68,8 +68,17 @@
 
       <div class="pure-u-1">
         <div class="kfs">
+          <h1><span>Description</span></h1>
+          <div>
+            Choose the language and it will show some information about it.
+          </div>
+        </div>
+      </div>
+
+      <div class="pure-u-1">
+        <div class="kfs">
           <h1><span>Language</span></h1>
-          <label>Choose the language:</label>
+          <label>Language code:</label>
           <select id="l" class="k-select" onchange="update()">
           </select>
         </div>
@@ -115,10 +124,10 @@
     <div w3-include-html="footer.html"></div>
 
   </div>
-    <script>
-      w3.includeHTML();
-      loading();
-    </script>
+  <script>
+    w3.includeHTML();
+    loading();
+  </script>
 
 </body>
 </html>

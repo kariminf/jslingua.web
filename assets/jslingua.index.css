@@ -10,9 +10,9 @@
 .splash h1  {
   font-size: 5em;
   font-weight: bold;
-  color: DarkViolet;
-  text-shadow: 0 0 10px Lime;
-  border: 3px solid DarkViolet;
+  color: indigo;
+  text-shadow: 0 0 1em indigo;
+  border: 3px solid indigo;
   padding: .5em 1em;
   border-radius: 5px;
   line-height: 1em;
@@ -20,7 +20,7 @@
 }
 
 .splash-subhead {
-  color: DarkBlue;
+  color: indigo;
   font-weight: bolder;
   letter-spacing: 0.05em;
 }

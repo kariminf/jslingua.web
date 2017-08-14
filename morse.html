@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <title>JsLingua- Morse code</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/pure-min.css">
-  <link rel="stylesheet" href="assets/grids-responsive-min.css">
   <link rel="stylesheet" href="assets/jslingua.css">
 
   <script src="assets/w3.js"></script>
@@ -65,28 +63,35 @@
 
   <div class="content-wrapper">
 
-    <div class="content pure-g">
+    <h1>Morse code</h1>
 
-      <div class="pure-u-1">
-        <div class="kfs" >
-          <h1><span>Language</span></h1>
-          <label>Choose the language:</label>
-          <select id="l" class="k-select" onchange="update()">
-          </select>
+    <div class="content hflex">
+
+      <div class="k-fs k-1">
+        <h1><span>Description</span></h1>
+        <div>
+          Choose the language, transform to morse, then hear it.
         </div>
       </div>
 
-      <div class="pure-u-1">
-        <div class="kfs">
-          <h1><span>Morse code</span></h1>
-          <input type="text" id="lang" class="k-input" /><br>
-          <button onclick="lang2trans()" class="pure-button-secondary pure-button">To Transliteration</button><br>
-          <div id="2trans" class="k-input pure-input-1"></div><br>
-          <button onclick="hearIt()" class="pure-button-secondary pure-button">Hear it</button>
-        </div>
+      <div class="k-fs k-1">
+        <h1><span>Language</span></h1>
+        <label>Choose the language:</label>
+        <select id="l" class="k-select" onchange="update()">
+        </select>
       </div>
+
+      <div class="k-fs k-1">
+        <h1><span>Morse code</span></h1>
+        <input type="text" id="lang" class="k-input k-1" /><br>
+        <button onclick="lang2trans()" class="k-button">To Transliteration</button><br>
+        <div id="2trans" class="k-input k-1"></div><br>
+        <button onclick="hearIt()" class="k-button">Hear it</button>
+      </div>
+
     </div>
 
+    <div class="k-footer-clean"></div>
     <div w3-include-html="footer.html"></div>
 
   </div>

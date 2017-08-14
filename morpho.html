@@ -2,10 +2,8 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Transliteration</title>
+  <title>JsLingua-Morphology</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/pure-min.css">
-  <link rel="stylesheet" href="assets/grids-responsive-min.css">
   <link rel="stylesheet" href="assets/jslingua.css">
 
   <script src="assets/w3.js"></script>
@@ -108,7 +106,7 @@
     var typeOpts = {vtype:morpho.getVerbType(verb)};
 
     for (k in forms) {
-      result += "<div class=\"k-card\"><h3>" + k + "</h3>";
+      result += "<div class=\"k-1 k-l-2 \"><h3>" + k + "</h3>";
       result += "<table class=\"k-tab\">" + conjParams.colHtml;
       var ropts = conjParams.rows.opts;
       var copts = conjParams.cols.opts;
@@ -159,69 +157,63 @@
   <div w3-include-html="menu.html"></div>
 
   <div class="content-wrapper">
+    <h1>Morpho module</h1>
+    <div class="content hflex">
 
-    <div class="content pure-g">
-
-      <div class="pure-u-1">
-        <div class="kfs">
-          <h1><span>Description</span></h1>
-          <div>
-            This module affords morphological functions that can be executed on words.
-            <ul>
-              <li>Choose the language first</li>
-              <li>Stemming: it is the function of deleting prefixes, suffixes and infixes.
-                It leaves you with just a root which usually doesn't belong to the language syntax.
-                Try:
-                <ul>
-                  <li>Ara: </li>
-                  <li>Eng: conditional, allowance</li>
-                  <li>Jpn: </li>
-                </ul>
-              </li>
-              <li>Conjugation: just put a verb in its dictionary form and push "conjugate".
-                Try:
-                <ul>
-                  <li>Ara: استعمل لعب قال جمع استوى</li>
-                  <li>Eng: undergo, stay, cry, let</li>
-                  <li>Jpn: 勉強する 行く 飲む 遊ぶ 来る</li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+      <div class="k-fs k-1">
+        <h1><span>Description</span></h1>
+        <div>
+          This module affords morphological functions that can be executed on words.
+          <ul>
+            <li>Choose the language first</li>
+            <li>Stemming: it is the function of deleting prefixes, suffixes and infixes.
+              It leaves you with just a root which usually doesn't belong to the language syntax.
+              Try:
+              <ul>
+                <li>Ara: </li>
+                <li>Eng: conditional, allowance</li>
+                <li>Jpn: </li>
+              </ul>
+            </li>
+            <li>Conjugation: just put a verb in its dictionary form and push "conjugate".
+              Try:
+              <ul>
+                <li>Ara: استعمل لعب قال جمع استوى</li>
+                <li>Eng: undergo, stay, cry, let</li>
+                <li>Jpn: 勉強する 行く 飲む 遊ぶ 来る</li>
+              </ul>
+            </li>
+          </ul>
         </div>
+      </div> <!-- end Description -->
+
+      <div class="k-fs k-1">
+        <h1><span>Language</span></h1>
+        <label>Choose the language:</label>
+        <select id="l" class="k-select" onchange="update()">
+        </select>
       </div>
 
-      <div class="pure-u-1">
-        <div class="kfs" >
-          <h1><span>Language</span></h1>
-          <label>Choose the language:</label>
-          <select id="l" class="k-select" onchange="update()">
-          </select>
-        </div>
+      <div class="k-fs k-1">
+        <h1><span>Stemming</span></h1>
+        <label>Method</label>
+        <select id="stemM" class="k-select" onchange="setMethod()">
+        </select><br>
+        <input type="text" id="stemI" class="k-input k-1"/><br>
+        <button onclick="stem()" class="k-button">Stem</button><br>
+        <div id="stemO" class="k-input k-1" ></div>
       </div>
 
-      <div class="pure-u-1">
-        <div class="kfs" >
-          <h1><span>Stemming</span></h1>
-          <label>Method</label>
-          <select id="stemM" class="k-select" onchange="setMethod()">
-          </select>
-          <input type="text" id="stemI" class="k-input"/><br>
-          <button onclick="stem()" class="pure-button-secondary pure-button">Stem</button><br>
-          <div id="stemO" class="k-input pure-input-1" ></div>
-        </div>
-      </div>
-
-      <div class="pure-u-1">
-        <div class="kfs" >
-          <h1><span>Verb Conjugation</span></h1>
-          <input type="text" id="verb" class="k-input" /><br>
-          <button onclick="conjugate()" class="pure-button-secondary pure-button">Conjugate</button><br>
-          <div id="conj" class="k-input pure-input-1" ></div>
-        </div>
+      <div class="k-fs k-1">
+        <h1><span>Verb Conjugation</span></h1>
+        <input type="text" id="verb" class="k-input k-1" /><br>
+        <button onclick="conjugate()" class="k-button">Conjugate</button><br>
+        <div id="conj" class="hflex" ></div>
       </div>
 
     </div>
+
+    <div class="k-footer-clean"></div>
 
     <div w3-include-html="footer.html"></div>
 

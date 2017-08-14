@@ -2,13 +2,14 @@
   width: 80%;
   height: 80%;
   margin: auto;
+  margin-top: 2em;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
   text-align: center;
 }
 
 .splash h1  {
-  font-size: 5em;
+  font-size: 2em;
   font-weight: bold;
   color: indigo;
   text-shadow: 0 0 1em indigo;
@@ -25,31 +26,27 @@
   letter-spacing: 0.05em;
 }
 
-a.pure-button-splash {
+.splash a.k-button {
   font-weight: bold;
   font-size: 120%;
 }
 
 .fixed-wraper {
-  height: 80%;
+  height: 100%;
 }
 
 .content-wrapper {
-  top: 80%;
+  top: 50%;
 }
 
-@media (max-width: 48em) {
-  .fixed-wraper {
-    height: 80%;
+@media only screen and (min-width: 768px) {
+  .content-wrapper {
+    top: 70%;
   }
   .splash {
-    height: 80%;
+    margin-top: 0;
   }
-  .content-wrapper {
-    top: 80%;
-  }
-
   .splash h1  {
-    font-size: 3em;
+    font-size: 5em;
   }
 }

@@ -4,27 +4,29 @@
   <meta charset="UTF-8">
   <title>JsLingua</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
   <link rel="stylesheet" href="assets/pure-min.css">
   <link rel="stylesheet" href="assets/grids-responsive-min.css">
-  <link rel="stylesheet" href="assets/jslingua.css">
-  <link rel="stylesheet" href="assets/jslingua.index.css">
-  <link rel="stylesheet" href="assets/animate.min.css">
-  <script src="assets/w3.js"></script>
-  <style type="text/css">
+-->
+<link rel="stylesheet" href="assets/jslingua.css">
+<link rel="stylesheet" href="assets/jslingua.index.css">
+<link rel="stylesheet" href="assets/animate.min.css">
+<script src="assets/w3.js"></script>
+<style type="text/css">
 
-  .splash h1 {
-    animation: bounceInUp 1s;
-  }
+.splash h1 {
+  animation: bounceInUp 1s;
+}
 
 
-  .splash-subhead {
-    animation: bounceInUp 1s;
-    animation-delay: .3s;
-  }
+.splash-subhead {
+  animation: bounceInUp 1s;
+  animation-delay: .3s;
+}
 
-  </style>
+</style>
 
-  <script src="assets/w3.js"></script>
+<script src="assets/w3.js"></script>
 
 </head>
 <body>
@@ -38,7 +40,9 @@
         <p>
           A javascript library to process languages.
         </p>
-        <a href="https://github.com/kariminf/jslingua" class="pure-button pure-button-splash">Check the code</a>
+        <a href="https://github.com/kariminf/jslingua"
+        class="k-button"
+        target="_blank">Check the code</a>
       </div>
     </div>
   </div>
@@ -46,110 +50,97 @@
   <div class="content-wrapper">
     <div class="content">
       <h1>Modules:</h1>
-      <div class="pure-g">
+      <div class="hflex">
         <!-- Module 1: Info -->
 
-        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-          <div class="kfs">
-            <h1><span>Info</span></h1>
-            <p>
-              This module is responsible of language information.
-              It affords information such as the name, family, writing direction, etc. of a language.
-            </p>
-            <p>
-              <a href="info.html" class="pure-button pure-button-secondary">Test it</a>
-            </p>
-          </div>
+        <div class="k-l-3 k-fs vflex">
+          <h1><span>Info</span></h1>
+          <p>
+            This module is responsible of language information.
+            It affords information such as the name, family, writing direction, etc. of a language.
+          </p>
+          <p class="under">
+            <a href="info.html" class="k-button">Test it</a>
+          </p>
         </div>
 
         <!-- Module 2: Lang -->
 
-        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-          <div class="kfs">
-            <h1><span>Lang</span></h1>
-            <p>
-              This module is responsible of languages character detection.
-              It is used to test if a text contains all the characters of a language or it is a mix.
-              Also, it can transform the numbers into their pronunciation in a certain language.
-            </p>
-            <p>
-              <a href="lang.html" class="pure-button pure-button-secondary">Test it</a>
-            </p>
-          </div>
+        <div class="k-l-3 k-fs vflex">
+          <h1><span>Lang</span></h1>
+          <p>
+            This module is responsible of languages character detection.
+            It is used to test if a text contains all the characters of a language or it is a mix.
+            Also, it can transform the numbers into their pronunciation in a certain language.
+          </p>
+          <p class="under">
+            <a href="lang.html" class="k-button">Test it</a>
+          </p>
         </div>
 
         <!-- Module 3: Trans -->
-        <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-          <div class="kfs">
-            <h1><span>Trans</span></h1>
-            <p>
-              It is used for language transliteration.
-              Certain languages have many transliteration systems.
-            </p>
-            <p>
-              <a href="trans.html" class="pure-button pure-button-secondary">Test it</a>
-            </p>
-          </div>
+        <div class="k-l-3 k-fs vflex">
+          <h1><span>Trans</span></h1>
+          <p>
+            It is used for language transliteration.
+            Certain languages have many transliteration systems.
+          </p>
+          <p class="under">
+            <a href="trans.html" class="k-button">Test it</a>
+          </p>
         </div>
 
         <!-- Module 4: Morpho -->
-        <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-          <div class="kfs">
-            <h1><span>Morpho</span></h1>
-            <p>
-              It is used for language morphology:
-              <ul>
-                <li>Conjugation</li>
-                <li>Stemming</li>
-              </ul>
-            </p>
-            <p>
-              <a href="morpho.html" class="pure-button pure-button-secondary">Test it</a>
-            </p>
-          </div>
+        <div class="k-l-3 k-fs vflex">
+          <h1><span>Morpho</span></h1>
+          <p>
+            It is used for language morphology:
+            <ul>
+              <li>Conjugation</li>
+              <li>Stemming</li>
+            </ul>
+          </p>
+          <p class="under">
+            <a href="morpho.html" class="k-button">Test it</a>
+          </p>
+        </div>
+
+      </div>
+
+      <h1>Use Cases:</h1>
+      <div class="hflex">
+        <!-- usecase 1: Morse -->
+        <div class="k-l-3 k-fs vflex">
+          <h1><span>Morse code</span></h1>
+          <p>
+            This is a demonstration of morse code with available languages.
+            You can even listen to it.
+          </p>
+          <p class="under">
+            <a href="morse.html" class="k-button">Have fun</a>
+          </p>
+        </div>
       </div>
 
     </div>
 
-    <h1>Use Cases:</h1>
-
-    <!-- usecase 1: Morse -->
-    <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-      <div class="kfs">
-        <h1><span>Morse code</span></h1>
-        <p>
-          This is a demonstration of morse code with available languages.
-          You can even listen to it.
-        </p>
-        <p>
-          <a href="web/morse.html" class="pure-button pure-button-secondary">Have fun</a>
-        </p>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="ribbon pure-g">
-    <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
-
+    <div class="ribbon">
       <h2 >Many thanks to:</h2>
-      <p>
-        <a href="http://purecss.io">Pure.css</a> for their responsive css modules.
-        Also, for the index template.
-      </p>
       <p>
         <a href="https://daneden.github.io/animate.css/">Animate.css</a> for the amazing animations.
       </p>
+
+      <div class="k-footer-clean"></div>
+
     </div>
+
+    <div w3-include-html="footer.html"></div>
+
   </div>
 
-  <div w3-include-html="footer.html"></div>
-
-</div>
-
-<script>
-w3.includeHTML();
-</script>
+  <script>
+  w3.includeHTML();
+  </script>
 
 </body>
 </html>

@@ -42,12 +42,14 @@
   }
 
   function update(){
-    var lang = _($("l")).text;
+    var lang = _($("l")).text, dir= JsLingua.getDir(lang);
     morpho = new (JsLingua.getService("Morpho", lang))();
-    $("verb").dir = JsLingua.getDir(lang);
-    $("conj").dir = JsLingua.getDir(lang);
-    $("stemI").dir = JsLingua.getDir(lang);
-    $("stemO").dir = JsLingua.getDir(lang);
+    $("verb").dir =
+    $("conj").dir =
+    $("stemI").dir =
+    $("stemO").dir =
+    $("normI").dir =
+    $("normO").dir = dir;
 
     var stemmers = morpho.availableStemmers();
     var m = $("stemM");
@@ -149,6 +151,10 @@
     $("stemO").innerHTML = morpho.stem($("stemI").value);
   }
 
+  function norm(){
+    $("normO").innerHTML = morpho.normalize($("normI").value);
+  }
+
   </script>
 
 </head>
@@ -172,7 +178,18 @@
               <ul>
                 <li>Ara: </li>
                 <li>Eng: conditional, allowance</li>
-                <li>Jpn: </li>
+                <li>Jpn: 用いられている 伝わっていない 高くなかった 行かなければならない 強調したい</li>
+              </ul>
+            </li>
+            <li>Normalization: it is the function of transforming language variations to a single canonical form.
+              For example, the dialects have other forms of writing a text.
+              Try:
+              <ul>
+                <li>Ara: ذَهــَبَ ذهــــــــب دعــــى دعاة آسف دعى إنه</li>
+                <li>Eng: </li>
+                <li>Jpn: 雨ねええ 雨ねぇぇぇ すげえええ そうかなぁぁぁぁ 犬やない 言ったばい 飲まへん 帰るさかい
+                  飲みんさんな 行きますえ 書いてちょう 寒いべ 寒いっしょ 明日しょや
+                </li>
               </ul>
             </li>
             <li>Conjugation: just put a verb in its dictionary form and push "conjugate".
@@ -202,6 +219,13 @@
         <input type="text" id="stemI" class="k-input k-1"/><br>
         <button onclick="stem()" class="k-button">Stem</button><br>
         <div id="stemO" class="k-input k-1" ></div>
+      </div>
+
+      <div class="k-fs k-1">
+        <h1><span>Normalization</span></h1>
+        <input type="text" id="normI" class="k-input k-1"/><br>
+        <button onclick="norm()" class="k-button">Stem</button><br>
+        <div id="normO" class="k-input k-1" ></div>
       </div>
 
       <div class="k-fs k-1">

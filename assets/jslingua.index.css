@@ -8,16 +8,27 @@
   text-align: center;
 }
 
-.splash h1  {
-  font-size: 2em;
+.splash .title img, .splash .title h1   {
+  vertical-align:middle;
+  margin: 5px;
+  display: inline;
+}
+
+.splash .title img {
+  height: 64px;
+}
+
+
+.splash .title  {
   font-weight: bold;
   color: indigo;
   text-shadow: 0 0 1em indigo;
   border: 3px solid indigo;
-  padding: .5em 1em;
+  padding: 5px;
   border-radius: 5px;
   line-height: 1em;
   text-align: center;
+  margin: 5px;
 }
 
 .splash-subhead {
@@ -46,7 +57,12 @@
   .splash {
     margin-top: 0;
   }
-  .splash h1  {
-    font-size: 5em;
+  .splash .title  {
+    font-size: 4em;
+    height: 2.5em;
+  }
+
+  .splash .title img   {
+    height: 128px;
   }
 }

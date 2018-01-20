@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Home | JsLingua doc</title>
+    <title>Source: tools.js | JsLingua doc</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -44,19 +46,85 @@
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * The tools module
+ * @module Tools
+ */
+"use strict";
 
+/**
+ * Read morse code and output as sound &lt;br>
+ * @example
+ * readMorse("..-. .--   ..-.");
+ *
+ * @method readMorse
+ * @public
+ * @static
+ * @param  {String} morse morse code written using ".", "-" and blacks " ".
+ */
+function readMorse(morse) {
+  let dotLength = 0.07,
+  AudioContext = window.AudioContext || window.webkitAudioContext,
+  context = new AudioContext(),
+  gain = context.createGain(),
+  osc = context.createOscillator();
 
+  gain.gain.value = 0;
 
+  osc.frequency.value = 600;
+  osc.connect(gain);
+  gain.connect(context.destination);
+  osc.start(0);
+  let i,
+  time0 = context.currentTime,
+  time = time0;
 
+  for (i =0; i&lt; morse.length; i++){
+    let char = morse.charAt(i);
+    switch (char) {
+      case ".":
+        gain.gain.setValueAtTime(1.0, time);
+        time += dotLength;
+        gain.gain.setValueAtTime(0.0, time);
+        time += dotLength;
+        break;
+      case "-":
+        gain.gain.setValueAtTime(1.0, time);
+        time += 3 * dotLength;
+        gain.gain.setValueAtTime(0.0, time);
+        time += dotLength;
+        break;
+      case " ":
+        gain.gain.setValueAtTime(0.0, time);
+        time += 3 * dotLength;
+        break;
+      default:
+    }
+  }
 
+  osc.stop(time-time0);
+}
 
-
-
-
-    
-
-
-
+/**
+ * Transform HTML reserved characters to their equivalent codes in HTML.&lt;br>
+ * for example: "&lt;" is transformed to "&amp;lt;".
+ *
+ * @method htmlEntities
+ * @public
+ * @static
+ * @param  {String} str normal string
+ * @return {String}     skip string
+ */
+function htmlEntities(str) {
+  let result = String(str).replace(/&amp;/g, "&amp;amp;").replace(/&lt;/g, "&amp;lt;");
+  result = result.replace(/>/g, "&amp;gt;").replace(/"/g, "&amp;quot;").replace(/ /gi, "&amp;nbsp;");
+  return result;
+}
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -73,7 +141,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'package:undefined_sub'.replace(/"/g, '_');
+        var id = '_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

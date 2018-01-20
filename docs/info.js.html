@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Home | JsLingua doc</title>
+    <title>Source: info.js | JsLingua doc</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -44,19 +46,134 @@
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>(function() {
+
+  "use strict";
+
+  if ( typeof module === "object" &amp;&amp; module &amp;&amp; typeof module.exports === "object" ) {
+    module.exports = Info;
+  }
+  else {
+    window.JsLingua.Cls.Info = Info;
+  }
+
+  /**
+   * Contains information about the specified language
+   *
+   * @class Info
+   * @param {String} langCode The language ISO639-2 code: "ara", "jpn", "eng", etc.
+   */
+  function Info(langCode) {
+
+    //ISO639-2/5 code: ara, eng, jpn, etc.
+    this.code = langCode;
+
+    //arabic, english, japanese
+    this.name = "";
+
+    //writing direction: ltr (left to right)
+    this.dir = "ltr"; //most are ltr
+
+    //Words order (Subject, Object, Verb): svo, sov, vso, osv, ovs, vos
+    this.wordOrder = "svo";//most are svo
+
+    //language family:
+    this.family = "";
+
+    //language branch:
+    this.branch = "";
+  }
 
 
+  //===========================
+  //functions
+  //===========================
+  let Me = Info.prototype;
 
+  /**
+   * Get the name of the language
+   *
+   * @method getName
+   * @public
+   * @memberof Info
+   * @return {String}  the language name: arabic, english, japanese, etc.
+   */
+  Me.getName = function() {
+    return this.name;
+  };
 
+  /**
+   * Get the code of the language
+   *
+   * @method getCode
+   * @public
+   * @memberof Info
+   * @return {String}  The language ISO639-2 code: "ara", "jpn", "eng", etc.
+   */
+  Me.getCode = function() {
+    return this.code;
+  };
 
+  /**
+   * Get the family of the language
+   *
+   * @method getFamily
+   * @public
+   * @memberof Info
+   * @return {String}  The language family: Afro-asiatic, Japonic, etc.
+   */
+  Me.getFamily = function() {
+    return this.family;
+  };
 
+  /**
+   * Get the branch of the language, if any
+   *
+   * @method getBranch
+   * @public
+   * @memberof Info
+   * @return {String}  The language branch: semitic, etc.
+   */
+  Me.getBranch = function() {
+    return this.branch;
+  };
 
+  /**
+   * Get the direction of writing of the language: ltr or rtl
+   *
+   * @method getDir
+   * @public
+   * @memberof Info
+   * @return {String}  The language direction: left to right (ltr) or right to left (rtl)
+   */
+  Me.getDir = function() {
+    return this.dir;
+  };
 
+  /**
+   * Get the words order:
+   * &lt;ul>
+   * &lt;li>s: Subject&lt;/li>
+   * &lt;li>v: Verb&lt;/li>
+   * &lt;li>o: Object&lt;/li>
+   * &lt;/ul>
+   * For example, English is "svo"
+   *
+   * @method getWordOrder
+   * @public
+   * @memberof Info
+   * @return {String}  The words order in the language
+   */
+  Me.getWordOrder = function() {
+    return this.wordOrder;
+  };
 
-    
-
-
-
+}());
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -73,7 +190,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'package:undefined_sub'.replace(/"/g, '_');
+        var id = '_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

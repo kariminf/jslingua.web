@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Home | JsLingua doc</title>
+    <title>Source: fra/fra.info.js | JsLingua doc</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -44,19 +46,44 @@
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>(function() {
 
+  "use strict";
 
+  let Info = {};
+  if ( typeof module === "object" &amp;&amp; module &amp;&amp; typeof module.exports === "object" ) {
+    Info = require("../info.js");
+    module.exports = FraInfo;
+  }
+  else {
+    Info = window.JsLingua.Cls.Info;
+    window.JsLingua.addService("Info", "fra", FraInfo);
+  }
 
+  /**
+   * Contains information about French language
+   *
+   * @class FraInfo
+   * @extends Info
+   */
+  function FraInfo() {
 
+    Info.call(this, "fra");
+    this.name = "French";
+    this.family = "Indo-European";
+    this.branch = "Romance";
 
+  }
 
+  FraInfo.prototype = Object.create(Info.prototype);
+  FraInfo.prototype.constructor = FraInfo;
 
-
-
-    
-
-
-
+}());
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -73,7 +100,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'package:undefined_sub'.replace(/"/g, '_');
+        var id = '_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

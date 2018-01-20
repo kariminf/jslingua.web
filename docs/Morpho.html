@@ -1,0 +1,5821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Class: Morpho | JsLingua doc</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
+</head>
+<body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="width: 50px; height: 50px">
+        
+            <a href="https://kariminf.github.io/jslingua.web/" rel="noopener noreferrer" target="_blank">
+                <img src="logo.png" width="100%" height="100%">
+            </a>
+        
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">JsLingua doc</a></h1>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+    <div class="lnb-api hidden"><h3>Modules</h3><ul><li><a href="module-JsLingua.html">JsLingua</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:JsLingua_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="module-JsLingua.html#.addService">addService</a></li><li><a href="module-JsLingua.html#.getDir">getDir</a></li><li><a href="module-JsLingua.html#.getService">getService</a></li><li><a href="module-JsLingua.html#.getVersion">getVersion</a></li><li><a href="module-JsLingua.html#.serviceLanguages">serviceLanguages</a></li></ul></div></li><li><a href="module-Tools.html">Tools</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:Tools_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="module-Tools.html#.htmlEntities">htmlEntities</a></li><li><a href="module-Tools.html#.readMorse">readMorse</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="AraInfo.html">AraInfo</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="AraInfo_sub"></div></li><li><a href="AraLang.html">AraLang</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="AraLang_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="AraLang.html#.toArabicLetters">toArabicLetters</a></li></ul></div></li><li><a href="AraMorpho.html">AraMorpho</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="AraMorpho_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="AraMorpho.html#.conjNormakizeAlif">conjNormakizeAlif</a></li><li><a href="AraMorpho.html#.getPronounIndex">getPronounIndex</a></li><li><a href="AraMorpho.html#.jslinguaAraStemmer">jslinguaAraStemmer</a></li><li><a href="AraMorpho.html#.normalize">normalize</a></li><li><a href="AraMorpho.html#.weakMiddleOrigin">weakMiddleOrigin</a></li></ul></div></li><li><a href="AraTrans.html">AraTrans</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="AraTrans_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="AraTrans.html#.ar2morseNormalize">ar2morseNormalize</a></li><li><a href="AraTrans.html#.morsePostTrans">morsePostTrans</a></li><li><a href="AraTrans.html#.morsePostUntrans">morsePostUntrans</a></li><li><a href="AraTrans.html#.morsePreTrans">morsePreTrans</a></li><li><a href="AraTrans.html#.morsePreUntrans">morsePreUntrans</a></li></ul></div></li><li><a href="EngInfo.html">EngInfo</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="EngInfo_sub"></div></li><li><a href="EngLang.html">EngLang</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="EngLang_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="EngLang.html#.toEnglishLetters">toEnglishLetters</a></li><li><a href="EngLang.html#.toEnglishLetters2">toEnglishLetters2</a></li></ul></div></li><li><a href="EngMorpho.html">EngMorpho</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="EngMorpho_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="EngMorpho.html#.irregularConj">irregularConj</a></li><li><a href="EngMorpho.html#.singular2plural">singular2plural</a></li></ul></div></li><li><a href="EngTrans.html">EngTrans</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="EngTrans_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="EngTrans.html#.morsePostTrans">morsePostTrans</a></li><li><a href="EngTrans.html#.morsePostUntrans">morsePostUntrans</a></li><li><a href="EngTrans.html#.morsePreTrans">morsePreTrans</a></li><li><a href="EngTrans.html#.morsePreUntrans">morsePreUntrans</a></li></ul></div></li><li><a href="FraInfo.html">FraInfo</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="FraInfo_sub"></div></li><li><a href="FraLang.html">FraLang</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="FraLang_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="FraLang.html#.toFrenchLetters">toFrenchLetters</a></li></ul></div></li><li><a href="FraMorpho.html">FraMorpho</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="FraMorpho_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="FraMorpho.html#.getConjugModel">getConjugModel</a></li><li><a href="FraMorpho.html#.getPronounIndex">getPronounIndex</a></li><li><a href="FraMorpho.html#.getVerbGroupe">getVerbGroupe</a></li><li><a href="FraMorpho.html#.getVerbPastParticipal">getVerbPastParticipal</a></li></ul></div></li><li><a href="FraTrans.html">FraTrans</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="FraTrans_sub"></div></li><li><a href="Info.html">Info</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Info_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="Info.html#.getBranch">getBranch</a></li><li><a href="Info.html#.getCode">getCode</a></li><li><a href="Info.html#.getDir">getDir</a></li><li><a href="Info.html#.getFamily">getFamily</a></li><li><a href="Info.html#.getName">getName</a></li><li><a href="Info.html#.getWordOrder">getWordOrder</a></li></ul></div></li><li><a href="JpnInfo.html">JpnInfo</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="JpnInfo_sub"></div></li><li><a href="JpnLang.html">JpnLang</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="JpnLang_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="JpnLang.html#.toJapaneseLetters">toJapaneseLetters</a></li></ul></div></li><li><a href="JpnMorpho.html">JpnMorpho</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="JpnMorpho_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="JpnMorpho.html#.Formality">Formality</a></li><li><a href="JpnMorpho.html#.VType">VType</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="JpnMorpho.html#.basicForm">basicForm</a></li><li><a href="JpnMorpho.html#.normalize">normalize</a></li></ul></div></li><li><a href="JpnTrans.html">JpnTrans</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="JpnTrans_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="JpnTrans.html#.doubleReplace">doubleReplace</a></li><li><a href="JpnTrans.html#.kunreiShikiPreTrans">kunreiShikiPreTrans</a></li><li><a href="JpnTrans.html#.kunreiShikiPreUntrans">kunreiShikiPreUntrans</a></li><li><a href="JpnTrans.html#.loneCharReplace">loneCharReplace</a></li><li><a href="JpnTrans.html#.xya2Jap">xya2Jap</a></li></ul></div></li><li><a href="Lang.html">Lang</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Lang_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="Lang.html#.addCharSet">addCharSet</a></li><li><a href="Lang.html#.addTransform">addTransform</a></li><li><a href="Lang.html#.all">all</a></li><li><a href="Lang.html#.allCharSetFunction">allCharSetFunction</a></li><li><a href="Lang.html#.availableCharSets">availableCharSets</a></li><li><a href="Lang.html#.availableTransformations">availableTransformations</a></li><li><a href="Lang.html#.contains">contains</a></li><li><a href="Lang.html#.containsCharSetFunction">containsCharSetFunction</a></li><li><a href="Lang.html#.getCode">getCode</a></li><li><a href="Lang.html#.getUnicode">getUnicode</a></li><li><a href="Lang.html#.isBetween">isBetween</a></li><li><a href="Lang.html#.pronounceNumber">pronounceNumber</a></li><li><a href="Lang.html#.transform">transform</a></li><li><a href="Lang.html#.transformationFunction">transformationFunction</a></li><li><a href="Lang.html#.verifyCharSetFunction">verifyCharSetFunction</a></li></ul></div></li><li><a href="Morpho.html">Morpho</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Morpho_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Morpho.html#.Aspect">Aspect</a></li><li><a href="Morpho.html#.Feature">Feature</a></li><li><a href="Morpho.html#.Gender">Gender</a></li><li><a href="Morpho.html#.GNumber">GNumber</a></li><li><a href="Morpho.html#.Mood">Mood</a></li><li><a href="Morpho.html#.Person">Person</a></li><li><a href="Morpho.html#.PoS">PoS</a></li><li><a href="Morpho.html#.Tense">Tense</a></li><li><a href="Morpho.html#.Voice">Voice</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Morpho.html#.addNounDeclension">addNounDeclension</a></li><li><a href="Morpho.html#.availableNounDeclensions">availableNounDeclensions</a></li><li><a href="Morpho.html#.availableStemmers">availableStemmers</a></li><li><a href="Morpho.html#.conjugate">conjugate</a></li><li><a href="Morpho.html#.disableDebug">disableDebug</a></li><li><a href="Morpho.html#.enableDebug">enableDebug</a></li><li><a href="Morpho.html#.getConjugModel">getConjugModel</a></li><li><a href="Morpho.html#.getForms">getForms</a></li><li><a href="Morpho.html#.getNegationName">getNegationName</a></li><li><a href="Morpho.html#.getNegationOpts">getNegationOpts</a></li><li><a href="Morpho.html#.getOptLists">getOptLists</a></li><li><a href="Morpho.html#.getOptName">getOptName</a></li><li><a href="Morpho.html#.getPronounName">getPronounName</a></li><li><a href="Morpho.html#.getPronounOpts">getPronounOpts</a></li><li><a href="Morpho.html#.getTenseName">getTenseName</a></li><li><a href="Morpho.html#.getVerbType">getVerbType</a></li><li><a href="Morpho.html#.getVerbTypes">getVerbTypes</a></li><li><a href="Morpho.html#.getVoiceName">getVoiceName</a></li><li><a href="Morpho.html#.getVoiceOpts">getVoiceOpts</a></li><li><a href="Morpho.html#.newStemmer">newStemmer</a></li><li><a href="Morpho.html#.normalize">normalize</a></li><li><a href="Morpho.html#.nounDeclensionFunction">nounDeclensionFunction</a></li><li><a href="Morpho.html#.parseConjModel">parseConjModel</a></li><li><a href="Morpho.html#.parseConjModelBranch">parseConjModelBranch</a></li><li><a href="Morpho.html#.setCurrentStemmer">setCurrentStemmer</a></li><li><a href="Morpho.html#.stem">stem</a></li></ul></div></li><li><a href="Trans.html">Trans</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Trans_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="Trans.html#.addTransPrePostMethods">addTransPrePostMethods</a></li><li><a href="Trans.html#.addUntransPrePostMethods">addUntransPrePostMethods</a></li><li><a href="Trans.html#.availableMethods">availableMethods</a></li><li><a href="Trans.html#.getCode">getCode</a></li><li><a href="Trans.html#.getTransliterator">getTransliterator</a></li><li><a href="Trans.html#.newMethod">newMethod</a></li><li><a href="Trans.html#.setCurrentMethod">setCurrentMethod</a></li><li><a href="Trans.html#.setTransUntrasMethods">setTransUntrasMethods</a></li><li><a href="Trans.html#.transliterate">transliterate</a></li><li><a href="Trans.html#.untransliterate">untransliterate</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3><a href="global.html">Global</a></h3></div>
+</nav>
+<div id="resizer"></div>
+
+<div class="main" id="main">
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>Morpho<span class="signature">(langCode)</span><span class="type-signature"></span></h2>
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+<dt>
+    
+        <h4 class="name" id="Morpho">
+            
+                new <span class="type-signature"></span>Morpho<span class="signature">(langCode)</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line12">line 12</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Morphology of a specified language
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>langCode</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Language ISO693-2 code: ara, jpn, eng, etc.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+        
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+
+<dt>
+<h4 class="name" id=".Aspect">
+    <span class="type-signature"><span class="icon green">private</span>, <span class="icon green">static</span>, <span class="icon green">constant</span> </span>Aspect<span class="type-signature"> :String</span>
+    
+    <div class="container-source members">
+        <code><a href="morpho.js.html">morpho.js</a></code>,
+        <code><a href="morpho.js.html#line102">line 102</a></code>
+    </div>
+    
+</h4>
+
+
+</dt>
+<dd>
+    
+    <div class="description">
+        The aspect: Simple, Continuous, Perfect, PerfectContinuous
+<br>access: Morpho.Feature.Aspect
+    </div>
+    
+
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    
+    -->
+
+    
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>S</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">simple</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>C</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">continuous</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>P</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">perfect</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>PC</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">perfect-continuous</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>I</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">imperfect</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        
+            
+
+<dt>
+<h4 class="name" id=".Feature">
+    <span class="type-signature"><span class="icon green">static</span>, <span class="icon green">readonly</span> </span>Feature<span class="type-signature"> :Object</span>
+    
+    <div class="container-source members">
+        <code><a href="morpho.js.html">morpho.js</a></code>,
+        <code><a href="morpho.js.html#line314">line 314</a></code>
+    </div>
+    
+</h4>
+
+
+</dt>
+<dd>
+    
+    <div class="description">
+        This is a map to different morphology features:
+<ul>
+<li>POS: It returns <a href="Morpho.html#.PoS">Morpho.PoS</a></li>
+<li>Tense: It returns <a href="Morpho.html#.Tense">Morpho.Tense</a></li>
+<li>Aspect: It returns <a href="Morpho.html#.Aspect">Morpho.Aspect</a></li>
+<li>Mood: It returns <a href="Morpho.html#.Mood">Morpho.Mood</a></li>
+<li>Voice: It returns <a href="Morpho.html#.Voice">Morpho.Voice</a></li>
+<li>Number: It returns <a href="Morpho.html#.GNumber">Morpho.GNumber</a></li>
+<li>Person: It returns <a href="Morpho.html#.Person">Morpho.Person</a></li>
+<li>Gender: It returns <a href="Morpho.html#.Gender">Morpho.Gender</a></li>
+</ul>
+We can access these features either by:<br>
+Morpho.Feature.feature_name <br>
+Or: <br>
+Morpho.Feature["feature_name"]
+    </div>
+    
+
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+            </li>
+        </ul>
+    
+    -->
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        
+            
+
+<dt>
+<h4 class="name" id=".Gender">
+    <span class="type-signature"><span class="icon green">private</span>, <span class="icon green">static</span>, <span class="icon green">constant</span> </span>Gender<span class="type-signature"> :String</span>
+    
+    <div class="container-source members">
+        <code><a href="morpho.js.html">morpho.js</a></code>,
+        <code><a href="morpho.js.html#line281">line 281</a></code>
+    </div>
+    
+</h4>
+
+
+</dt>
+<dd>
+    
+    <div class="description">
+        The gender: Masculine, Feminine, Neuter.
+<br>access: Morpho.Feature.Gender
+    </div>
+    
+
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    
+    -->
+
+    
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>M</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">masculine</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>F</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">feminine</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>N</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">neuter</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        
+            
+
+<dt>
+<h4 class="name" id=".GNumber">
+    <span class="type-signature"><span class="icon green">private</span>, <span class="icon green">static</span>, <span class="icon green">constant</span> </span>GNumber<span class="type-signature"> :String</span>
+    
+    <div class="container-source members">
+        <code><a href="morpho.js.html">morpho.js</a></code>,
+        <code><a href="morpho.js.html#line243">line 243</a></code>
+    </div>
+    
+</h4>
+
+
+</dt>
+<dd>
+    
+    <div class="description">
+        The grammatical number: Singular, Dual, Plural
+<br>access: Morpho.Feature.Number
+    </div>
+    
+
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    
+    -->
+
+    
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>S</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">singular</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>D</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">dual</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>P</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">plural</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        
+            
+
+<dt>
+<h4 class="name" id=".Mood">
+    <span class="type-signature"><span class="icon green">private</span>, <span class="icon green">static</span>, <span class="icon green">constant</span> </span>Mood<span class="type-signature"> :String</span>
+    
+    <div class="container-source members">
+        <code><a href="morpho.js.html">morpho.js</a></code>,
+        <code><a href="morpho.js.html#line129">line 129</a></code>
+    </div>
+    
+</h4>
+
+
+</dt>
+<dd>
+    
+    <div class="description">
+        The mood: indicative, subjunctive, conditional,
+optative, imperative, jussive, potential,
+hypothetical, inferential
+<br>access: Morpho.Feature.Mood
+    </div>
+    
+
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    
+    -->
+
+    
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Ind</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">indicative: The indicative can be considered the default mood.
+A verb in indicative merely states that something happens,
+has happened or will happen, without adding any attitude of the speaker.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Imp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">imperative: The speaker uses imperative to order or ask the addressee to do the action of the verb.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Cnd</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">conditional: The conditional mood is used to express actions that would have taken
+place under some circumstances but they actually did not / do not happen.
+Grammars of some languages may classify conditional as tense (rather than mood)
+but e.g. in Czech it combines with two different tenses (past and present).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Pot</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">potential: The action of the verb is possible but not certain.
+This mood corresponds to the modal verbs can, might, be able to. Used e.g. in Finnish.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Sub</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">subjunctive: The subjunctive mood is used under certain circumstances in subordinate clauses,
+typically for actions that are subjective or otherwise uncertain.
+In German, it may be also used to convey the conditional meaning.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Jus</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">jussive: The jussive mood expresses the desire that the action happens;
+it is thus close to both imperative and optative.
+Unlike in desiderative, it is the speaker, not the subject who wishes that it happens.
+Used e.g. in Arabic.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Prp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">purposive: Means “in order to”, occurs in Amazonian languages.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Qot</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">quotative: The quotative mood is used e.g. in Estonian to denote direct speech.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Opt</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">optative: Expresses exclamations like “May you have a long life!” or
+“If only I were rich!” In Turkish it also expresses suggestions.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Des</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">desiderative: The desiderative mood corresponds to the modal verb “want to”:
+“He wants to come.” Used e.g. in Turkish.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Nec</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">necessitative: The necessitative mood expresses necessity and corresponds to the modal
+verbs “must, should, have to”: “He must come.”</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Adm</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">admirative: Expresses surprise, irony or doubt. Occurs in Albanian,
+other Balkan languages, and in Caddo (Native American from Oklahoma).</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://universaldependencies.org/u/feat/Mood.html">http://universaldependencies.org/u/feat/Mood.html</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        
+            
+
+<dt>
+<h4 class="name" id=".Person">
+    <span class="type-signature"><span class="icon green">private</span>, <span class="icon green">static</span>, <span class="icon green">constant</span> </span>Person<span class="type-signature"> :String</span>
+    
+    <div class="container-source members">
+        <code><a href="morpho.js.html">morpho.js</a></code>,
+        <code><a href="morpho.js.html#line262">line 262</a></code>
+    </div>
+    
+</h4>
+
+
+</dt>
+<dd>
+    
+    <div class="description">
+        The person: First, Second, Third.
+<br>access: Morpho.Feature.Person
+    </div>
+    
+
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    
+    -->
+
+    
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>F</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">first</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>S</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">second</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>T</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">third</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        
+            
+
+<dt>
+<h4 class="name" id=".PoS">
+    <span class="type-signature"><span class="icon green">private</span>, <span class="icon green">static</span>, <span class="icon green">constant</span> </span>PoS<span class="type-signature"> :String</span>
+    
+    <div class="container-source members">
+        <code><a href="morpho.js.html">morpho.js</a></code>,
+        <code><a href="morpho.js.html#line58">line 58</a></code>
+    </div>
+    
+</h4>
+
+
+</dt>
+<dd>
+    
+    <div class="description">
+        The part of speech: Noun, Verb, Adjective,
+Adverb, Preposition, Pronoun
+<br>access: Morpho.Feature.POS
+    </div>
+    
+
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    
+    -->
+
+    
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>N</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">noun</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>V</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">verb</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Adj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">adjective</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Adv</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">adverb</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Prep</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">preposition</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Pron</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">pronoun</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        
+            
+
+<dt>
+<h4 class="name" id=".Tense">
+    <span class="type-signature"><span class="icon green">private</span>, <span class="icon green">static</span>, <span class="icon green">constant</span> </span>Tense<span class="type-signature"> :String</span>
+    
+    <div class="container-source members">
+        <code><a href="morpho.js.html">morpho.js</a></code>,
+        <code><a href="morpho.js.html#line83">line 83</a></code>
+    </div>
+    
+</h4>
+
+
+</dt>
+<dd>
+    
+    <div class="description">
+        The tense: Past, Present, Future
+<br>access: Morpho.Feature.Tense
+    </div>
+    
+
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    
+    -->
+
+    
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Pa</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">past</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Pr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">present</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Fu</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">future</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        
+            
+
+<dt>
+<h4 class="name" id=".Voice">
+    <span class="type-signature"><span class="icon green">private</span>, <span class="icon green">static</span>, <span class="icon green">constant</span> </span>Voice<span class="type-signature"> :String</span>
+    
+    <div class="container-source members">
+        <code><a href="morpho.js.html">morpho.js</a></code>,
+        <code><a href="morpho.js.html#line224">line 224</a></code>
+    </div>
+    
+</h4>
+
+
+</dt>
+<dd>
+    
+    <div class="description">
+        The voice: Active,Passive, Middle
+<br>access: Morpho.Feature.Voice
+    </div>
+    
+
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    
+    -->
+
+    
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>A</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">active</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>P</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">passive</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>M</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">middle</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+                
+
+<dt>
+    
+        <h4 class="name" id=".addNounDeclension">
+            
+                <span class="type-signature"><span class="icon green">protected</span>, <span class="icon green">static</span> </span>addNounDeclension<span class="signature">(name, func)</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line687">line 687</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Add a noun declension function
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the name of the function</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a function which takes a noun as parameter and returns a declensed one</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".availableNounDeclensions">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>availableNounDeclensions<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line701">line 701</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns a list of noun declension functions
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">String</span>
+
+
+
+
+
+- A list of declense functions names
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".availableStemmers">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>availableStemmers<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;String>}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line402">line 402</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns the list of available stemming methods
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Array.&lt;String></span>
+
+
+
+
+
+- Array of Strings containing stemmers names
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".conjugate">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>conjugate<span class="signature">(verb, opts)</span><span class="type-signature"> &rarr; {String}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line655">line 655</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        This function is used for verb conjugation
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>verb</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the word to be conjugated</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">options for tense, case, voice, aspect, person, number, gender, mood, and other</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">String</span>
+
+
+
+
+
+- Conjugated verb
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".disableDebug">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>disableDebug<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line377">line 377</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        disables the debugging messages
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".enableDebug">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>enableDebug<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line366">line 366</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Enables the debugging messages
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".getConjugModel">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>getConjugModel<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line495">line 495</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Each language has a conjugation table model.
+For example, in English, Arabic and French, we put pronouns in rows.
+As for Japanese, the conjugation doesn't follow that pattern.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Object</span>
+
+
+
+
+
+- conjugation model with rows and cols
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".getForms">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>getForms<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;Object>}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line461">line 461</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        This function returns an object of available conjugation forms for the current language
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+
+
+- Array of conjugation forms available for the language
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>{
+ "form_name": {opts}
+}</code></pre>
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".getNegationName">
+            
+                <span class="type-signature"><span class="icon green">protected</span>, <span class="icon green">static</span> </span>getNegationName<span class="signature">(opts)</span><span class="type-signature"> &rarr; {String}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line574">line 574</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns the label of the negation in the current language
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing the attribute: negated: (0|1)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">String</span>
+
+
+
+
+
+- the label of the negation in the current language
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".getNegationOpts">
+            
+                <span class="type-signature"><span class="icon green">protected</span>, <span class="icon green">static</span> </span>getNegationOpts<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;Object>}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line559">line 559</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns the list of negation options for verb conjugation
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+
+
+- The list of available negation options
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".getOptLists">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>getOptLists<span class="signature">(optLabel)</span><span class="type-signature"> &rarr; {Array.&lt;Object>}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line513">line 513</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns the available options for conjugation such as pronouns, negation, voice, etc.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>optLabel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Can be: "Pronoun", "Negation", "Voice"</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+
+
+- A list of parameters related to optLabel and the processed language
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".getOptName">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>getOptName<span class="signature">(optLabel, opts)</span><span class="type-signature"> &rarr; {String}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line530">line 530</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns the name of a conjugation parameter (Pronoun, Negation, Voice) given some options
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>optLabel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">can be: Pronoun, Negation, Voice</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The parameters</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">String</span>
+
+
+
+
+
+- The label of this parameter in the current language
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>var opts = {
+     person: "first", // Morpho.Feature.Person.F
+     number: "singular" // Morpho.Feature.Number.S
+   };
+   var I = getOptName("Pronoun", opts);
+// In English, it will give: "I"
+// In Arabic, it will give: "أنا"</code></pre>
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".getPronounName">
+            
+                <span class="type-signature"><span class="icon green">protected</span>, <span class="icon green">static</span> </span>getPronounName<span class="signature">(opts)</span><span class="type-signature"> &rarr; {String}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line635">line 635</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Get the personal pronoun using options like: person, gender, etc.<br>
+for example, the parameters for the personal pronoun "I": <br>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing parameters: person, gender, number.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">String</span>
+
+
+
+
+
+- the pronoun
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>{
+     person: Morpho.Feature.Person.F, // "first"
+     number: Morpho.Feature.Number.S // "singular"
+   }</code></pre>
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".getPronounOpts">
+            
+                <span class="type-signature"><span class="icon green">protected</span>, <span class="icon green">static</span> </span>getPronounOpts<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;Object>}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line623">line 623</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns a list of options for pronouns in the current language
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+
+
+- List of pronouns options
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".getTenseName">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>getTenseName<span class="signature">(tense)</span><span class="type-signature"> &rarr; {String}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line414">line 414</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        This method is used to recover the name of the tense
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tense</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the tense which we want to get the name (See <a href="Morpho.html#.Tense">Morpho.Tense</a>)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">String</span>
+
+
+
+
+
+- the name of the tense in the selected language
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".getVerbType">
+            
+                <span class="type-signature"><span class="icon green">abstract</span>, <span class="icon green">static</span> </span>getVerbType<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line448">line 448</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Given a verb, it detects its type
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">String</span>
+
+
+
+
+
+- verb's type
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".getVerbTypes">
+            
+                <span class="type-signature"><span class="icon green">abstract</span>, <span class="icon green">static</span> </span>getVerbTypes<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;String>}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line435">line 435</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns a list of verb types
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Array.&lt;String></span>
+
+
+
+
+
+- list of verb types
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".getVoiceName">
+            
+                <span class="type-signature"><span class="icon green">protected</span>, <span class="icon green">static</span> </span>getVoiceName<span class="signature">(opts)</span><span class="type-signature"> &rarr; {String}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line604">line 604</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns the conjugation voice's name in the current language
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object with one attribute: voice</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">String</span>
+
+
+
+
+
+- the label of the voice in the current language
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".getVoiceOpts">
+            
+                <span class="type-signature"><span class="icon green">protected</span>, <span class="icon green">static</span> </span>getVoiceOpts<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;Object>}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line589">line 589</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns the list of conjugation voice for the current language
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Array.&lt;Object></span>
+
+
+
+
+
+- A list of conjugation voice parameters for the current language
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".newStemmer">
+            
+                <span class="type-signature"><span class="icon green">protected</span>, <span class="icon green">static</span> </span>newStemmer<span class="signature">(stemmerName, stemmerDesc, stemmerFct)</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line344">line 344</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Add new stemmer method
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>stemmerName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the name of the stemmer</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>stemmerDesc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the description of the stemmer</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>stemmerFct</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the function stem(word)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".normalize">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>normalize<span class="signature">(word, opts)</span><span class="type-signature"> &rarr; {String}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line731">line 731</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Normalization method, used to delete non used chars or to replace some with others, etc.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>word</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the word to be normalized</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">some options (optional) where each language defines its own
+normalization options</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">String</span>
+
+
+
+
+
+- normalized word
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".nounDeclensionFunction">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>nounDeclensionFunction<span class="signature">(declenseName)</span><span class="type-signature"> &rarr; {function}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line669">line 669</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns a function for noun declension
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>declenseName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the name of the function</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">function</span>
+
+
+
+
+
+- a function which takes a noun as a parameter
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".parseConjModel">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>parseConjModel<span class="signature">(morpho)</span><span class="type-signature"> &rarr; {Object}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line796">line 796</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        This method is a helper for presenting conjugation tables.
+It takes a Morpho object of a certain language, then creates
+rows labels and columns labels for this language
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>morpho</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Morpho.html">Morpho</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A Morpho object specified for a given language</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Object</span>
+
+
+
+
+
+- - Information about columns and rows in conjugation
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".parseConjModelBranch">
+            
+                <span class="type-signature"><span class="icon green">private</span>, <span class="icon green">static</span> </span>parseConjModelBranch<span class="signature">(morpho, branch)</span><span class="type-signature"> &rarr; {Object}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line750">line 750</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Given a morpho object for a certain language, and a branch (row or col);
+This function returns an object containing its lables, spans and opts
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>morpho</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Morpho.html">Morpho</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A Morpho object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>branch</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Can be a row or a</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Object</span>
+
+
+
+
+
+- Presentation information about the branch
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".setCurrentStemmer">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>setCurrentStemmer<span class="signature">(StemmerName)</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line387">line 387</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets the current stemmer
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>StemmerName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">stemmer method's name</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".stem">
+            
+                <span class="type-signature"><span class="icon green">static</span> </span>stem<span class="signature">(word)</span><span class="type-signature"> &rarr; {String}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="morpho.js.html">morpho.js</a></code>,
+                <code><a href="morpho.js.html#line714">line 714</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Stem a word: delete prefixes, suffixes and infixes
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>word</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the word to be stemmed</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">String</span>
+
+
+
+
+
+- stemmed word
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<footer>
+    <img class="logo" src="logo.png" style="width: 50px; height: 50px">
+    <div class="footer-text">NHN Entertainment. Frontend Development Lab</div>
+</footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+    <script>
+        var id = 'Morpho_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        showLnbApi();
+    </script>
+
+</body>
+</html>

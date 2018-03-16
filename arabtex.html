@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JsLingua- ArabTeX converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/png" href="./assets/favicon.png">
+  <link rel="stylesheet" href="assets/jslingua.css">
+
+  <script src="assets/w3.js"></script>
+  <script type="text/javascript" src="assets/call.js"></script>
+  <script type="text/javascript">
+  addScript("jslingua.min.js");
+  addScript("trans.min.js");
+  addScript("ara.trans.min.js");
+  </script>
+
+  <script type="text/javascript">
+
+  var transformer = new (JsLingua.getService("Trans", "ara"))();
+  transformer.setCurrentMethod("ArabTeX");
+
+  var code = `%Generated using JsLingua
+  \\documentclass[12pt]{article}
+  \\usepackage{arabtex}
+  \\begin{document}
+  \\setarab
+  \\fullvocalize
+  \\transtrue
+  \\arabtrue
+  \\begin{RLtext}
+  $
+  \\end{RLtext}
+  \\end{document}
+  `;
+
+  var $ = function(id){return document.getElementById(id)};
+
+  function toLatex() {
+    $("result").innerHTML = code.replace("$", transformer.transliterate($("arabic").value));
+  }
+
+  function download() {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent($("result").innerHTML));
+    element.setAttribute('download', "arabtex.tex");
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  }
+
+  </script>
+
+  <style type="text/css">
+  textarea {
+    width: 100%;
+    height: 15em;
+    resize: vertical;
+  }
+  </style>
+</head>
+<body>
+
+  <div w3-include-html="menu.html"></div>
+
+  <div class="content-wrapper">
+
+    <h1>Morse code</h1>
+
+    <div class="content hflex">
+
+      <div class="k-fs k-1">
+        <h1><span>Description</span></h1>
+        <div>
+          Juste tape your text in Arabic, then push "To ArabTeX" button
+          to see the LaTeX result in the right side.
+          If you want to donwload the LaTeX code on the left, push "download".
+        </div>
+      </div>
+
+      <div class="k-1 k-l-3 k-fs vflex">
+        <h1><span>Arabic text</span></h1>
+        <textarea id="arabic"
+        lang="ar" dir="rtl" ></textarea>
+      </div>
+
+      <div class="k-1 k-l-3 vflex">
+        <button onclick="toLatex()" class="k-button">To ArabTeX</button><br>
+        <button onclick="download()" class="k-button">Download</button>
+      </div>
+
+      <div class="k-1 k-l-3 k-fs vflex">
+        <h1><span>LaTeX code</span></h1>
+        <pre id="result"></pre>
+      </div>
+
+    </div>
+
+    <div class="k-footer-clean"></div>
+    <div w3-include-html="footer.html"></div>
+
+  </div>
+
+    <script>
+      w3.includeHTML();
+      loading();
+    </script>
+
+</body>
+</html>

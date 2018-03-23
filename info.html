@@ -42,6 +42,7 @@
     var info = new (JsLingua.getService("Info", _($("l")).text))();
 
     document.getElementById("name").innerHTML = info.getName();
+    document.getElementById("origname").innerHTML = info.getOrigName();
     document.getElementById("family").innerHTML = info.getFamily();
     document.getElementById("branch").innerHTML =
     (info.getBranch() === "")? "None": info.getBranch();
@@ -83,6 +84,11 @@
       <div class="k-fs k-1 k-l-3">
         <h1><span>Language name</span></h1>
         <div id="name"></div>
+      </div>
+      
+      <div class="k-fs k-1 k-l-3">
+        <h1><span>Language original name</span></h1>
+        <div id="origname"></div>
       </div>
 
       <div class="k-fs k-1 k-l-3">

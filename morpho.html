@@ -50,6 +50,8 @@
     $("conj").dir =
     $("stemI").dir =
     $("stemO").dir =
+    $("convI").dir =
+    $("convO").dir =
     $("normI").dir =
     $("normO").dir = dir;
 
@@ -60,7 +62,20 @@
 
     stemmers.forEach(function(element, index, array){
       var option = document.createElement("option");
-      option.text = element;
+      option.value = element;
+      option.text = morpho.getStemmerDesc(element);
+      m.add(option);
+    });
+
+    var converters = morpho.availablePosConverters();
+    m = $("convM");
+    i = m.options.length;
+    while (i--) m.remove(i);
+
+    converters.forEach(function(element, index, array){
+      var option = document.createElement("option");
+      option.value = element;
+      option.text = morpho.getPosConverterDesc(element);
       m.add(option);
     });
 
@@ -88,12 +103,23 @@
     });
     conjParams.colHtml = text;
 
-    setMethod();
+    setStemMethod();
+    setConvMethod();
+
   }
 
-  function setMethod(){
-    var sn = _($("stemM")).value;
+  function setStemMethod(){
+    var opt = $("stemM");
+    if (opt.options.length < 1) return;
+    var sn = _(opt).value;
     if (sn) morpho.setCurrentStemmer(sn);
+  }
+
+  function setConvMethod(){
+    var opt = $("convM");
+    if (opt.options.length < 1) return;
+    var sn = _(opt).value;
+    if (sn) morpho.setCurrentPosConverter(sn);
   }
 
   function htmlEntities(str) {
@@ -153,6 +179,10 @@
     $("stemO").innerHTML = morpho.stem($("stemI").value);
   }
 
+  function conv(){
+    $("convO").innerHTML = morpho.convertPoS($("convI").value);
+  }
+
   function norm(){
     $("normO").innerHTML = morpho.normalize($("normI").value);
   }
@@ -184,6 +214,34 @@
                 <li>Jpn: 用いられている, 伝わっていない, 高くなかった, 行かなければならない, 強調したい</li>
               </ul>
             </li>
+            <li>Part of speach conversion: it is a set of tools which convert nouns, verbs, etc.
+              An example: singular to plural.
+              Try:
+              <ul>
+                <li>Ara:
+                  <ul>
+                    <li>singular to plural (dual): just the regular form for now, try:
+                      معلم معلمة
+                    </li>
+                  </ul>
+                </li>
+                <li>Eng:
+                  <ul>
+                    <li>singular to plural: still exceptions, try:
+                      box, ox, alley, ally, life, staff, cat
+                    </li>
+                  </ul>
+                </li>
+                <li>Fra:
+                  <ul>
+                    <li>singular to plural: it seams OK, try:
+                      croix, clou, chou, cheval, chacal, rail, travail, bateau, arbre
+                    </li>
+                  </ul>
+                </li>
+                <li>Jpn: NO POS Conversion YET</li>
+              </ul>
+            </li>
             <li>Normalization: it is the function of transforming language variations to a single canonical form.
               For example, the dialects have other forms of writing a text.
               Try:
@@ -201,7 +259,9 @@
               <ul>
                 <li>Ara: استعمل, لعب, قال, جمع, استوى</li>
                 <li>Eng: undergo, stay, cry, let</li>
-                <li>Fra: être, avoir, aller, chanter, manger, appeler, commencer, choisir (3ième groupe: NOT YET)</li>
+                <li>Fra: être, avoir, aller, chanter, manger, appeler, commencer, choisir,
+                  vendre, craindre, partir, requérir, ouvrir, recevoir, asseoir, mettre, falloir
+                </li>
                 <li>Jpn: 勉強する, 行く, 飲む, 遊ぶ, 来る</li>
               </ul>
             </li>
@@ -219,11 +279,21 @@
       <div class="k-fs k-1">
         <h1><span>Stemming</span></h1>
         <label>Method</label>
-        <select id="stemM" class="k-select" onchange="setMethod()">
+        <select id="stemM" class="k-select" onchange="setStemMethod()">
         </select><br>
         <input type="text" id="stemI" class="k-input k-1"/><br>
         <button onclick="stem()" class="k-button">Stem</button><br>
         <div id="stemO" class="k-input k-1" ></div>
+      </div>
+
+      <div class="k-fs k-1">
+        <h1><span>PoS Conversion</span></h1>
+        <label>Method</label>
+        <select id="convM" class="k-select" onchange="setConvMethod()">
+        </select><br>
+        <input type="text" id="convI" class="k-input k-1"/><br>
+        <button onclick="conv()" class="k-button">Convert</button><br>
+        <div id="convO" class="k-input k-1" ></div>
       </div>
 
       <div class="k-fs k-1">

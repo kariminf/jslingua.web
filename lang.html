@@ -41,9 +41,9 @@
 
   function setTester (){
     var lang = _($("l")).text;
-    $("nbrp").dir = JsLingua.getDir(lang);
-    $("ltst").dir = JsLingua.getDir(lang);
-    $("tsrc").dir = JsLingua.getDir(lang);
+    $("nbrp").dir =
+    $("ltst").dir =
+    $("tsrc").dir =
     $("tdest").dir = JsLingua.getDir(lang);
     tester = new (JsLingua.getService("Lang", lang))();
     cs = tester.availableCharSets();
@@ -62,7 +62,8 @@
 
     tr.forEach(function(element, index, array){
       var option = document.createElement("option");
-      option.text = element;
+      option.value = element;
+      option.text = tester.getTransDesc(element);
       tsel.add(option);
     });
 

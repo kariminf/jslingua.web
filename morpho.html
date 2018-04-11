@@ -136,7 +136,7 @@
     var typeOpts = {vtype:morpho.getVerbType(verb)};
 
     for (k in forms) {
-      result += "<div class=\"k-1 k-l-2 \"><h3>" + k + "</h3>";
+      result += "<div class=\"k-1 k-l-2 \"><h3>" + morpho.getFormDesc(k) + "</h3>";
       result += "<table class=\"k-tab\">" + conjParams.colHtml;
       var ropts = conjParams.rows.opts;
       var copts = conjParams.cols.opts;

@@ -26,7 +26,7 @@
   function loading(){
     var e = $("l");
 
-    var langIDs = JsLingua.serviceLanguages("Info");
+    var langIDs = JsLingua.serviceLanguages("info");
     var i;
     for (i = 0; i < langIDs.length; i++){
       var option = document.createElement("option");
@@ -39,7 +39,7 @@
   }
 
   function update(){
-    var info = new (JsLingua.getService("Info", _($("l")).text))();
+    var info = new (JsLingua.getService("info", _($("l")).text))();
 
     document.getElementById("name").innerHTML = info.getName();
     document.getElementById("origname").innerHTML = info.getOrigName();
@@ -85,7 +85,7 @@
         <h1><span>Language name</span></h1>
         <div id="name"></div>
       </div>
-      
+
       <div class="k-fs k-1 k-l-3">
         <h1><span>Language original name</span></h1>
         <div id="origname"></div>

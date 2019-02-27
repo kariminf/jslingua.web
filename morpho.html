@@ -19,6 +19,34 @@
   </script>
 
   <script type="text/javascript">
+  var lists = {
+    "ara": {
+      "verb-list": `
+      <option value="استعمل" />
+      <option value="لعب" />
+      <option value="قال" />
+      <option value="جمع" />
+      <option value="استوى" />
+      `,
+      "stemI-list": `
+      <option value="استفاق" />
+      <option value="يستعملون" />
+      <option value="أتكلمونني" />
+      <option value="فراشات" />
+      <option value="فرشاة" />
+      `,
+      "convI-list": `
+      <option value="معلم" />
+      <option value="معلمة" />
+      `,
+      "normI-list": `
+      <option value="ذَهــَبَ" />
+      <option value="ذهــــــــب" />
+      <option value="ذهــــــــب" />
+      <option value="ذهــــــــب" />
+      `,
+    }
+  }
   var morpho = {};
   var $ = function(id){return document.getElementById(id)};
   var _ = function(e){return e.options[e.selectedIndex]};
@@ -102,6 +130,11 @@
       text += "</tr>";
     });
     conjParams.colHtml = text;
+    var list = lists[lang];
+    var lst;
+    for (lst in list) {
+      $(lst).innerHTML = list[lst];
+    }
 
     setStemMethod();
     setConvMethod();
@@ -281,7 +314,8 @@
         <label>Method</label>
         <select id="stemM" class="k-select" onchange="setStemMethod()">
         </select><br>
-        <input type="text" id="stemI" class="k-input k-1"/><br>
+        <input list="stemI-list" type="text" id="stemI" class="k-input k-1"/><br>
+        <datalist id="stemI-list"></datalist>
         <button onclick="stem()" class="k-button">Stem</button><br>
         <div id="stemO" class="k-input k-1" ></div>
       </div>
@@ -291,21 +325,24 @@
         <label>Method</label>
         <select id="convM" class="k-select" onchange="setConvMethod()">
         </select><br>
-        <input type="text" id="convI" class="k-input k-1"/><br>
+        <input list="convI-list" type="text" id="convI" class="k-input k-1"/><br>
+        <datalist id="convI-list"></datalist>
         <button onclick="conv()" class="k-button">Convert</button><br>
         <div id="convO" class="k-input k-1" ></div>
       </div>
 
       <div class="k-fs k-1">
         <h1><span>Normalization</span></h1>
-        <input type="text" id="normI" class="k-input k-1"/><br>
+        <input list="normI-list" type="text" id="normI" class="k-input k-1"/><br>
+        <datalist id="normI-list"></datalist>
         <button onclick="norm()" class="k-button">Normalize</button><br>
         <div id="normO" class="k-input k-1" ></div>
       </div>
 
       <div class="k-fs k-1">
         <h1><span>Verb Conjugation</span></h1>
-        <input type="text" id="verb" class="k-input k-1" /><br>
+        <input list="verb-list" type="text" id="verb" class="k-input k-1" /><br>
+        <datalist id="verb-list"></datalist>
         <button onclick="conjugate()" class="k-button">Conjugate</button><br>
         <div id="conj" class="hflex" ></div>
       </div>

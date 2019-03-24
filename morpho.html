@@ -45,6 +45,154 @@
       <option value="ذهــــــــب" />
       <option value="ذهــــــــب" />
       `,
+      "tokI-list": `
+      <option value="ذهبت إلى السوق ومن ثم إلى المنزل. هل تحتاج شيء؟" />
+      `,
+    },
+    "eng": {
+      "verb-list": `
+      <option value="undergo" />
+      <option value="stay" />
+      <option value="cry" />
+      <option value="let" />
+      <option value="understand" />
+      `,
+      "stemI-list": `
+      <option value="conditional" />
+      <option value="allowance" />
+      <option value="triplicate" />
+      <option value="electricity" />
+      <option value="ties" />
+      `,
+      "convI-list": `
+      <option value="address" />
+      <option value="box" />
+      <option value="match" />
+      <option value="quiz" />
+      <option value="ox" />
+      <option value="alley" />
+      <option value="ally" />
+      <option value="life" />
+      <option value="leaf" />
+      <option value="staff" />
+      <option value="cat" />
+      `,
+      "normI-list": `
+      <option value="ain't" />
+      <option value="innit" />
+      <option value="gonna" />
+      <option value="y'all" />
+      <option value="C'mon" />
+      <option value="cop" />
+      <option value="don't" />
+      <option value="won't" />
+      <option value="lil'" />
+      <option value="gimme" />
+      <option value="kinda" />
+      `,
+      "tokI-list": `
+      <option value="I've seen Dr. Watson. Is he good?" />
+      `,
+    },
+    "fra": {
+      "verb-list": `
+      <option value="conjuguer" />
+      <option value="tracer" />
+      <option value="envoyer" />
+      <option value="haïr" />
+      <option value="choisir" />
+      <option value="partir" />
+      <option value="venir" />
+      <option value="voir" />
+      <option value="vendre" />
+      <option value="cuire" />
+      <option value="dire" />
+      <option value="boire" />
+      <option value="naître" />
+      <option value="résoudre" />
+      <option value="pouvoir" />
+      <option value="valoir" />
+      `,
+      "stemI-list": `
+      <option value="continuation" />
+      <option value="majestueux" />
+      <option value="contractait" />
+      <option value="maintenir" />
+      <option value="maladie" />
+      `,
+      "convI-list": `
+      <option value="souris" />
+      <option value="croix" />
+      <option value="nez" />
+      <option value="clou" />
+      <option value="chou" />
+      <option value="cheval" />
+      <option value="chacal" />
+      <option value="rail" />
+      <option value="travail" />
+      <option value="bateau" />
+      <option value="pneu" />
+      <option value="landau" />
+      <option value="arbre" />
+      `,
+      "normI-list": `
+      `,
+      "tokI-list": `
+      <option value="J'ai vu M. Watson. Comment va-t-il?" />
+      `,
+    },
+    "jpn": {
+      "verb-list": `
+      <option value="勉強する" />
+      <option value="くる" />
+      <option value="出来る" />
+      <option value="食べる" />
+      <option value="払う" />
+      <option value="行く" />
+      <option value="飲む" />
+      <option value="死ぬ" />
+      <option value="示す" />
+      <option value="立つ" />
+      <option value="遊ぶ" />
+      <option value="泳ぐ" />
+      <option value="くねる" />
+      `,
+      "stemI-list": `
+      <option value="用いられている" />
+      <option value="用いられていませんでした" />
+      <option value="始まった" />
+      <option value="読ませている" />
+      <option value="強調したい" />
+      <option value="伝わっていない" />
+      <option value="表記されている" />
+      <option value="行かなければならない" />
+      <option value="いっていません" />
+      <option value="いかなければならない" />
+      `,
+      "convI-list": `
+      `,
+      "normI-list": `
+      <option value="雨ねえええ" />
+      <option value="そうかなあああ" />
+      <option value="そうかなぁぁぁぁ" />
+      <option value="すげえええ" />
+      <option value="犬やない" />
+      <option value="言ったばい" />
+      <option value="飲まへん" />
+      <option value="帰るさかい" />
+      <option value="飲みんさんな" />
+      <option value="食べんさんな" />
+      <option value="行きますえ" />
+      <option value="書いてちょう" />
+      <option value="寒いべ" />
+      <option value="日本人だべ" />
+      <option value="寒いべ" />
+      <option value="寒いっしょ" />
+      <option value="明日しょや" />
+      `,
+      "tokI-list": `
+      <option value="昨日の朝、僕は田中さんが会いました。かれは大丈夫ですか。" />
+      `,
     }
   }
   var morpho = {};
@@ -80,6 +228,8 @@
     $("stemO").dir =
     $("convI").dir =
     $("convO").dir =
+    $("tokI").dir =
+    $("tokO").dir =
     $("normI").dir =
     $("normO").dir = dir;
 
@@ -220,6 +370,20 @@
     $("normO").innerHTML = morpho.normalize($("normI").value);
   }
 
+  function tokenize(){
+    var result = "";
+    var text = $("tokI").value;
+
+    var sentences = morpho.gsents(text);
+
+    for (var si in sentences) {
+      result += morpho.tokenize(sentences[si]).join(" | ");
+      result += "<br>";
+    }
+
+    $("tokO").innerHTML = result;
+  }
+
   </script>
 
 </head>
@@ -235,70 +399,6 @@
         <h1><span>Description</span></h1>
         <div>
           This module affords morphological functions that can be executed on words.
-          <ul>
-            <li>Choose the language first</li>
-            <li>Stemming: it is the function of deleting prefixes, suffixes and infixes.
-              It leaves you with just a root which usually doesn't belong to the language syntax.
-              Try:
-              <ul>
-                <li>Ara: استفاق, يستعملون, أتكلمونني, فراشات, فرشاة</li>
-                <li>Eng: conditional, allowance</li>
-                <li>Fra: continuait, continuellement, continueront, maintenaient, majorités</li>
-                <li>Jpn: 用いられている, 伝わっていない, 高くなかった, 行かなければならない, 強調したい</li>
-              </ul>
-            </li>
-            <li>Part of speach conversion: it is a set of tools which convert nouns, verbs, etc.
-              An example: singular to plural.
-              Try:
-              <ul>
-                <li>Ara:
-                  <ul>
-                    <li>singular to plural (dual): just the regular form for now, try:
-                      معلم معلمة
-                    </li>
-                  </ul>
-                </li>
-                <li>Eng:
-                  <ul>
-                    <li>singular to plural: still exceptions, try:
-                      box, ox, alley, ally, life, staff, cat
-                    </li>
-                  </ul>
-                </li>
-                <li>Fra:
-                  <ul>
-                    <li>singular to plural: it seams OK, try:
-                      croix, clou, chou, cheval, chacal, rail, travail, bateau, arbre
-                    </li>
-                  </ul>
-                </li>
-                <li>Jpn: NO POS Conversion YET</li>
-              </ul>
-            </li>
-            <li>Normalization: it is the function of transforming language variations to a single canonical form.
-              For example, the dialects have other forms of writing a text.
-              Try:
-              <ul>
-                <li>Ara: ذَهــَبَ ,ذهــــــــب ,دعــــى ,دعاة ,آسف ,دعى ,إنه</li>
-                <li>Eng: ain't, innit, gonna, y'all, C'mon, cop, lil', gimme, ma, luv </li>
-                <li>Fra: (NOT YET) </li>
-                <li>Jpn: 雨ねええ, 雨ねぇぇぇ, すげえええ, そうかなぁぁぁぁ, 犬やない, 言ったばい, 飲まへん, 帰るさかい,
-                  飲みんさんな, 行きますえ, 書いてちょう, 寒いべ, 寒いっしょ, 明日しょや
-                </li>
-              </ul>
-            </li>
-            <li>Conjugation: just put a verb in its dictionary form and push "conjugate".
-              Try:
-              <ul>
-                <li>Ara: استعمل, لعب, قال, جمع, استوى</li>
-                <li>Eng: undergo, stay, cry, let</li>
-                <li>Fra: être, avoir, aller, chanter, manger, appeler, commencer, choisir,
-                  vendre, craindre, partir, requérir, ouvrir, recevoir, asseoir, mettre, falloir
-                </li>
-                <li>Jpn: 勉強する, 行く, 飲む, 遊ぶ, 来る</li>
-              </ul>
-            </li>
-          </ul>
         </div>
       </div> <!-- end Description -->
 
@@ -337,6 +437,14 @@
         <datalist id="normI-list"></datalist>
         <button onclick="norm()" class="k-button">Normalize</button><br>
         <div id="normO" class="k-input k-1" ></div>
+      </div>
+
+      <div class="k-fs k-1">
+        <h1><span>Tokenization</span></h1>
+        <input list="tokI-list" type="text" id="tokI" class="k-input k-1"/><br>
+        <datalist id="tokI-list"></datalist>
+        <button onclick="tokenize()" class="k-button">Tokenize</button><br>
+        <div id="tokO" class="k-input k-1" ></div>
       </div>
 
       <div class="k-fs k-1">

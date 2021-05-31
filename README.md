@@ -6,7 +6,7 @@ Website for JsLingua
 
 ## License
 
-Copyright (C) 2017-2018 Abdelkrime Aries
+Copyright (C) 2017-2021 Abdelkrime Aries
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

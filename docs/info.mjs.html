@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: tools.js | JsLingua doc</title>
+    <title>Source: info.mjs | JsLingua doc</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -49,79 +49,121 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * The tools module
- * @module tools
+ * Information module
+ * @module info
  */
-"use strict";
 
 /**
- * Read morse code and output as sound &lt;br>
- * @example
- * readMorse("..-. .--   ..-.");
- *
- * @method readMorse
- * @public
- * @static
- * @param  {String} morse morse code written using ".", "-" and blacks " ".
+ * A class which affords some information about a language
+ * @hideconstructor
  */
-function readMorse(morse) {
-  let dotLength = 0.07,
-  AudioContext = window.AudioContext || window.webkitAudioContext,
-  context = new AudioContext(),
-  gain = context.createGain(),
-  osc = context.createOscillator();
+class Info {
+  //ISO639-2/5 code: ara, eng, jpn, etc.
+  static code = "";
 
-  gain.gain.value = 0;
+  //arabic, english, japanese
+  static name = "";
 
-  osc.frequency.value = 600;
-  osc.connect(gain);
-  gain.connect(context.destination);
-  osc.start(0);
-  let i,
-  time0 = context.currentTime,
-  time = time0;
+  static origName = "";
 
-  for (i =0; i&lt; morse.length; i++){
-    let char = morse.charAt(i);
-    switch (char) {
-      case ".":
-        gain.gain.setValueAtTime(1.0, time);
-        time += dotLength;
-        gain.gain.setValueAtTime(0.0, time);
-        time += dotLength;
-        break;
-      case "-":
-        gain.gain.setValueAtTime(1.0, time);
-        time += 3 * dotLength;
-        gain.gain.setValueAtTime(0.0, time);
-        time += dotLength;
-        break;
-      case " ":
-        gain.gain.setValueAtTime(0.0, time);
-        time += 3 * dotLength;
-        break;
-      default:
-    }
+  //writing direction: ltr (left to right)
+  static dir = "ltr"; //most are ltr
+
+  //Words order (Subject, Object, Verb): svo, sov, vso, osv, ovs, vos
+  static wordOrder = "svo";//most are svo
+
+  //language family:
+  static family = "";
+
+  //language branch:
+  static branch = "";
+
+  /**
+   * Get the name of the language
+   *
+   * @public
+   * @static
+   * @return {String}  the language name: arabic, english, japanese, etc.
+   */
+  static getName() {
+    return this.name;
   }
 
-  osc.stop(time-time0);
+  /**
+   * Get the name of the language in its own writing system
+   *
+   * @public
+   * @static
+   * @return {String}  the language original name: عربية, english, 日本語, etc.
+   */
+  static getOrigName() {
+    return this.origName;
+  }
+
+  /**
+   * Get the code of the language
+   *
+   * @public
+   * @static
+   * @return {String}  The language ISO639-2 code: "ara", "jpn", "eng", etc.
+   */
+  static getCode() {
+    return this.code;
+  }
+
+  /**
+   * Get the family of the language
+   *
+   * @public
+   * @static
+   * @return {String}  The language family: Afro-asiatic, Japonic, etc.
+   */
+  static getFamily() {
+    return this.family;
+  }
+
+  /**
+   * Get the branch of the language, if any
+   *
+   * @public
+   * @static
+   * @return {String}  The language branch: semitic, etc.
+   */
+  static getBranch() {
+    return this.branch;
+  }
+
+  /**
+   * Get the direction of writing of the language: ltr or rtl
+   *
+   * @public
+   * @static
+   * @return {String}  The language direction: left to right (ltr) or right to left (rtl)
+   */
+  static getDir() {
+    return this.dir;
+  }
+
+  /**
+   * Get the words order:
+   * &lt;ul>
+   * &lt;li>s: Subject&lt;/li>
+   * &lt;li>v: Verb&lt;/li>
+   * &lt;li>o: Object&lt;/li>
+   * &lt;/ul>
+   * For example, English is "svo"
+   *
+   * @public
+   * @static
+   * @return {String}  The words order in the language
+   */
+  static getWordOrder() {
+    return this.wordOrder;
+  }
+
 }
 
-/**
- * Transform HTML reserved characters to their equivalent codes in HTML.&lt;br>
- * for example: "&lt;" is transformed to "&amp;lt;".
- *
- * @method htmlEntities
- * @public
- * @static
- * @param  {String} str normal string
- * @return {String}     skip string
- */
-function htmlEntities(str) {
-  let result = String(str).replace(/&amp;/g, "&amp;amp;").replace(/&lt;/g, "&amp;lt;");
-  result = result.replace(/>/g, "&amp;gt;").replace(/"/g, "&amp;quot;").replace(/ /gi, "&amp;nbsp;");
-  return result;
-}
+export default Info;
 </code></pre>
         </article>
     </section>

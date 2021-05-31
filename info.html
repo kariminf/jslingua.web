@@ -8,15 +8,7 @@
   <link rel="stylesheet" href="assets/jslingua.css">
 
   <script src="assets/w3.js"></script>
-  <script type="text/javascript" src="assets/call.js"></script>
-  <script type="text/javascript">
-  addScript("jslingua.min.js");
-  addScript("info.min.js");
-  addScript("ara.info.min.js");
-  addScript("eng.info.min.js");
-  addScript("fra.info.min.js");
-  addScript("jpn.info.min.js");
-  </script>
+  <script type="text/javascript" src="dist/jslingua.js"></script>
 
   <script type="text/javascript">
 
@@ -26,7 +18,7 @@
   function loading(){
     var e = $("l");
 
-    var langIDs = JsLingua.serviceLanguages("info");
+    var langIDs = JsLingua.llang("info");
     var i;
     for (i = 0; i < langIDs.length; i++){
       var option = document.createElement("option");
@@ -39,17 +31,17 @@
   }
 
   function update(){
-    var info = new (JsLingua.getService("info", _($("l")).text))();
+    var Info = JsLingua.gserv("info", _($("l")).text);
 
-    document.getElementById("name").innerHTML = info.getName();
-    document.getElementById("origname").innerHTML = info.getOrigName();
-    document.getElementById("family").innerHTML = info.getFamily();
+    document.getElementById("name").innerHTML = Info.getName();
+    document.getElementById("origname").innerHTML = Info.getOrigName();
+    document.getElementById("family").innerHTML = Info.getFamily();
     document.getElementById("branch").innerHTML =
-    (info.getBranch() === "")? "None": info.getBranch();
+    (Info.getBranch() === "")? "None": Info.getBranch();
     document.getElementById("dir").innerHTML =
-    (info.getDir() === "rtl")? "Right to Left": "Left to Right";
+    (Info.getDir() === "rtl")? "Right to Left": "Left to Right";
     document.getElementById("wo").innerHTML =
-    info.getWordOrder().replace("s", "Subject ").replace("o", "Object ").replace("v", "Verb ");
+    Info.getWordOrder().replace("s", "Subject ").replace("o", "Object ").replace("v", "Verb ");
 
   }
 

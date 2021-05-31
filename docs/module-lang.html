@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: tools.js | JsLingua doc</title>
+    <title>Module: lang | JsLingua doc</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -45,86 +43,309 @@
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * The tools module
- * @module tools
- */
-"use strict";
+        <h2>lang</h2>
+        
+            
+        
+    
+</header>
 
-/**
- * Read morse code and output as sound &lt;br>
- * @example
- * readMorse("..-. .--   ..-.");
- *
- * @method readMorse
- * @public
- * @static
- * @param  {String} morse morse code written using ".", "-" and blacks " ".
- */
-function readMorse(morse) {
-  let dotLength = 0.07,
-  AudioContext = window.AudioContext || window.webkitAudioContext,
-  context = new AudioContext(),
-  gain = context.createGain(),
-  osc = context.createOscillator();
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description">Language module</div>
+            
 
-  gain.gain.value = 0;
+            
+                
 
-  osc.frequency.value = 600;
-  osc.connect(gain);
-  gain.connect(context.destination);
-  osc.start(0);
-  let i,
-  time0 = context.currentTime,
-  time = time0;
+<dt>
+    
+</dt>
+<dd>
 
-  for (i =0; i&lt; morse.length; i++){
-    let char = morse.charAt(i);
-    switch (char) {
-      case ".":
-        gain.gain.setValueAtTime(1.0, time);
-        time += dotLength;
-        gain.gain.setValueAtTime(0.0, time);
-        time += dotLength;
-        break;
-      case "-":
-        gain.gain.setValueAtTime(1.0, time);
-        time += 3 * dotLength;
-        gain.gain.setValueAtTime(0.0, time);
-        time += dotLength;
-        break;
-      case " ":
-        gain.gain.setValueAtTime(0.0, time);
-        time += 3 * dotLength;
-        break;
-      default:
-    }
-  }
+    
 
-  osc.stop(time-time0);
-}
+    
 
-/**
- * Transform HTML reserved characters to their equivalent codes in HTML.&lt;br>
- * for example: "&lt;" is transformed to "&amp;lt;".
- *
- * @method htmlEntities
- * @public
- * @static
- * @param  {String} str normal string
- * @return {String}     skip string
- */
-function htmlEntities(str) {
-  let result = String(str).replace(/&amp;/g, "&amp;amp;").replace(/&lt;/g, "&amp;lt;");
-  result = result.replace(/>/g, "&amp;gt;").replace(/"/g, "&amp;quot;").replace(/ /gi, "&amp;nbsp;");
-  return result;
-}
-</code></pre>
-        </article>
-    </section>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+            <h3 class="subsection-title">Classes</h3>
+            
+
+<dl>
+    
+        <dt>
+            <h4 class="name">
+                <a href="module-lang-Lang.html">Lang</a>
+                <div class="container-source members">
+                    <code><a href="module-lang-Lang.html">module:lang~Lang</a></code>
+                </div>
+            </h4>
+        </dt>
+        
+    
+</dl>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <dl>
+                
+
+<dt>
+    
+        <h4 class="name" id="~isInCharset">
+            
+                <span class="type-signature"></span>isInCharset<span class="signature">(c)</span><span class="type-signature"> &rarr; {Boolean}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="lang.mjs.html">lang.mjs</a></code>,
+                <code><a href="lang.mjs.html#line342">line 342</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        A function which verifies if a character belongs to a charset
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>c</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Char</span>
+|
+
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the character to be verified (a character or its unicode)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">Boolean</span>
+
+
+
+
+
+- belongs true if it belongs, false otherwise
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            </dl>
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -141,7 +362,7 @@ function htmlEntities(str) {
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = '_sub'.replace(/"/g, '_');
+        var id = 'module:lang_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

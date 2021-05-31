@@ -8,25 +8,18 @@
   <link rel="stylesheet" href="assets/jslingua.css">
 
   <script src="assets/w3.js"></script>
-  <script type="text/javascript" src="assets/call.js"></script>
-  <script type="text/javascript">
-  addScript("jslingua.min.js");
-  addScript("trans.min.js");
-  addScript("ara.trans.min.js");
-  addScript("eng.trans.min.js");
-  addScript("fra.trans.min.js");
-  addScript("jpn.trans.min.js");
-  </script>
+  <script type="text/javascript" src="dist/jslingua.js"></script>
+  <script type="text/javascript" src="dist/tools.js"></script>
 
   <script type="text/javascript">
-  var transformer = {};
+  var Trans;
   var $ = function(id){return document.getElementById(id)};
   var _ = function(e){return e.options[e.selectedIndex]};
 
   function loading(){
     var e = $("l");
 
-    var langIDs = JsLingua.serviceLanguages("Trans");
+    var langIDs = JsLingua.llang("Trans");
     var i;
     for (i = 0; i < langIDs.length; i++){
       var option = document.createElement("option");
@@ -39,16 +32,16 @@
   }
 
   function update(){
-    transformer = new (JsLingua.getService("Trans", _($("l")).text))();
+    Trans = JsLingua.getService("Trans", _($("l")).text);
 
-    var methods = transformer.availableMethods();
+    var methods = Trans.ltrans();
     var m = $("m");
     var i = m.options.length;
     while (i--) m.remove(i);
 
-    methods.forEach(function(element, index, array){
+    methods.forEach(function(method, index, array){
       var option = document.createElement("option");
-      option.text = element;
+      option.text = method;
       m.add(option);
     });
 
@@ -56,7 +49,7 @@
   }
 
   function setMethod(){
-    transformer.setCurrentMethod(_($("m")).value);
+    Trans.strans(_($("m")).value);
   }
 
   function htmlEntities(str) {
@@ -66,11 +59,11 @@
   }
 
   function lang2trans() {
-    $("2trans").innerHTML = htmlEntities(transformer.transliterate($("lang").value));
+    $("2trans").innerHTML = htmlEntities(Trans.trans($("lang").value));
   }
 
   function trans2lang() {
-    $("2lang").innerHTML = htmlEntities(transformer.untransliterate($("trans").value));
+    $("2lang").innerHTML = htmlEntities(Trans.untrans($("trans").value));
   }
   </script>
 

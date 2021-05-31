@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: tools.js | JsLingua doc</title>
+    <title>Source: trans.mjs | JsLingua doc</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -49,79 +49,331 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * The tools module
- * @module tools
+ * Transliteration module
+ * @module trans
  */
-"use strict";
 
 /**
- * Read morse code and output as sound &lt;br>
- * @example
- * readMorse("..-. .--   ..-.");
- *
- * @method readMorse
- * @public
- * @static
- * @param  {String} morse morse code written using ".", "-" and blacks " ".
+ * Transliteration functions
+ * @hideconstructor
  */
-function readMorse(morse) {
-  let dotLength = 0.07,
-  AudioContext = window.AudioContext || window.webkitAudioContext,
-  context = new AudioContext(),
-  gain = context.createGain(),
-  osc = context.createOscillator();
+class Trans {
 
-  gain.gain.value = 0;
+  static code = "";
+  static methods = {};
+  //default method (here we will take the first added one)
+  static defMethod = "";
+  static currentMethod = "";
 
-  osc.frequency.value = 600;
-  osc.connect(gain);
-  gain.connect(context.destination);
-  osc.start(0);
-  let i,
-  time0 = context.currentTime,
-  time = time0;
+  //==========================================
+  // STATIC FUNCTIONS
+  //==========================================
 
-  for (i =0; i&lt; morse.length; i++){
-    let char = morse.charAt(i);
-    switch (char) {
-      case ".":
-        gain.gain.setValueAtTime(1.0, time);
-        time += dotLength;
-        gain.gain.setValueAtTime(0.0, time);
-        time += dotLength;
-        break;
-      case "-":
-        gain.gain.setValueAtTime(1.0, time);
-        time += 3 * dotLength;
-        gain.gain.setValueAtTime(0.0, time);
-        time += dotLength;
-        break;
-      case " ":
-        gain.gain.setValueAtTime(0.0, time);
-        time += 3 * dotLength;
-        break;
-      default:
+	/**
+	* Add new transliteration method using two parallele tables
+	*
+	* @protected
+	* @param  {String} methodName the name of the method
+	* @param  {String[]} langTbl    array of strigs, the languages characters
+	* @param  {String[]} transTbl   array of strigs, their respective representations
+	*/
+	static _nTrans(methodName, langTbl, transTbl) {
+		if (typeof methodName === "string" &amp;&amp; methodName.length > 0) {
+			this.methods[methodName] = {};
+			if (this.defMethod.length &lt; 1)
+			this.currentMethod = this.defMethod = methodName;
+			this.methods[methodName].trans = this.methods[methodName].untrans = function(text) {
+				return text;
+			};
+			if (Array.isArray(langTbl)  &amp;&amp; Array.isArray(transTbl))
+			if (langTbl.length  === transTbl.length) {
+				this.methods[methodName].trans = __createTrans(langTbl, transTbl);
+				this.methods[methodName].untrans = __createTrans(transTbl, langTbl);
+			}
+		}
+	}
+
+	/**
+	* Set transliteration methods directly
+	*
+	* @protected
+	* @param {String} methodName the name of the method
+	* @param {Function} trans      function of transliteration
+	* @param {Function} untrans    function of untransliteration
+	*/
+	static _sTrans(methodName, trans, untrans) {
+		if (methodName in this.methods){
+
+			if (typeof trans === "function") {
+				this.methods[methodName].trans = trans;
+			}
+
+			if (typeof untrans === "function") {
+				this.methods[methodName].untrans = untrans;
+			}
+
+		}
+	}
+
+	/**
+	* add pre- and post-transliteration functions to a method
+	*
+	* @protected
+	* @param {String} methodName the name of the method
+	* @param {Function} preFunc    function that executes before transliteration;
+	* It takes a string and returns a string
+	* @param {Function} postFunc   function that executes after transliteration;
+	* It takes a string and returns a string
+	*/
+	static _sTransCnd(methodName, preFunc, postFunc) {
+		if (methodName in this.methods){
+			if (typeof preFunc === "function"){
+				this.methods[methodName].preTrans = preFunc;
+			}
+			if (typeof postFunc === "function"){
+				this.methods[methodName].postTrans = postFunc;
+			}
+		}
+	}
+
+	/**
+	* add pre- and post-untransliteration functions to a method
+	*
+	* @protected
+	* @param {String} methodName the name of the method
+	* @param {Function} preFunc    function that executes before untransliteration;
+	* It takes a string and returns a string
+	* @param {Function} postFunc   function that executes after untransliteration;
+	* It takes a string and returns a string
+	*/
+	static _sUntransCnd(methodName, preFunc, postFunc) {
+		if (methodName in this.methods){
+			if (typeof preFunc === "function"){
+				this.methods[methodName].preUntrans = preFunc;
+			}
+			if (typeof postFunc === "function"){
+				this.methods[methodName].postUntrans = postFunc;
+			}
+		}
+	}
+
+	//==========================================
+  // TRANSLITERATION MANAGEMENT FUNCTIONS
+  //==========================================
+
+	/**
+	* Sets the current method to be used for [un]transliteration
+	*
+	* @public
+	* @final
+	* @param {String} methodName method's name
+	*/
+	static strans(methodName) {
+		if (methodName in this.methods) {
+			this.currentMethod = methodName;
+		}
+	}
+
+
+
+	/**
+	* Returns the list of available transliteration methods
+	*
+	* @public
+	* @final
+	* @return {String[]}  methods names
+	*/
+	static ltrans = function() {
+		return Object.keys(this.methods);
+	}
+
+  /**
+	* Returns the list of available transliteration methods
+	*
+	* @public
+	* @final
+	* @return {String[]}  methods names
+	*/
+	static listTransliterations() {
+		return this.ltrans();
+	};
+
+	//==========================================
+  // TRANSLITERATE FUNCTIONS
+  //==========================================
+
+	/**
+	* transliterate the text using the current method
+	*
+	* @public
+	* @final
+	* @param  {String} text the untransliterated text (original)
+	* @return {String}      the transliterated text
+	*/
+	static trans(text) {
+		let result = text;
+
+		if (typeof this.methods[this.currentMethod].preTrans === "function") {
+			result = this.methods[this.currentMethod].preTrans(result);
+		}
+
+		result = this.methods[this.currentMethod].trans(result);
+
+		if (typeof this.methods[this.currentMethod].postTrans === "function") {
+			result = this.methods[this.currentMethod].postTrans(result);
+		}
+		return result;
+	}
+
+  /**
+	* transliterate the text using the current method
+	*
+	* @public
+	* @final
+	* @param  {String} text the untransliterated text (original)
+	* @return {String}      the transliterated text
+	*/
+	static transliterate(text) {
+		return this.trans(text);
+	}
+
+	//==========================================
+  // UNTRANSLITERATE FUNCTIONS
+  //==========================================
+
+	/**
+	* untransliterate the text using the current method
+	*
+	* @public
+	* @final
+	* @param  {String} text translaterated text
+	* @return {String}      untranslaterated text (original text)
+	*/
+	static untrans(text) {
+		let result = text;
+
+		if (typeof this.methods[this.currentMethod].preUntrans === "function") {
+			result = this.methods[this.currentMethod].preUntrans(result);
+		}
+
+		result = this.methods[this.currentMethod].untrans(result);
+
+		if (typeof this.methods[this.currentMethod].postUntrans === "function") {
+			result = this.methods[this.currentMethod].postUntrans(result);
+		}
+		return result;
+	}
+
+  /**
+	 * untransliterate the text using the current method
+	 * @public
+ 	 * @final
+ 	 * @memberof Trans
+ 	 * @param  {String} text translaterated text
+ 	 * @return {String}      untranslaterated text (original text)
+	 */
+	static untransliterate(text) {
+		return this.untrans(text);
+	}
+
+}
+
+//==========================================
+// CONSTANTS
+//==========================================
+
+const specialBef = [
+  //numbers,
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  //punctuation,
+  "#", //actually it is a dot, this is to prevent conflect
+  ",",
+  "?",
+  "'",
+  "!",
+  "/",
+  "(",
+  ")",
+  "&amp;",
+  ":",
+  ";",
+  "=",
+  "+",
+  "^", //actually it is a hyphen, this is to prevent conflect
+  "_",
+  "\"",
+  "$",
+  "@"
+],
+specialAft = [
+  //numbers
+  " ----- ",
+  " .---- ",
+  " ..--- ",
+  " ...-- ",
+  " ....- ",
+  " ..... ",
+  " -.... ",
+  " --... ",
+  " ---.. ",
+  " ----. ",
+  //punctuation
+  " .-.-.- ",
+  " --..-- ",
+  " ..--.. ",
+  " .----. ",
+  " -.-.-- ",
+  " -..-. ",
+  " -.--. ",
+  " -.--.- ",
+  " .-... ",
+  " ---... ",
+  " -.-.-. ",
+  " -...- ",
+  " .-.-. ",
+  " -....- ",
+  " ..--.- ",
+  " .-..-. ",
+  " ...-..- ",
+  " .--.-. "
+];
+
+
+/**
+* This function returns another function which do the transformation
+*
+* @private
+* @memberof Trans
+* @memberof Trans
+* @param  {String[]} srcTbl array which contains the source strings
+* @param  {String[]} dstTbl array which contains the destination strings
+* @return {Function}        a function which takes a string and transforme it using
+* srcTbl and dstTbl
+*/
+function __createTrans(srcTbl, dstTbl) {
+  return function(text) {
+    let result = text;
+    for (let i=0; i&lt; srcTbl.length; i++) {
+      let keyEscaped = srcTbl[i].replace(/([.*+?^=!:${}()|[\]/\\])/g, "\\$1");
+      result = result.replace(new RegExp(keyEscaped, "g"), dstTbl[i]);
     }
-  }
-
-  osc.stop(time-time0);
+    return result;
+  };
 }
 
-/**
- * Transform HTML reserved characters to their equivalent codes in HTML.&lt;br>
- * for example: "&lt;" is transformed to "&amp;lt;".
- *
- * @method htmlEntities
- * @public
- * @static
- * @param  {String} str normal string
- * @return {String}     skip string
- */
-function htmlEntities(str) {
-  let result = String(str).replace(/&amp;/g, "&amp;amp;").replace(/&lt;/g, "&amp;lt;");
-  result = result.replace(/>/g, "&amp;gt;").replace(/"/g, "&amp;quot;").replace(/ /gi, "&amp;nbsp;");
-  return result;
-}
+Trans.specialCharTrans = __createTrans(specialBef, specialAft);
+Trans.specialCharUntrans = __createTrans(specialAft, specialBef);
+
+export default Trans;
 </code></pre>
         </article>
     </section>

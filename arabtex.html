@@ -8,17 +8,11 @@
   <link rel="stylesheet" href="assets/jslingua.css">
 
   <script src="assets/w3.js"></script>
-  <script type="text/javascript" src="assets/call.js"></script>
-  <script type="text/javascript">
-  addScript("jslingua.min.js");
-  addScript("trans.min.js");
-  addScript("ara.trans.min.js");
-  </script>
-
+  <script type="text/javascript" src="dist/jslingua.js"></script>
   <script type="text/javascript">
 
-  var transformer = new (JsLingua.getService("Trans", "ara"))();
-  transformer.setCurrentMethod("ArabTeX");
+  var AraTrans = JsLingua.getService("Trans", "ara");
+  AraTrans.strans("arabtex");
 
   var code = `%Generated using JsLingua
   \\documentclass[12pt]{article}
@@ -33,7 +27,7 @@
   var $ = function(id){return document.getElementById(id)};
 
   function toLatex() {
-    $("result").innerHTML = code.replace("$", transformer.transliterate($("arabic").value));
+    $("result").innerHTML = code.replace("$", AraTrans.trans($("arabic").value));
   }
 
   function download() {
@@ -101,7 +95,6 @@
 
     <script>
       w3.includeHTML();
-      loading();
     </script>
 
 </body>

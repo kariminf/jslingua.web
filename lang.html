@@ -8,26 +8,18 @@
   <link rel="stylesheet" href="assets/jslingua.css">
 
   <script src="assets/w3.js"></script>
-  <script type="text/javascript" src="assets/call.js"></script>
-  <script type="text/javascript">
-  addScript("jslingua.min.js");
-  addScript("lang.min.js");
-  addScript("ara.lang.min.js");
-  addScript("eng.lang.min.js");
-  addScript("fra.lang.min.js");
-  addScript("jpn.lang.min.js");
-  </script>
+  <script type="text/javascript" src="dist/jslingua.js"></script>
 
   <script type="text/javascript">
-  var tester;
-  var cs = [];
+  var Lang;
+  var charsets = [];
   var $ = function(id){return document.getElementById(id)};
   var _ = function(e){return e.options[e.selectedIndex]};
 
   function loading(){
     var e = $("l");
 
-    var langIDs = JsLingua.serviceLanguages("Lang");
+    var langIDs = JsLingua.llang("Lang");
     var i;
     for (i = 0; i < langIDs.length; i++){
       var option = document.createElement("option");
@@ -45,8 +37,8 @@
     $("ltst").dir =
     $("tsrc").dir =
     $("tdest").dir = JsLingua.getDir(lang);
-    tester = new (JsLingua.getService("Lang", lang))();
-    cs = tester.availableCharSets();
+    Lang = JsLingua.gserv("Lang", lang);
+    charsets = Lang.lchars();
   }
 
   function update(){
@@ -55,15 +47,15 @@
 
     var tsel = $("tsel");
 
-    var tr = tester.availableTransformations();
+    var transfcts = Lang.ltrans();
 
     for(var i = tsel.options.length - 1 ; i >= 0 ; i--)
-    tsel.remove(i);
+      tsel.remove(i);
 
-    tr.forEach(function(element, index, array){
+    transfcts.forEach(function(transfct, index, array){
       var option = document.createElement("option");
-      option.value = element;
-      option.text = tester.getTransDesc(element);
+      option.value = transfct;
+      option.text = Lang.gtransdesc(transfct);
       tsel.add(option);
     });
 
@@ -74,22 +66,22 @@
   }
 
   function nbrPronounce() {
-    $("nbrp").innerHTML = htmlEntities(tester.pronounceNumber($("nbr").value));
+    $("nbrp").innerHTML = htmlEntities(Lang.nbr2str($("nbr").value));
   }
 
   function affectElements(container, func, text){
     var res = "";
-    cs.forEach(function(element, index, array){
+    charsets.forEach(function(charset, index, array){
       var found = true;
       if (func === undefined)
-      found = true;
+        found = true;
       else
-      found = tester[func](element)(text);
+        found = Lang.gcharverify(charset)[func](text);
 
       if (found)
-      res += '<span class="k-card k-sel">' + element + "</span>";
+      res += '<span class="k-card k-sel">' + charset + "</span>";
       else {
-        res += '<span class="k-card k-nact">' + element + "</span>";
+        res += '<span class="k-card k-nact">' + charset + "</span>";
       }
     });
     container.innerHTML = res;
@@ -97,12 +89,12 @@
 
   function testLang() {
     var val = $("ltst").value;
-    affectElements($("contCS"), "containsCharSetFunction", val);
-    affectElements($("allCS"), "allCharSetFunction", val);
+    affectElements($("contCS"), "contains", val);
+    affectElements($("allCS"), "all", val);
   }
 
   function transform(){
-    var transFunc = tester.transformationFunction(_($("tsel")).value);
+    var transFunc = Lang.gtrans(_($("tsel")).value);
     $("tdest").innerHTML = htmlEntities(transFunc($("tsrc").value));
   }
 

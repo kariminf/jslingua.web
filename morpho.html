@@ -8,15 +8,7 @@
   <link rel="stylesheet" href="assets/jslingua.css">
 
   <script src="assets/w3.js"></script>
-  <script type="text/javascript" src="assets/call.js"></script>
-  <script type="text/javascript">
-  addScript("jslingua.min.js");
-  addScript("morpho.min.js");
-  addScript("ara.morpho.min.js");
-  addScript("eng.morpho.min.js");
-  addScript("fra.morpho.min.js");
-  addScript("jpn.morpho.min.js");
-  </script>
+  <script type="text/javascript" src="dist/jslingua.js"></script>
 
   <script type="text/javascript">
   var lists = {
@@ -216,7 +208,7 @@
       `,
     }
   }
-  var morpho = {};
+  var Morpho;
   var $ = function(id){return document.getElementById(id)};
   var _ = function(e){return e.options[e.selectedIndex]};
 
@@ -228,7 +220,7 @@
   function loading(){
     var e = $("l");
 
-    var langIDs = JsLingua.serviceLanguages("Morpho");
+    var langIDs = JsLingua.llang("Morpho");
     var i;
     for (i = 0; i < langIDs.length; i++){
       var option = document.createElement("option");
@@ -242,7 +234,7 @@
 
   function update(){
     var lang = _($("l")).text, dir= JsLingua.getDir(lang);
-    morpho = new (JsLingua.getService("Morpho", lang))();
+    Morpho = JsLingua.gserv("Morpho", lang);
     $("verb").dir =
     $("conj").dir =
     $("stemI").dir =
@@ -254,33 +246,33 @@
     $("normI").dir =
     $("normO").dir = dir;
 
-    var stemmers = morpho.availableStemmers();
+    var stemmers = Morpho.lstem();
     var m = $("stemM");
     var i = m.options.length;
     while (i--) m.remove(i);
 
-    stemmers.forEach(function(element, index, array){
+    stemmers.forEach(function(stemmer, index, array){
       var option = document.createElement("option");
-      option.value = element;
-      option.text = morpho.getStemmerDesc(element);
+      option.value = stemmer;
+      option.text = Morpho.gstemdesc(stemmer);
       m.add(option);
     });
 
-    var converters = morpho.availablePosConverters();
+    var converters = Morpho.lconv();
     m = $("convM");
     i = m.options.length;
     while (i--) m.remove(i);
 
-    converters.forEach(function(element, index, array){
+    converters.forEach(function(converter, index, array){
       var option = document.createElement("option");
-      option.value = element;
-      option.text = morpho.getPosConverterDesc(element);
+      option.value = converter;
+      option.text = Morpho.gconvdesc(converter);
       m.add(option);
     });
 
     var text = "";
     var repeat = 1;
-    conjParams = JsLingua.Cls.Morpho.parseConjModel(morpho);
+    conjParams = Morpho.parseConjModel();
 
     var rr = conjParams.rows.labels.length;
     var text2 = "";
@@ -316,14 +308,14 @@
     var opt = $("stemM");
     if (opt.options.length < 1) return;
     var sn = _(opt).value;
-    if (sn) morpho.setCurrentStemmer(sn);
+    if (sn) Morpho.sstem(sn);
   }
 
   function setConvMethod(){
     var opt = $("convM");
     if (opt.options.length < 1) return;
     var sn = _(opt).value;
-    if (sn) morpho.setCurrentPosConverter(sn);
+    if (sn) Morpho.sconv(sn);
   }
 
   function htmlEntities(str) {
@@ -336,11 +328,11 @@
     var verb = $("verb").value;
     var result = "";
 
-    var forms = morpho.getForms();
-    var typeOpts = {vtype:morpho.getVerbType(verb)};
+    var forms = Morpho.lform();
+    var typeOpts = {vtype:Morpho.gvtype(verb)};
 
     for (k in forms) {
-      result += "<div class=\"k-1 k-l-2 \"><h3>" + morpho.getFormDesc(k) + "</h3>";
+      result += "<div class=\"k-1 k-l-2 \"><h3>" + Morpho.gformdesc(k) + "</h3>";
       result += "<table class=\"k-tab\">" + conjParams.colHtml;
       var ropts = conjParams.rows.opts;
       var copts = conjParams.cols.opts;
@@ -364,7 +356,7 @@
         for(coli = 0; coli < copts.length; coli++){
           result += "<td >";
           var fuseOpts = Object.assign({}, ropts[rowi], copts[coli], forms[k], typeOpts);
-          result += morpho.conjugate(verb, fuseOpts);
+          result += Morpho.conj(verb, fuseOpts);
           result += "</td>";
         }
 
@@ -380,25 +372,25 @@
   }
 
   function stem(){
-    $("stemO").innerHTML = morpho.stem($("stemI").value);
+    $("stemO").innerHTML = Morpho.stem($("stemI").value);
   }
 
   function conv(){
-    $("convO").innerHTML = morpho.convertPoS($("convI").value);
+    $("convO").innerHTML = Morpho.conv($("convI").value);
   }
 
   function norm(){
-    $("normO").innerHTML = morpho.normalize($("normI").value);
+    $("normO").innerHTML = Morpho.norm($("normI").value);
   }
 
   function tokenize(){
     var result = "";
     var text = $("tokI").value;
 
-    var sentences = morpho.gsents(text);
+    var sentences = Morpho.gsents(text);
 
     for (var si in sentences) {
-      result += morpho.tokenize(sentences[si]).join(" | ");
+      result += Morpho.tokenize(sentences[si]).join(" | ");
       result += "<br>";
     }
 
